@@ -1,15 +1,22 @@
 
 :root {
-  --background: #101a35;
-  --surface: #1b2b50;
+  --background: #0b142b;
+  --surface: #152747;
+  --surface-light: #20385f;
   --primary: #1689e8;
+  --primary-hover: #0872c7;
   --accent: #70c8ff;
   --text: #ffffff;
   --muted: #b9c8df;
+  --border: rgba(112, 200, 255, 0.2);
 }
 
 * {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
@@ -17,17 +24,26 @@ body {
   font-family: Arial, sans-serif;
   background: var(--background);
   color: var(--text);
+  line-height: 1.6;
 }
 
 header {
-  padding: 28px 18px;
-  background: #182957;
+  padding: 30px 18px;
+  background: linear-gradient(135deg, #182957, #102044);
   text-align: center;
+  border-bottom: 2px solid var(--primary);
 }
 
 header h1 {
   color: var(--accent);
   margin: 0;
+  font-size: clamp(22px, 5vw, 32px);
+  letter-spacing: 1px;
+}
+
+header p {
+  color: var(--muted);
+  margin-bottom: 0;
 }
 
 main {
@@ -40,40 +56,83 @@ main {
 .card {
   background: var(--surface);
   padding: 22px;
-  margin: 16px 0;
+  margin: 18px 0;
+  border: 1px solid var(--border);
   border-radius: 16px;
-  box-shadow: 0 5px 18px rgba(0,0,0,.2);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-button {
-  border: none;
-  border-radius: 10px;
-  padding: 14px 20px;
-  background: var(--primary);
-  color: white;
-  font-size: 16px;
+.card h2 {
+  color: var(--accent);
+  margin-top: 0;
+}
+
+.welcome {
+  background: linear-gradient(135deg, #1b376c, #152747);
+}
+
+label {
+  display: block;
+  margin: 14px 0 7px;
   font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #0872c7;
 }
 
 select {
   display: block;
   width: 100%;
-  padding: 13px;
-  margin: 10px 0 18px;
-  border: none;
+  padding: 14px;
+  margin: 8px 0 18px;
+  border: 1px solid #6384ad;
   border-radius: 9px;
+  background: #f4f7fc;
+  color: #14213d;
   font-size: 16px;
 }
 
+button {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 10px;
+  padding: 15px 20px;
+  background: var(--primary);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+button:hover {
+  background: var(--primary-hover);
+}
+
+button:active {
+  transform: scale(0.98);
+}
+
+.feature {
+  background: var(--surface-light);
+  padding: 15px;
+  margin: 12px 0;
+  border-radius: 11px;
+  border: 1px solid var(--border);
+}
+
+.feature strong {
+  color: var(--accent);
+}
+
+#message {
+  color: var(--accent);
+  margin-top: 14px;
+}
+
 footer {
-  padding: 25px;
+  padding: 28px 15px;
   text-align: center;
   color: var(--muted);
+  font-size: 13px;
 }
 
 @media (max-width: 600px) {
@@ -83,5 +142,10 @@ footer {
 
   .card {
     padding: 17px;
+    border-radius: 13px;
+  }
+
+  header {
+    padding: 24px 12px;
   }
 }
