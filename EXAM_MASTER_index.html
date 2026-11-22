@@ -10,10 +10,9 @@
   <title>EXAM MASTER JUNIOR</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <!-- Chrome installation settings -->
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icons/icon-192.png">
+
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="EXAM MASTER JUNIOR">
@@ -106,6 +105,20 @@
   </footer>
 
   <script src="app.js"></script>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", () => {
+        navigator.serviceWorker.register("./service-worker.js")
+          .then(() => {
+            console.log("EXAM MASTER service worker registered.");
+          })
+          .catch(error => {
+            console.error("Service worker registration failed:", error);
+          });
+      });
+    }
+  </script>
 
 </body>
 </html>
