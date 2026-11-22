@@ -5,118 +5,19 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101a35">
-  <meta name="description" content="EXAM MASTER JUNIOR - Learn, practise and prepare for examinations.">
+  <meta name="description" content="EXAM MASTER JUNIOR - Learn, practise and prepare.">
 
   <title>EXAM MASTER JUNIOR</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+  <link rel="stylesheet" href="style.css">
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #101a35;
-      color: white;
-    }
-
-    header {
-      background: #182957;
-      padding: 24px 16px;
-      text-align: center;
-      border-bottom: 2px solid #2679c9;
-    }
-
-    header h1 {
-      margin: 0;
-      color: #70c8ff;
-      font-size: 25px;
-    }
-
-    header p {
-      color: #c5d8f5;
-      margin-bottom: 0;
-    }
-
-    main {
-      width: 100%;
-      max-width: 850px;
-      padding: 16px;
-      margin: auto;
-    }
-
-    .card {
-      background: #1b2b50;
-      padding: 20px;
-      margin: 16px 0;
-      border-radius: 14px;
-      border: 1px solid #30466e;
-    }
-
-    .card h2 {
-      color: #70c8ff;
-      margin-top: 0;
-    }
-
-    .welcome {
-      background: linear-gradient(135deg, #1b376c, #172343);
-    }
-
-    label {
-      display: block;
-      margin-top: 15px;
-      margin-bottom: 7px;
-      font-weight: bold;
-    }
-
-    select {
-      width: 100%;
-      padding: 14px;
-      border-radius: 9px;
-      border: 1px solid #6c8fba;
-      background: #f4f7fc;
-      color: #14213d;
-      font-size: 16px;
-    }
-
-    button {
-      width: 100%;
-      border: 0;
-      border-radius: 9px;
-      padding: 14px;
-      margin-top: 18px;
-      background: #1689e8;
-      color: white;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    button:active {
-      background: #0865b5;
-    }
-
-    .feature {
-      background: #22385f;
-      padding: 14px;
-      margin: 10px 0;
-      border-radius: 9px;
-    }
-
-    #message {
-      color: #91d8ff;
-      line-height: 1.6;
-      margin-top: 15px;
-    }
-
-    footer {
-      text-align: center;
-      padding: 25px 15px;
-      color: #b9c8df;
-      font-size: 13px;
-    }
-  </style>
+  <!-- Chrome installation settings -->
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="EXAM MASTER JUNIOR">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 </head>
 
 <body>
@@ -139,7 +40,6 @@
 
     <section class="card">
       <h2>📚 Learning Centre</h2>
-
       <p>Select your class and term to continue.</p>
 
       <label for="classSelect">Choose your class</label>
@@ -206,20 +106,6 @@
   </footer>
 
   <script src="app.js"></script>
-
-  <script>
-    function openLearning() {
-      const studentClass =
-        document.getElementById("classSelect").value;
-
-      const term =
-        document.getElementById("termSelect").value;
-
-      document.getElementById("message").textContent =
-        studentClass + " — " + term +
-        " selected. Your learning centre is being prepared.";
-    }
-  </script>
 
 </body>
 </html>
