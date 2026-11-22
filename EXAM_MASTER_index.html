@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#10233f">
+<title>EXAM MASTER</title>
+<style>
+:root{--bg:#081321;--panel:#12243a;--panel2:#192f49;--text:#eef6ff;--muted:#a9bdd2;--blue:#35a9ed;--line:#29435f;--green:#69d6a1}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:15px system-ui,-apple-system,Segoe UI,Arial,sans-serif}
+header{padding:22px 17px;background:linear-gradient(135deg,#10233f,#15517a);border-bottom:1px solid #326082}
+.brand{max-width:920px;margin:auto;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand h1{font-size:22px;letter-spacing:1.5px;margin:0}.brand p{margin:4px 0 0;color:#c4d9eb;font-size:13px}
+main{max-width:920px;margin:auto;padding:16px}.welcome{padding:20px 18px;background:linear-gradient(135deg,#163c5d,#15517a);border:1px solid #34739a;border-radius:17px;margin:8px 0 17px}.welcome h2{margin:0 0 6px;font-size:22px}.welcome p{margin:0;color:#d2e7f7}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px}.card{background:var(--panel);border:1px solid var(--line);border-radius:15px;padding:16px;margin-bottom:14px}.card h3{margin:0 0 12px;font-size:17px}.muted{color:var(--muted)}label{display:block;color:#c5d7e8;font-size:13px;margin:10px 0 6px}
+input,select{width:100%;background:#091829;color:var(--text);border:1px solid #3b5874;border-radius:9px;padding:12px;font:inherit;outline:none}button{border:0;border-radius:10px;padding:11px 14px;background:var(--blue);color:#061727;font-weight:700;font:inherit;cursor:pointer}button.secondary{background:#28445f;color:var(--text);border:1px solid #42617e}button:active{transform:scale(.98)}.full{width:100%;margin-top:10px}
+.stat{background:var(--panel2);border-radius:11px;padding:13px}.stat strong{display:block;font-size:21px;color:#8bd5ff}.stat span{font-size:12px;color:var(--muted)}
+.answers{display:grid;grid-template-columns:1fr 1fr;gap:8px}.answers button{text-align:left;background:#203d59;color:var(--text);border:1px solid #3c5a78}.answers button.correct{background:#164a3a;border-color:#3b9d76}.answers button.wrong{background:#542b35;border-color:#a95464}
+.notice{font-size:13px;color:var(--muted);line-height:1.5}.hidden{display:none!important}footer{text-align:center;color:#7f96ad;padding:20px;font-size:12px}
+.tools{display:flex;flex-wrap:wrap;gap:8px}.tools span{background:#1b3651;border:1px solid #345573;padding:9px 11px;border-radius:9px;font-size:13px}
+@media(max-width:560px){.grid{grid-template-columns:1fr}.brand h1{font-size:19px}.welcome h2{font-size:20px}}
+</style>
+</head>
+<body>
+<header><div class="brand"><div><h1>EXAM MASTER</h1><p>Learn • Practise • Prepare</p></div><span aria-hidden="true">📘</span></div></header>
+<main>
+<section class="welcome"><h2 id="hello">Your learning journey starts here.</h2><p>Prepare for Nigerian examinations with practice, revision and CBT tools.</p></section>
+<div class="grid">
+<section class="card"><h3>👤 Student profile</h3><label for="studentName">Your name</label><input id="studentName" placeholder="Enter your name"><button class="full" id="saveName">Save name</button><p class="notice" id="nameMessage" aria-live="polite"></p></section>
+<section class="card"><h3>🎯 Choose your exam</h3><label for="exam">Examination</label><select id="exam"><option>WAEC</option><option>JAMB</option><option>GCE</option><option>NECO</option><option>BECE</option><option>General Exams</option></select><label for="level">Class / level</label><select id="level"><option>JSS1</option><option>JSS2</option><option>JSS3</option><option>SS1</option><option>SS2</option><option>SS3</option></select><label for="subject">Subject</label><select id="subject"><option>Mathematics</option><option>English Language</option><option>Biology</option><option>Chemistry</option><option>Physics</option><option>Economics</option><option>Government</option><option>Literature</option></select></section>
+</div>
+<section class="card"><h3>📊 My learning overview</h3><div class="grid"><div class="stat"><strong id="attemptCount">0</strong><span>Questions attempted on this device</span></div><div class="stat"><strong id="correctCount">0</strong><span>Correct answers</span></div></div><p class="notice">Your demo progress is saved locally in this browser on this device.</p></section>
+<section class="card"><h3>📝 Quick practice</h3><p id="questionText">What is 5 × 6?</p><div class="answers" id="answerList"><button data-answer="11">A. 11</button><button data-answer="30">B. 30</button><button data-answer="56">C. 56</button><button data-answer="35">D. 35</button></div><p id="answerFeedback" aria-live="polite" class="notice"></p><button class="secondary" id="resetQuestion">Try again</button></section>
+<section class="card"><h3>🧰 Study tools</h3><div class="tools"><span>Daily Challenge</span><span>Question of the Day</span><span>Bookmark Centre</span><span>Weakness Detector</span><span>Flashcards</span><span>Voice Reading</span><span>Revision Mode</span><span>Mistake Centre</span><span>Study Planner</span><span>Dictionary</span><span>Study Certificates</span><span>PDF Study Materials</span></div><p class="notice">These are planned sections. They are not fully functional in this starter version yet.</p></section>
+<section class="card"><h3>➗ Basic calculator</h3><div class="grid"><div><label for="numA">First number</label><input id="numA" type="number" inputmode="decimal" placeholder="e.g. 12"></div><div><label for="numB">Second number</label><input id="numB" type="number" inputmode="decimal" placeholder="e.g. 4"></div></div><div class="tools"><button data-op="+" class="calc">Add +</button><button data-op="-" class="calc secondary">Subtract −</button><button data-op="*" class="calc secondary">Multiply ×</button><button data-op="/" class="calc secondary">Divide ÷</button></div><p id="calcResult" class="notice" aria-live="polite"></p></section>
+<section class="card"><h3>ℹ️ About this version</h3><p class="notice">This is the EXAM MASTER starter interface. It is a backendless HTML demo, not the finished learning app. Full lessons, verified question banks, complete CBT exams, timers, local account features, and backup/import will be added in later development stages. No backend is used.</p></section>
+</main>
+<footer>EXAM MASTER • Starter version</footer>
+<script>
+const $=id=>document.getElementById(id);
+let attempts=Number(localStorage.getItem('em_attempts')||0),correct=Number(localStorage.getItem('em_correct')||0);
+function stats(){$('attemptCount').textContent=attempts;$('correctCount').textContent=correct}
+const savedName=localStorage.getItem('em_name');
+if(savedName){$('studentName').value=savedName;$('hello').textContent='Welcome back, '+savedName+'!'}
+$('saveName').addEventListener('click',()=>{const n=$('studentName').value.trim();if(!n){$('nameMessage').textContent='Please enter your name first.';return}localStorage.setItem('em_name',n);$('hello').textContent='Welcome, '+n+'!';$('nameMessage').textContent='Your name has been saved on this device.'});
+document.querySelectorAll('#answerList button').forEach(b=>b.addEventListener('click',()=>{if($('answerFeedback').dataset.done)return;attempts++;if(b.dataset.answer==='30'){correct++;b.classList.add('correct');$('answerFeedback').textContent='Correct! 5 × 6 = 30.'}else{b.classList.add('wrong');$('answerFeedback').textContent='Not quite. The correct answer is 30.'} $('answerFeedback').dataset.done='1';localStorage.setItem('em_attempts',attempts);localStorage.setItem('em_correct',correct);stats()}));
+$('resetQuestion').addEventListener('click',()=>{$('answerFeedback').textContent='';delete $('answerFeedback').dataset.done;document.querySelectorAll('#answerList button').forEach(b=>b.classList.remove('correct','wrong'))});
+document.querySelectorAll('.calc').forEach(b=>b.addEventListener('click',()=>{const a=Number($('numA').value),c=Number($('numB').value),op=b.dataset.op;if($('numA').value===''||$('numB').value===''){$('calcResult').textContent='Enter both numbers first.';return}if(op==='/'&&c===0){$('calcResult').textContent='Cannot divide by zero.';return}const result=op==='+'?a+c:op==='-'?a-c:op==='*'?a*c:a/c;$('calcResult').textContent='Result: '+result}));
+stats();
+</script>
+</body>
+</html>
