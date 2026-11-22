@@ -5,100 +5,221 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101a35">
+  <meta name="description" content="EXAM MASTER JUNIOR - Learn, practise and prepare for examinations.">
+
   <title>EXAM MASTER JUNIOR</title>
+
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: #101a35;
       color: white;
     }
+
     header {
-      padding: 28px 18px;
       background: #182957;
+      padding: 24px 16px;
       text-align: center;
+      border-bottom: 2px solid #2679c9;
     }
-    header h1 { margin: 0; color: #70c8ff; }
-    main { padding: 20px; max-width: 700px; margin: auto; }
+
+    header h1 {
+      margin: 0;
+      color: #70c8ff;
+      font-size: 25px;
+    }
+
+    header p {
+      color: #c5d8f5;
+      margin-bottom: 0;
+    }
+
+    main {
+      width: 100%;
+      max-width: 850px;
+      padding: 16px;
+      margin: auto;
+    }
+
     .card {
       background: #1b2b50;
       padding: 20px;
-      margin: 15px 0;
+      margin: 16px 0;
       border-radius: 14px;
+      border: 1px solid #30466e;
     }
+
+    .card h2 {
+      color: #70c8ff;
+      margin-top: 0;
+    }
+
+    .welcome {
+      background: linear-gradient(135deg, #1b376c, #172343);
+    }
+
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 7px;
+      font-weight: bold;
+    }
+
+    select {
+      width: 100%;
+      padding: 14px;
+      border-radius: 9px;
+      border: 1px solid #6c8fba;
+      background: #f4f7fc;
+      color: #14213d;
+      font-size: 16px;
+    }
+
     button {
+      width: 100%;
       border: 0;
       border-radius: 9px;
-      padding: 13px 18px;
+      padding: 14px;
+      margin-top: 18px;
       background: #1689e8;
       color: white;
       font-size: 16px;
+      font-weight: bold;
       cursor: pointer;
     }
-    select {
-      width: 100%;
-      padding: 13px;
-      margin: 8px 0;
-      border-radius: 8px;
+
+    button:active {
+      background: #0865b5;
     }
-    footer { text-align: center; padding: 25px; color: #b9c8df; }
+
+    .feature {
+      background: #22385f;
+      padding: 14px;
+      margin: 10px 0;
+      border-radius: 9px;
+    }
+
+    #message {
+      color: #91d8ff;
+      line-height: 1.6;
+      margin-top: 15px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #b9c8df;
+      font-size: 13px;
+    }
   </style>
 </head>
+
 <body>
+
   <header>
     <h1>EXAM MASTER JUNIOR</h1>
     <p>Learn • Practise • Prepare • Succeed</p>
   </header>
 
   <main>
-    <section class="card">
+
+    <section class="card welcome">
       <h2>Welcome, Student!</h2>
-      <p>Your junior secondary learning centre.</p>
+      <p>
+        Your complete junior secondary learning centre.
+        Study your subjects, practise questions and prepare
+        for your examinations.
+      </p>
     </section>
 
     <section class="card">
-      <h2>Learning Centre</h2>
+      <h2>📚 Learning Centre</h2>
+
+      <p>Select your class and term to continue.</p>
+
       <label for="classSelect">Choose your class</label>
+
       <select id="classSelect">
-        <option>JSS 1</option>
-        <option>JSS 2</option>
-        <option>JSS 3</option>
+        <option value="JSS 1">JSS 1</option>
+        <option value="JSS 2">JSS 2</option>
+        <option value="JSS 3">JSS 3</option>
       </select>
 
       <label for="termSelect">Choose your term</label>
+
       <select id="termSelect">
-        <option>First Term</option>
-        <option>Second Term</option>
-        <option>Third Term</option>
+        <option value="First Term">First Term</option>
+        <option value="Second Term">Second Term</option>
+        <option value="Third Term">Third Term</option>
       </select>
 
-      <button onclick="openLearning()">Continue</button>
-      <p id="message"></p>
+      <button onclick="openLearning()">
+        Continue to Learning Centre
+      </button>
+
+      <p id="message" aria-live="polite"></p>
     </section>
 
     <section class="card">
-      <h2>What you can do</h2>
-      <p>📚 Study lesson notes</p>
-      <p>✍️ Practise questions</p>
-      <p>⏱️ Take timed CBT examinations</p>
-      <p>📊 Track your performance</p>
+      <h2>🎓 Your Learning Tools</h2>
+
+      <div class="feature">
+        📖 <strong>Lesson Notes</strong>
+        <p>Read detailed subject lessons and explanations.</p>
+      </div>
+
+      <div class="feature">
+        ✍️ <strong>Practice Questions</strong>
+        <p>Improve your knowledge with subject exercises.</p>
+      </div>
+
+      <div class="feature">
+        ⏱️ <strong>CBT Examinations</strong>
+        <p>Prepare with timed computer-based examinations.</p>
+      </div>
+
+      <div class="feature">
+        📊 <strong>Performance Tracking</strong>
+        <p>Keep track of your learning progress.</p>
+      </div>
     </section>
+
+    <section class="card">
+      <h2>🏫 About EXAM MASTER JUNIOR</h2>
+      <p>
+        Designed for JSS 1, JSS 2 and JSS 3 students,
+        with Nigerian junior secondary school subjects
+        and learning materials.
+      </p>
+    </section>
+
   </main>
 
-  <footer>EXAM MASTER JUNIOR © 2026</footer>
+  <footer>
+    EXAM MASTER JUNIOR © 2026
+    <p>Learn • Practise • Succeed</p>
+  </footer>
+
+  <script src="app.js"></script>
 
   <script>
     function openLearning() {
       const studentClass =
         document.getElementById("classSelect").value;
+
       const term =
         document.getElementById("termSelect").value;
 
       document.getElementById("message").textContent =
         studentClass + " — " + term +
-        " selected. Learning materials are coming next.";
+        " selected. Your learning centre is being prepared.";
     }
   </script>
+
 </body>
 </html>
