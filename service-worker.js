@@ -1,8 +1,7 @@
 
-const CACHE_NAME = "exam-master-junior-v1";
+const CACHE_NAME = "exam-master-junior-v2";
 
 const APP_FILES = [
-  "./",
   "./EXAM_MASTER_index.html",
   "./style.css",
   "./app.js",
@@ -17,7 +16,6 @@ self.addEventListener("install", event => {
       cache.addAll(APP_FILES)
     )
   );
-
   self.skipWaiting();
 });
 
@@ -31,7 +29,6 @@ self.addEventListener("activate", event => {
       )
     )
   );
-
   self.clients.claim();
 });
 
@@ -44,19 +41,18 @@ self.addEventListener("fetch", event => {
 
       return fetch(event.request).then(response => {
         if (
-          response &&
-          response.status === 200 &&
+          response.ok &&
           new URL(event.request.url).origin === self.location.origin
         ) {
           const copy = response.clone();
-
           caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, copy);
           });
         }
-
         return response;
-      });
-    }).catch(() => caches.match("./EXAM_MASTER_index.html"))
+      }).catch(() =>
+        caches.match("./EXAM_MASTER_index.html")
+      );
+    })
   );
 });
