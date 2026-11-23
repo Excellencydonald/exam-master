@@ -1,19 +1,312 @@
-<section id="profilePage" class="page">
-  <button class="back" onclick="goBack()">← Back</button>
 
-  <h1>Student Profile</h1>
-  <p class="muted">Manage your learning identity.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101a35">
+  <meta name="description" content="EXAM MASTER JUNIOR SECONDARY SCHOOL">
+  <title>EXAM MASTER JUNIOR SECONDARY SCHOOL</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header class="topbar">
+  <div class="brand">EXAM MASTER <span>JUNIOR</span></div>
+  <span>🎓</span>
+</header>
+
+<main>
+
+<!-- HOME -->
+<section id="homePage" class="page active">
+  <div class="welcome">
+    <h1>EXAM MASTER JUNIOR</h1>
+    <p>Learn • Practise • Improve</p>
+    <p>Welcome to your junior secondary learning centre.</p>
+  </div>
 
   <div class="panel">
-    <div style="text-align:center;padding:15px">
-      <div style="font-size:55px">🎓</div>
-      <h2 id="profileDisplayName">Student</h2>
-      <p class="muted" id="profileDisplayClass">JSS 1</p>
+    <h2 id="homeGreeting">Welcome, Student!</h2>
+    <p class="muted">Your learning platform for JSS 1, JSS 2 and JSS 3.</p>
+  </div>
+
+  <h2 class="section-title">Explore EXAM MASTER</h2>
+  <div class="grid">
+    <button class="card" onclick="showPage('learnPage')">
+      <span class="symbol">📚</span>
+      <strong>Learning Centre</strong>
+      <small>Study your lesson notes</small>
+    </button>
+
+    <button class="card" onclick="showPage('practicePage')">
+      <span class="symbol">✍️</span>
+      <strong>Practice</strong>
+      <small>BAE and revision</small>
+    </button>
+
+    <button class="card" onclick="showPage('examsPage')">
+      <span class="symbol">📝</span>
+      <strong>Examinations</strong>
+      <small>CBT, BECE and questions</small>
+    </button>
+
+    <button class="card" onclick="showPage('profilePage')">
+      <span class="symbol">👤</span>
+      <strong>Student Profile</strong>
+      <small>Your personal settings</small>
+    </button>
+  </div>
+
+  <div class="panel">
+    <h3>Study Reminder</h3>
+    <p>Remember to make time for your studies.</p>
+    <button class="action" onclick="showPage('remindersPage')">
+      Open My Reminders
+    </button>
+  </div>
+</section>
+
+<!-- LEARNING CENTRE -->
+<section id="learnPage" class="page">
+  <button class="back" onclick="goBack()">← Back</button>
+  <h1>Learning Centre</h1>
+  <p class="muted">Choose your class, term and subject.</p>
+
+  <section class="panel" id="learningCentre">
+    <label for="classSelect">Select Class</label>
+    <select id="classSelect">
+      <option value="JSS 1">JSS 1</option>
+      <option value="JSS 2">JSS 2</option>
+      <option value="JSS 3">JSS 3</option>
+    </select>
+
+    <label for="termSelect">Select Term</label>
+    <select id="termSelect">
+      <option value="First Term">First Term</option>
+      <option value="Second Term">Second Term</option>
+      <option value="Third Term">Third Term</option>
+    </select>
+
+    <label for="subjectSelect">Select Subject</label>
+    <select id="subjectSelect">
+      <option value="">Loading subjects...</option>
+    </select>
+
+    <button class="action" id="loadLessons" type="button">
+      Open Lessons
+    </button>
+
+    <p id="lessonMessage" class="muted" aria-live="polite"></p>
+
+    <section id="lessonListSection" class="hidden">
+      <h3>Available Lessons</h3>
+      <div id="lessonList"></div>
+    </section>
+
+    <section id="lessonViewer" class="hidden">
+      <button class="back" id="backToLessons" type="button">
+        ← Back to Lessons
+      </button>
+      <div id="lessonContent"></div>
+    </section>
+
+    <p id="progressDisplay" class="muted">
+      Your learning progress will appear here.
+    </p>
+  </section>
+
+  <div class="panel">
+    <h3>Free Mock Test Study Book</h3>
+    <p>Read your study guide and practise questions.</p>
+    <a class="book-link" href="competitive-exam-book.html">
+      Open Free Study Book
+    </a>
+  </div>
+</section>
+
+<!-- PRACTICE -->
+<section id="practicePage" class="page">
+  <button class="back" onclick="goBack()">← Back</button>
+  <h1>Revision and Practice</h1>
+
+  <section class="panel" id="baeSection">
+    <h2>BAE – Basic Assessment Exercises</h2>
+    <p>Practise questions based on your selected class, term and subject.</p>
+
+    <div id="baeSetup">
+      <p class="muted">
+        Select your class, term and subject in the Learning Centre first.
+      </p>
+      <button class="action" id="baeStart" type="button">Start BAE</button>
     </div>
 
+    <p id="baeDetails" class="muted"></p>
+
+    <div id="baeQuiz" class="hidden">
+      <div class="bae-progress">
+        <div id="baeProgressBar" class="bae-progress-bar"></div>
+      </div>
+      <p id="baeProgress">Question 1</p>
+      <h3 id="baeQuestion"></h3>
+      <div id="baeOptions"></div>
+      <button class="action" id="baeSubmit" type="button">
+        Submit Answer
+      </button>
+      <div id="baeFeedback" class="bae-feedback hidden"></div>
+      <button class="action hidden" id="baeNext" type="button">
+        Next Question
+      </button>
+    </div>
+
+    <div id="baeResult" class="hidden">
+      <h2>Assessment Completed</h2>
+      <h2 id="baeScore"></h2>
+      <p id="baeSummary"></p>
+      <div id="baeReview"></div>
+      <button class="action" id="baeRestart" type="button">
+        Try Again
+      </button>
+    </div>
+  </section>
+
+  <section class="panel" id="revisionPage">
+    <h2>Revision Centre</h2>
+    <p>Use your lesson notes, class exercises and practice questions to revise.</p>
+    <button class="action" onclick="showPage('learnPage')">
+      Open Lessons
+    </button>
+    <button class="action secondary" onclick="showPage('examsPage')">
+      Open Past Questions
+    </button>
+  </section>
+
+  <section class="panel">
+    <h2>Assessment History</h2>
+    <div id="assessmentHistory">
+      No assessment results recorded yet.
+    </div>
+  </section>
+</section>
+
+<!-- EXAMINATIONS -->
+<section id="examsPage" class="page">
+  <button class="back" onclick="goBack()">← Back</button>
+  <h1>Examinations</h1>
+
+  <section class="panel">
+    <h2>CBT – Computer-Based Tests</h2>
+    <p>Timed multiple-choice examinations for JSS 1, JSS 2 and JSS 3.</p>
+    <p class="muted">
+      The complete CBT engine and question banks are still under development.
+    </p>
+  </section>
+
+  <section class="panel">
+    <h2>BECE Preparation</h2>
+    <p>Preparation for the Basic Education Certificate Examination.</p>
+    <p class="muted">BECE preparation is for JSS 3 students only.</p>
+    <p class="muted">The full BECE question bank is still under development.</p>
+  </section>
+
+  <section class="panel" id="pastQuestionsSection">
+    <h2>Past Questions Library</h2>
+    <p>Practise available objective and theory questions.</p>
+    <p class="muted">
+      The current question bank contains original practice questions.
+      It is not yet a complete archive of official examination papers.
+    </p>
+
+    <label for="pastClassSelect">Select Class</label>
+    <select id="pastClassSelect">
+      <option value="JSS 1">JSS 1</option>
+      <option value="JSS 2">JSS 2</option>
+      <option value="JSS 3">JSS 3</option>
+    </select>
+
+    <label for="pastSubjectSelect">Select Subject</label>
+    <select id="pastSubjectSelect">
+      <option value="">Select a subject</option>
+      <option>Mathematics</option>
+      <option>English Studies</option>
+      <option>Intermediate Science</option>
+      <option>Physical and Health Education</option>
+      <option>Digital Technologies</option>
+      <option>Nigerian Languages</option>
+      <option>CRS / IRS</option>
+      <option>Nigerian History</option>
+      <option>Social and Citizenship Studies</option>
+      <option>Cultural and Creative Arts</option>
+      <option>Business Studies</option>
+      <option>Livestock Farming</option>
+      <option>French</option>
+      <option>Arabic</option>
+    </select>
+
+    <label for="pastTypeSelect">Question Type</label>
+    <select id="pastTypeSelect">
+      <option value="objective">Objective</option>
+      <option value="theory">Theory</option>
+    </select>
+
+    <p id="pastQuestionMessage" class="muted" aria-live="polite">
+      Choose your options to begin.
+    </p>
+
+    <button class="action" id="pastStartButton" type="button">
+      Start Practice
+    </button>
+
+    <div id="pastQuestionArea" class="hidden">
+      <p id="pastQuestionProgress" class="muted"></p>
+      <h3 id="pastQuestionText"></h3>
+      <div id="pastQuestionOptions"></div>
+      <button class="action" id="pastSubmitAnswer" type="button">
+        Check Answer
+      </button>
+      <div id="pastAnswerFeedback" class="bae-feedback hidden"></div>
+      <button class="action hidden" id="pastNextQuestion" type="button">
+        Next Question
+      </button>
+    </div>
+
+    <div id="pastQuestionResult" class="hidden">
+      <h3>Practice Completed</h3>
+      <p id="pastQuestionScore"></p>
+      <button class="action" id="pastRestartButton" type="button">
+        Practise Again
+      </button>
+    </div>
+
+    <div class="panel">
+      <h3>My Practice History</h3>
+      <div id="pastQuestionHistory" class="muted">
+        No practice history yet.
+      </div>
+    </div>
+  </section>
+</section>
+
+<!-- PROFILE -->
+<section id="profilePage" class="page">
+  <button class="back" onclick="goBack()">← Back</button>
+  <h1>Student Profile</h1>
+
+  <div class="panel text-center">
+    <div style="font-size:55px">🎓</div>
+    <h2 id="profileDisplayName">Student</h2>
+    <p id="profileDisplayClass" class="muted">JSS 1</p>
+  </div>
+
+  <div class="panel">
+    <h3>Personal Information</h3>
+
     <label for="studentName">Student Name</label>
-    <input id="studentName" type="text"
-      maxlength="50" placeholder="Enter your name">
+    <input id="studentName" type="text" maxlength="50"
+      placeholder="Enter your name">
 
     <label for="studentClass">Select Class</label>
     <select id="studentClass">
@@ -30,29 +323,159 @@
 
   <div class="panel">
     <h3>Appearance</h3>
-    <label for="themeSelect">Choose App Theme</label>
+    <label for="themeSelect">App Theme</label>
     <select id="themeSelect" onchange="saveThemePreference()">
       <option value="dark">Dark Theme</option>
       <option value="light">Light Theme</option>
     </select>
-    <p class="muted">Your theme preference is saved on this device.</p>
+    <p class="muted">Your choice is saved on this device.</p>
   </div>
 
   <div class="panel">
-    <h3>My Account</h3>
-    <p>EXAM MASTER JUNIOR</p>
-    <p class="muted">Your profile is saved locally on this device.</p>
+    <h3>Study Reminders</h3>
+    <p>Set a study time and manage your reminders.</p>
+    <button class="action" onclick="showPage('remindersPage')">
+      Manage Reminders
+    </button>
+  </div>
+
+  <div class="panel">
+    <h3>About EXAM MASTER JUNIOR</h3>
+    <p>JSS 1 • JSS 2 • JSS 3</p>
+    <p class="muted">Learning, revision and examination preparation.</p>
+    <p class="muted">Your profile and progress are stored locally on this device.</p>
   </div>
 </section>
 
+<!-- STUDY REMINDERS -->
+<section id="remindersPage" class="page">
+  <button class="back" onclick="goBack()">← Back</button>
+  <h1>Study Reminders 🔔</h1>
+
+  <div class="panel">
+    <label for="reminderTitle">Reminder Title</label>
+    <input id="reminderTitle" type="text"
+      placeholder="e.g. Mathematics revision">
+
+    <label for="reminderDate">Study Date</label>
+    <input id="reminderDate" type="date">
+
+    <label for="reminderTime">Study Time</label>
+    <input id="reminderTime" type="time">
+
+    <button class="action" onclick="addStudyReminder()">
+      Save Reminder
+    </button>
+    <p id="reminderMessage" class="muted"></p>
+  </div>
+
+  <div class="panel">
+    <h3>My Reminders</h3>
+    <div id="reminderList"></div>
+  </div>
+
+  <p class="muted">
+    Reminders are saved locally. Phone notifications are not yet implemented.
+  </p>
+</section>
+
+</main>
+
+<!-- BOTTOM NAVIGATION -->
+<nav class="bottom-nav">
+  <button class="nav-btn active" data-page="homePage"
+    onclick="showPage('homePage')">
+    <span>🏠</span>Home
+  </button>
+  <button class="nav-btn" data-page="learnPage"
+    onclick="showPage('learnPage')">
+    <span>📚</span>Learn
+  </button>
+  <button class="nav-btn" data-page="practicePage"
+    onclick="showPage('practicePage')">
+    <span>✍️</span>Practice
+  </button>
+  <button class="nav-btn" data-page="examsPage"
+    onclick="showPage('examsPage')">
+    <span>📝</span>Exams
+  </button>
+  <button class="nav-btn" data-page="profilePage"
+    onclick="showPage('profilePage')">
+    <span>👤</span>Profile
+  </button>
+</nav>
+
+<footer class="text-center">
+  EXAM MASTER JUNIOR SECONDARY SCHOOL
+</footer>
+
+<!-- EXISTING APPLICATION FILES -->
+<script src="lesson-library.js"></script>
+<script src="lessons/jss1-mathematics-first-term.js"></script>
+
+<script>
+(function () {
+  const library = window.EXAM_MASTER?.library;
+  const lessons =
+    window.EXAM_MASTER_LESSONS?.["JSS 1"]?.["First Term"]?.["Mathematics"] || [];
+
+  if (!library || typeof library.addLesson !== "function") return;
+
+  lessons.forEach(lesson => {
+    const existing = library.getWeek(
+      "JSS 1", "First Term", "Mathematics", lesson.week
+    );
+
+    if (!existing) {
+      library.addLesson("JSS 1", "First Term", "Mathematics", lesson);
+    }
+  });
+})();
+</script>
+
+<script src="past-questions.js"></script>
+<script src="app.js"></script>
+<script src="bae.js"></script>
+
+<!-- PAGE NAVIGATION -->
+<script>
+let previousPage = "homePage";
+
+function showPage(pageId) {
+  const current = document.querySelector(".page.active");
+  if (current && current.id !== pageId) {
+    previousPage = current.id;
+  }
+
+  document.querySelectorAll(".page").forEach(page => {
+    page.classList.toggle("active", page.id === pageId);
+  });
+
+  document.querySelectorAll(".nav-btn").forEach(button => {
+    button.classList.toggle("active", button.dataset.page === pageId);
+  });
+
+  window.scrollTo({ top: 0, behavior: "smooth" });
+}
+
+function goBack() {
+  showPage(previousPage || "homePage");
+}
+</script>
+
+<!-- PROFILE AND THEME -->
 <script>
 function loadStudentProfile() {
-  const profile = JSON.parse(
-    localStorage.getItem("examMasterStudentProfile") || "{}"
-  );
+  let profile = {};
+  try {
+    profile = JSON.parse(
+      localStorage.getItem("examMasterStudentProfile") || "{}"
+    );
+  } catch (error) {}
 
   document.getElementById("studentName").value = profile.name || "";
-  document.getElementById("studentClass").value = profile.studentClass || "JSS 1";
+  document.getElementById("studentClass").value =
+    profile.studentClass || "JSS 1";
 
   updateProfileDisplay();
 }
@@ -60,10 +483,10 @@ function loadStudentProfile() {
 function saveStudentProfile() {
   const name = document.getElementById("studentName").value.trim();
   const studentClass = document.getElementById("studentClass").value;
+  const message = document.getElementById("profileMessage");
 
   if (!name) {
-    document.getElementById("profileMessage").textContent =
-      "Please enter your name.";
+    message.textContent = "Please enter your name.";
     return;
   }
 
@@ -73,20 +496,25 @@ function saveStudentProfile() {
   }));
 
   updateProfileDisplay();
-  document.getElementById("profileMessage").textContent =
-    "Profile saved successfully.";
+  message.textContent = "Profile saved successfully.";
 }
 
 function updateProfileDisplay() {
-  const profile = JSON.parse(
-    localStorage.getItem("examMasterStudentProfile") || "{}"
-  );
+  let profile = {};
+  try {
+    profile = JSON.parse(
+      localStorage.getItem("examMasterStudentProfile") || "{}"
+    );
+  } catch (error) {}
 
   document.getElementById("profileDisplayName").textContent =
     profile.name || "Student";
 
   document.getElementById("profileDisplayClass").textContent =
     profile.studentClass || "JSS 1";
+
+  document.getElementById("homeGreeting").textContent =
+    "Welcome, " + (profile.name || "Student") + "!";
 }
 
 function applyTheme(theme) {
@@ -108,3 +536,320 @@ function loadThemePreference() {
 loadStudentProfile();
 loadThemePreference();
 </script>
+
+<!-- STUDY REMINDERS -->
+<script>
+function getStudyReminders() {
+  try {
+    const reminders = JSON.parse(
+      localStorage.getItem("examMasterReminders") || "[]"
+    );
+    return Array.isArray(reminders) ? reminders : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+function addStudyReminder() {
+  const title = document.getElementById("reminderTitle").value.trim();
+  const date = document.getElementById("reminderDate").value;
+  const time = document.getElementById("reminderTime").value;
+  const message = document.getElementById("reminderMessage");
+
+  if (!title || !date || !time) {
+    message.textContent = "Please complete all fields.";
+    return;
+  }
+
+  if (new Date(date + "T" + time).getTime() <= Date.now()) {
+    message.textContent = "Choose a future date and time.";
+    return;
+  }
+
+  const reminders = getStudyReminders();
+
+  reminders.push({
+    id: Date.now(),
+    title,
+    date,
+    time
+  });
+
+  localStorage.setItem("examMasterReminders", JSON.stringify(reminders));
+
+  document.getElementById("reminderTitle").value = "";
+  message.textContent = "Reminder saved on this device.";
+
+  renderStudyReminders();
+}
+
+function renderStudyReminders() {
+  const list = document.getElementById("reminderList");
+  if (!list) return;
+
+  list.replaceChildren();
+
+  const reminders = getStudyReminders();
+
+  if (!reminders.length) {
+    list.textContent = "No reminders saved yet.";
+    return;
+  }
+
+  reminders.sort((a, b) =>
+    (a.date + a.time).localeCompare(b.date + b.time)
+  );
+
+  reminders.forEach(reminder => {
+    const item = document.createElement("div");
+    item.className = "panel";
+
+    const heading = document.createElement("h3");
+    heading.textContent = reminder.title;
+
+    const details = document.createElement("p");
+    details.textContent = reminder.date + " at " + reminder.time;
+
+    const remove = document.createElement("button");
+    remove.className = "action secondary";
+    remove.textContent = "Delete";
+
+    remove.addEventListener("click", () => {
+      const updated = getStudyReminders().filter(
+        entry => entry.id !== reminder.id
+      );
+
+      localStorage.setItem("examMasterReminders", JSON.stringify(updated));
+      renderStudyReminders();
+    });
+
+    item.append(heading, details, remove);
+    list.appendChild(item);
+  });
+}
+
+renderStudyReminders();
+</script>
+
+<!-- PAST QUESTIONS CONTROLLER -->
+<script>
+(function () {
+  const $ = id => document.getElementById(id);
+
+  const classSelect = $("pastClassSelect");
+  const subjectSelect = $("pastSubjectSelect");
+  const typeSelect = $("pastTypeSelect");
+
+  let questions = [];
+  let currentIndex = 0;
+  let score = 0;
+  let answered = false;
+  let selectedAnswer = null;
+
+  function startPractice() {
+    const api = window.EXAM_MASTER_PAST;
+
+    if (!api) {
+      $("pastQuestionMessage").textContent =
+        "Question bank could not be loaded.";
+      return;
+    }
+
+    questions = api.getQuestions(
+      classSelect.value,
+      subjectSelect.value,
+      typeSelect.value
+    );
+
+    if (!questions.length) {
+      $("pastQuestionMessage").textContent =
+        "No questions are available for this selection yet.";
+      return;
+    }
+
+    currentIndex = 0;
+    score = 0;
+
+    $("pastQuestionResult").classList.add("hidden");
+    $("pastQuestionArea").classList.remove("hidden");
+
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    answered = false;
+    selectedAnswer = null;
+
+    const question = questions[currentIndex];
+
+    $("pastQuestionProgress").textContent =
+      "Question " + (currentIndex + 1) + " of " + questions.length;
+
+    $("pastQuestionText").textContent = question.question;
+    $("pastQuestionOptions").replaceChildren();
+    $("pastAnswerFeedback").classList.add("hidden");
+    $("pastNextQuestion").classList.add("hidden");
+    $("pastSubmitAnswer").classList.remove("hidden");
+
+    if (typeSelect.value === "objective") {
+      question.options.forEach((option, index) => {
+        const label = document.createElement("label");
+        label.className = "past-option";
+
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "pastAnswer";
+        radio.value = index;
+
+        radio.addEventListener("change", () => {
+          selectedAnswer = index;
+        });
+
+        label.append(radio, document.createTextNode(option));
+        $("pastQuestionOptions").appendChild(label);
+      });
+    } else {
+      const instruction = document.createElement("p");
+      instruction.textContent =
+        "Think through your answer, then select Check Answer to reveal the suggested answer.";
+      $("pastQuestionOptions").appendChild(instruction);
+    }
+  }
+
+  function checkAnswer() {
+    if (answered) return;
+
+    const question = questions[currentIndex];
+    const feedback = $("pastAnswerFeedback");
+
+    if (typeSelect.value === "objective") {
+      if (selectedAnswer === null) {
+        feedback.textContent = "Please select an option first.";
+        feedback.classList.remove("hidden");
+        return;
+      }
+
+      const correct = selectedAnswer === question.answer;
+      if (correct) score++;
+
+      feedback.textContent =
+        (correct
+          ? "Correct! "
+          : "The correct answer is " + question.options[question.answer] + ". ") +
+        question.explanation;
+
+      document.querySelectorAll('input[name="pastAnswer"]').forEach(input => {
+        input.disabled = true;
+      });
+    } else {
+      feedback.replaceChildren();
+
+      const heading = document.createElement("strong");
+      heading.textContent = "Suggested answer:";
+
+      const answer = document.createElement("p");
+      answer.textContent = question.answer;
+
+      feedback.append(heading, answer);
+    }
+
+    answered = true;
+    feedback.classList.remove("hidden");
+    $("pastSubmitAnswer").classList.add("hidden");
+
+    $("pastNextQuestion").textContent =
+      currentIndex === questions.length - 1
+        ? "Finish Practice"
+        : "Next Question";
+
+    $("pastNextQuestion").classList.remove("hidden");
+  }
+
+  function nextQuestion() {
+    if (!answered) return;
+
+    currentIndex++;
+
+    if (currentIndex < questions.length) {
+      renderQuestion();
+    } else {
+      finishPractice();
+    }
+  }
+
+  function finishPractice() {
+    $("pastQuestionArea").classList.add("hidden");
+    $("pastQuestionResult").classList.remove("hidden");
+
+    const objective = typeSelect.value === "objective";
+    const percentage = objective
+      ? Math.round(score / questions.length * 100)
+      : null;
+
+    $("pastQuestionScore").textContent = objective
+      ? "Your score: " + score + " out of " + questions.length +
+        " (" + percentage + "%)."
+      : "Theory practice completed. Review the suggested answers.";
+
+    window.EXAM_MASTER_PAST.saveResult({
+      className: classSelect.value,
+      subject: subjectSelect.value,
+      type: typeSelect.value,
+      total: questions.length,
+      score: objective ? score : null,
+      percentage
+    });
+
+    renderHistory();
+  }
+
+  function renderHistory() {
+    const history = window.EXAM_MASTER_PAST?.getHistory?.() || [];
+    const box = $("pastQuestionHistory");
+    box.replaceChildren();
+
+    if (!history.length) {
+      box.textContent = "No practice history yet.";
+      return;
+    }
+
+    history.slice().reverse().forEach(record => {
+      const line = document.createElement("p");
+      line.textContent =
+        record.className + " • " + record.subject + " • " +
+        record.type + " • " +
+        (record.percentage === null
+          ? "Theory completed"
+          : record.score + "/" + record.total + " (" +
+            record.percentage + "%)");
+      box.appendChild(line);
+    });
+  }
+
+  $("pastStartButton").addEventListener("click", startPractice);
+  $("pastSubmitAnswer").addEventListener("click", checkAnswer);
+  $("pastNextQuestion").addEventListener("click", nextQuestion);
+
+  $("pastRestartButton").addEventListener("click", () => {
+    $("pastQuestionResult").classList.add("hidden");
+    $("pastQuestionArea").classList.add("hidden");
+    $("pastQuestionMessage").textContent =
+      "Choose your options and start another practice.";
+  });
+
+  renderHistory();
+})();
+</script>
+
+<!-- OFFLINE SUPPORT -->
+<script>
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js")
+      .catch(error => console.error("Service worker error:", error));
+  });
+}
+</script>
+
+</body>
+</html>
