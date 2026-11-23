@@ -1,348 +1,243 @@
-
 (function () {
-  "use strict";
+  window.EXAM_MASTER_LESSONS =
+    window.EXAM_MASTER_LESSONS || {};
 
-  window.EXAM_MASTER_LESSONS = window.EXAM_MASTER_LESSONS || {};
+  window.EXAM_MASTER_LESSONS["JSS 1"] =
+    window.EXAM_MASTER_LESSONS["JSS 1"] || {};
 
-  const className = "JSS 1";
-  const termName = "First Term";
+  window.EXAM_MASTER_LESSONS["JSS 1"]["First Term"] =
+    window.EXAM_MASTER_LESSONS["JSS 1"]["First Term"] || {};
 
-  window.EXAM_MASTER_LESSONS[className] =
-    window.EXAM_MASTER_LESSONS[className] || {};
-
-  window.EXAM_MASTER_LESSONS[className][termName] =
-    window.EXAM_MASTER_LESSONS[className][termName] || {};
-
-  window.EXAM_MASTER_LESSONS[className][termName]["Mathematics"] = [
-
+  window.EXAM_MASTER_LESSONS["JSS 1"]["First Term"]["Mathematics"] = [
     {
       week: 1,
       title: "Number Bases and Place Value",
       objectives: [
-        "Explain the meaning of a number base.",
-        "Identify the place value of digits.",
-        "Identify digits used in different number bases."
+        "Understand place value.",
+        "Read and write whole numbers.",
+        "Identify the value of digits."
       ],
-      introduction: "A number base tells us how many different digits are used in a number system. The number system commonly used in everyday life is base ten, also called the decimal system.",
+      introduction: "Numbers are made up of digits. The position of each digit determines its value.",
       sections: [
         {
-          heading: "1. The decimal number system",
-          content: "Base ten uses ten digits: 0, 1, 2, 3, 4, 5, 6, 7, 8 and 9. After 9, we move to the next place value and write 10."
+          heading: "Place Value",
+          content: "In the number 4,582, 4 represents thousands, 5 represents hundreds, 8 represents tens and 2 represents units."
         },
         {
-          heading: "2. Place value",
-          content: "The value of a digit depends on its position. From right to left, the places are ones, tens, hundreds, thousands and ten thousands. In 364, 4 represents 4 ones, 6 represents 60 and 3 represents 300."
+          heading: "Expanded Form",
+          content: "4,582 = 4,000 + 500 + 80 + 2."
         },
         {
-          heading: "3. Other number bases",
-          content: "Base two uses 0 and 1. Base five uses 0, 1, 2, 3 and 4. Base eight uses digits from 0 to 7. A digit must always be smaller than its base."
+          heading: "Number Bases",
+          content: "A number base tells us how many different digits are used in a number system. The decimal system uses base 10 and the binary system uses base 2."
         }
       ],
       workedExamples: [
         {
-          question: "What is the place value of 6 in 364?",
-          answer: "6 is in the tens position. Its value is 6 × 10 = 60."
+          question: "What is the value of 7 in 3,754?",
+          solution: "The digit 7 is in the hundreds position. Its value is 700."
         },
         {
-          question: "Which digits are allowed in base five?",
-          answer: "0, 1, 2, 3 and 4."
+          question: "Write 6,321 in expanded form.",
+          solution: "6,000 + 300 + 20 + 1."
         }
       ],
-      keyTerms: [
-        "Number base: The number of different digits used in a number system.",
-        "Digit: A symbol used to write numbers.",
-        "Place value: The value of a digit because of its position."
-      ],
+      keyTerms: ["Digit", "Place value", "Expanded form", "Number base"],
       classExercises: [
-        {
-          question: "How many digits are used in base ten?",
-          answer: "Ten."
-        },
-        {
-          question: "What is the place value of 7 in 572?",
-          answer: "70."
-        },
-        {
-          question: "Is 5 allowed in base five?",
-          answer: "No."
-        }
+        "State the place value of 5 in 5,234.",
+        "Write 8,419 in expanded form.",
+        "What is the value of 6 in 2,641?"
       ],
-      summary: "Number bases describe number systems. Base ten uses ten digits, and the position of a digit determines its place value.",
+      summary: "The position of a digit determines its place value. Expanded form separates a number according to the values of its digits.",
       examinationPractice: [
         {
-          question: "Which of these digits is not used in base two?",
-          options: ["0", "1", "2", "Both 0 and 1"],
-          answer: "2",
-          explanation: "Base two uses only 0 and 1."
+          question: "What is the value of 8 in 4,825?",
+          answer: "800",
+          explanation: "8 is in the hundreds position."
         }
       ]
     },
-
     {
       week: 2,
       title: "Factors and Multiples",
       objectives: [
         "Define factors and multiples.",
         "Find factors of whole numbers.",
-        "Identify common factors and common multiples."
+        "List multiples of given numbers."
       ],
-      introduction: "Factors and multiples help us understand how numbers are related. They are useful in simplifying fractions and solving mathematical problems.",
+      introduction: "Factors and multiples help us understand how numbers are related through multiplication and division.",
       sections: [
         {
-          heading: "1. Factors",
-          content: "A factor divides a number exactly without leaving a remainder. The factors of 12 are 1, 2, 3, 4, 6 and 12."
+          heading: "Factors",
+          content: "A factor is a whole number that divides another number exactly, without leaving a remainder. For example, the factors of 12 are 1, 2, 3, 4, 6 and 12."
         },
         {
-          heading: "2. Multiples",
-          content: "A multiple is obtained by multiplying a number by a whole number. The first five positive multiples of 4 are 4, 8, 12, 16 and 20."
-        },
-        {
-          heading: "3. Common factors",
-          content: "Common factors are numbers that divide two or more numbers exactly. The common factors of 8 and 12 are 1, 2 and 4."
-        },
-        {
-          heading: "4. Common multiples",
-          content: "Common multiples are multiples shared by two or more numbers. The first positive common multiple of 3 and 4 is 12."
+          heading: "Multiples",
+          content: "A multiple is the result of multiplying a number by a whole number. Multiples of 4 include 4, 8, 12, 16 and 20."
         }
       ],
       workedExamples: [
         {
-          question: "List all the factors of 18.",
-          answer: "1, 2, 3, 6, 9 and 18."
+          question: "List all factors of 18.",
+          solution: "1, 2, 3, 6, 9 and 18."
         },
         {
-          question: "Write the first five positive multiples of 6.",
-          answer: "6, 12, 18, 24 and 30."
+          question: "Write the first five positive multiples of 7.",
+          solution: "7, 14, 21, 28 and 35."
         }
       ],
-      keyTerms: [
-        "Factor: A number that divides another number exactly.",
-        "Multiple: A number obtained through multiplication.",
-        "Common factor: A factor shared by two or more numbers.",
-        "Common multiple: A multiple shared by two or more numbers."
-      ],
+      keyTerms: ["Factor", "Multiple", "Division", "Multiplication"],
       classExercises: [
-        {
-          question: "List the factors of 10.",
-          answer: "1, 2, 5 and 10."
-        },
-        {
-          question: "Write the first four positive multiples of 7.",
-          answer: "7, 14, 21 and 28."
-        },
-        {
-          question: "Find the common factors of 6 and 9.",
-          answer: "1 and 3."
-        }
+        "List all factors of 20.",
+        "Write the first six multiples of 5.",
+        "Is 4 a factor of 28? Explain."
       ],
-      summary: "Factors divide numbers exactly, while multiples are obtained through multiplication.",
-      examinationPractice: [
-        {
-          question: "Which of these is a factor of 20?",
-          options: ["3", "6", "5", "7"],
-          answer: "5",
-          explanation: "20 divided by 5 gives 4 without a remainder."
-        }
-      ]
+      summary: "Factors divide a number exactly, while multiples are obtained by multiplying a number by whole numbers."
     },
-
     {
       week: 3,
-      title: "Prime Numbers and Composite Numbers",
+      title: "Prime and Composite Numbers",
       objectives: [
-        "Define prime and composite numbers.",
-        "Identify prime numbers.",
+        "Define prime numbers.",
+        "Define composite numbers.",
         "Distinguish prime numbers from composite numbers."
       ],
-      introduction: "Numbers can be classified according to the number of factors they have. Two important groups are prime numbers and composite numbers.",
+      introduction: "Numbers can be classified according to how many factors they have.",
       sections: [
         {
-          heading: "1. Prime numbers",
-          content: "A prime number is a whole number greater than 1 that has exactly two factors: 1 and itself. Examples include 2, 3, 5, 7, 11 and 13."
+          heading: "Prime Numbers",
+          content: "A prime number has exactly two different factors: 1 and itself. Examples are 2, 3, 5, 7, 11 and 13."
         },
         {
-          heading: "2. Composite numbers",
+          heading: "Composite Numbers",
           content: "A composite number has more than two factors. Examples include 4, 6, 8, 9, 10 and 12."
         },
         {
-          heading: "3. The number one",
-          content: "The number 1 is neither prime nor composite because it has only one factor."
+          heading: "Special Case",
+          content: "The number 1 is neither prime nor composite. The number 2 is the only even prime number."
         }
       ],
       workedExamples: [
         {
-          question: "Is 7 prime or composite?",
-          answer: "Prime. Its only factors are 1 and 7."
+          question: "Is 13 a prime number?",
+          solution: "Yes. Its only factors are 1 and 13."
         },
         {
-          question: "Is 12 prime or composite?",
-          answer: "Composite. Its factors include 1, 2, 3, 4, 6 and 12."
+          question: "Is 15 a composite number?",
+          solution: "Yes. Its factors include 1, 3, 5 and 15."
         }
       ],
-      keyTerms: [
-        "Prime number: A number with exactly two factors.",
-        "Composite number: A number with more than two factors."
-      ],
+      keyTerms: ["Prime number", "Composite number", "Factor"],
       classExercises: [
-        {
-          question: "Is 11 prime or composite?",
-          answer: "Prime."
-        },
-        {
-          question: "Is 15 prime or composite?",
-          answer: "Composite."
-        }
+        "Classify 7, 9, 11 and 15.",
+        "Explain why 1 is neither prime nor composite.",
+        "Write five prime numbers."
       ],
-      summary: "Prime numbers have exactly two factors. Composite numbers have more than two factors. One is neither prime nor composite."
+      summary: "Prime numbers have exactly two factors. Composite numbers have more than two factors."
     },
-
     {
       week: 4,
       title: "Highest Common Factor (HCF)",
       objectives: [
         "Explain the meaning of HCF.",
-        "Find factors of given numbers.",
-        "Calculate the HCF of two or more numbers."
+        "Find common factors.",
+        "Calculate the HCF of whole numbers."
       ],
       introduction: "The Highest Common Factor is the greatest number that divides two or more numbers exactly.",
       sections: [
         {
-          heading: "1. Finding the HCF by listing factors",
-          content: "List the factors of each number. Identify the factors they share and select the greatest one."
+          heading: "Finding HCF by Listing Factors",
+          content: "List the factors of each number, identify the common factors and select the greatest one."
         },
         {
-          heading: "2. Example",
+          heading: "Example of Common Factors",
           content: "Factors of 12 are 1, 2, 3, 4, 6 and 12. Factors of 18 are 1, 2, 3, 6, 9 and 18. Their HCF is 6."
-        },
-        {
-          heading: "3. Uses of HCF",
-          content: "HCF helps us divide quantities into the largest possible equal groups without leaving anything."
         }
       ],
       workedExamples: [
         {
           question: "Find the HCF of 8 and 12.",
-          answer: "Factors of 8: 1, 2, 4, 8. Factors of 12: 1, 2, 3, 4, 6, 12. HCF = 4."
+          solution: "Factors of 8: 1, 2, 4, 8. Factors of 12: 1, 2, 3, 4, 6, 12. The HCF is 4."
         }
       ],
-      keyTerms: [
-        "HCF: The greatest factor shared by two or more numbers.",
-        "Common factor: A factor shared by different numbers."
-      ],
+      keyTerms: ["HCF", "Common factor", "Greatest"],
       classExercises: [
-        {
-          question: "Find the HCF of 10 and 15.",
-          answer: "5."
-        },
-        {
-          question: "Find the HCF of 9 and 12.",
-          answer: "3."
-        }
+        "Find the HCF of 6 and 9.",
+        "Find the HCF of 10 and 15.",
+        "Find the HCF of 12 and 20."
       ],
-      summary: "To find HCF, list the factors of the numbers and choose the greatest common factor."
+      summary: "The HCF is the greatest factor shared by two or more numbers."
     },
-
     {
       week: 5,
       title: "Lowest Common Multiple (LCM)",
       objectives: [
         "Explain the meaning of LCM.",
         "List multiples of numbers.",
-        "Find the LCM of two or more numbers."
+        "Calculate the LCM of whole numbers."
       ],
-      introduction: "The Lowest Common Multiple is the smallest positive number that is a multiple of two or more given numbers.",
+      introduction: "The Lowest Common Multiple is the smallest positive number that is a multiple of two or more numbers.",
       sections: [
         {
-          heading: "1. Finding multiples",
-          content: "Multiples are found by multiplying a number by 1, 2, 3 and so on."
+          heading: "Finding LCM by Listing Multiples",
+          content: "List the multiples of each number and identify the smallest positive multiple they share."
         },
         {
-          heading: "2. Finding the LCM",
-          content: "List the multiples of each number. Find the smallest positive number that appears in all the lists."
-        },
-        {
-          heading: "3. Example",
-          content: "Multiples of 3 are 3, 6, 9, 12, 15. Multiples of 4 are 4, 8, 12, 16. The LCM is 12."
+          heading: "Example",
+          content: "Multiples of 3 are 3, 6, 9, 12, 15. Multiples of 4 are 4, 8, 12, 16. Their LCM is 12."
         }
       ],
       workedExamples: [
         {
-          question: "Find the LCM of 2 and 5.",
-          answer: "Multiples of 2 include 2, 4, 6, 8, 10. Multiples of 5 include 5, 10, 15. LCM = 10."
+          question: "Find the LCM of 5 and 10.",
+          solution: "Multiples of 5: 5, 10, 15, 20. Multiples of 10: 10, 20, 30. The LCM is 10."
         }
       ],
-      keyTerms: [
-        "LCM: The smallest positive common multiple of given numbers.",
-        "Multiple: A product obtained by multiplying a number by a whole number."
-      ],
+      keyTerms: ["LCM", "Multiple", "Common multiple"],
       classExercises: [
-        {
-          question: "Find the LCM of 3 and 5.",
-          answer: "15."
-        },
-        {
-          question: "Find the LCM of 4 and 6.",
-          answer: "12."
-        }
+        "Find the LCM of 2 and 3.",
+        "Find the LCM of 4 and 6.",
+        "Find the LCM of 5 and 15."
       ],
-      summary: "LCM is the smallest positive number that is a multiple of all the given numbers."
+      summary: "The LCM is the smallest positive common multiple of two or more numbers."
     },
-
     {
       week: 6,
-      title: "Fractions",
+      title: "Introduction to Fractions",
       objectives: [
         "Define a fraction.",
-        "Identify the numerator and denominator.",
+        "Identify numerators and denominators.",
         "Recognise proper, improper and mixed fractions."
       ],
-      introduction: "A fraction represents part of a whole or part of a group. It is written using two numbers separated by a line.",
+      introduction: "A fraction represents part of a whole or part of a group.",
       sections: [
         {
-          heading: "1. Numerator and denominator",
-          content: "The numerator is the number above the fraction line. The denominator is the number below it. In 3/5, 3 is the numerator and 5 is the denominator."
+          heading: "Parts of a Fraction",
+          content: "In 3/5, the numerator is 3 and the denominator is 5. The numerator tells us how many parts are considered, while the denominator tells us the total number of equal parts."
         },
         {
-          heading: "2. Proper fractions",
-          content: "A proper fraction has a numerator smaller than its denominator. Example: 2/5."
-        },
-        {
-          heading: "3. Improper fractions",
-          content: "An improper fraction has a numerator equal to or greater than its denominator. Example: 7/4."
-        },
-        {
-          heading: "4. Mixed numbers",
-          content: "A mixed number contains a whole number and a proper fraction. Example: 1 3/4."
+          heading: "Types of Fractions",
+          content: "A proper fraction has a numerator smaller than its denominator. An improper fraction has a numerator equal to or greater than its denominator. A mixed number contains a whole number and a fraction."
         }
       ],
       workedExamples: [
         {
-          question: "Identify the numerator and denominator in 4/9.",
-          answer: "Numerator = 4; denominator = 9."
+          question: "Identify the numerator and denominator in 4/7.",
+          solution: "Numerator = 4. Denominator = 7."
         },
         {
-          question: "Classify 3/8.",
-          answer: "Proper fraction."
+          question: "Convert 7/3 to a mixed number.",
+          solution: "7 divided by 3 gives 2 remainder 1. Therefore, 7/3 = 2 1/3."
         }
       ],
-      keyTerms: [
-        "Fraction: Part of a whole.",
-        "Numerator: The top number in a fraction.",
-        "Denominator: The bottom number in a fraction."
-      ],
+      keyTerms: ["Fraction", "Numerator", "Denominator", "Proper fraction", "Improper fraction", "Mixed number"],
       classExercises: [
-        {
-          question: "What is the denominator in 5/8?",
-          answer: "8."
-        },
-        {
-          question: "Is 9/4 proper or improper?",
-          answer: "Improper."
-        }
+        "Identify the numerator in 5/8.",
+        "State whether 3/7 is proper or improper.",
+        "Convert 9/4 to a mixed number."
       ],
-      summary: "Fractions represent parts of a whole. The numerator is above the line and the denominator is below it."
+      summary: "Fractions represent parts of a whole. The numerator is above the fraction line and the denominator is below it."
     },
-
     {
       week: 7,
       title: "Equivalent Fractions",
@@ -351,201 +246,150 @@
         "Generate equivalent fractions.",
         "Simplify fractions."
       ],
-      introduction: "Equivalent fractions are fractions that have the same value even though their numerators and denominators may be different.",
+      introduction: "Equivalent fractions have different numerators and denominators but represent the same value.",
       sections: [
         {
-          heading: "1. Meaning of equivalent fractions",
-          content: "One half, 1/2, is equal to 2/4 and 3/6. These fractions represent the same amount."
-        },
-        {
-          heading: "2. Generating equivalent fractions",
+          heading: "Generating Equivalent Fractions",
           content: "Multiply or divide both the numerator and denominator by the same non-zero number."
         },
         {
-          heading: "3. Simplifying fractions",
-          content: "Divide the numerator and denominator by their highest common factor to obtain the simplest form."
+          heading: "Simplifying Fractions",
+          content: "Divide the numerator and denominator by their greatest common factor to obtain a fraction in its simplest form."
         }
       ],
       workedExamples: [
         {
-          question: "Write an equivalent fraction for 2/3 by multiplying by 2.",
-          answer: "2/3 × 2/2 = 4/6."
+          question: "Find a fraction equivalent to 2/3.",
+          solution: "Multiply the numerator and denominator by 2. The result is 4/6."
         },
         {
-          question: "Simplify 6/8.",
-          answer: "Divide both numbers by 2. The answer is 3/4."
+          question: "Simplify 8/12.",
+          solution: "Divide both 8 and 12 by 4. The answer is 2/3."
         }
       ],
-      keyTerms: [
-        "Equivalent fractions: Fractions with equal values.",
-        "Simplest form: A fraction that cannot be reduced further."
-      ],
+      keyTerms: ["Equivalent fractions", "Simplest form", "Numerator", "Denominator"],
       classExercises: [
-        {
-          question: "Give an equivalent fraction for 1/3.",
-          answer: "2/6."
-        },
-        {
-          question: "Simplify 4/8.",
-          answer: "1/2."
-        }
+        "Write two fractions equivalent to 1/2.",
+        "Simplify 6/9.",
+        "Simplify 10/15."
       ],
-      summary: "Equivalent fractions have the same value. Simplify a fraction by dividing its numerator and denominator by a common factor."
+      summary: "Equivalent fractions represent the same quantity. Simplification produces an equivalent fraction in its simplest form."
     },
-
     {
       week: 8,
       title: "Addition and Subtraction of Fractions",
       objectives: [
-        "Add fractions with the same denominator.",
-        "Subtract fractions with the same denominator.",
+        "Add fractions with common denominators.",
+        "Subtract fractions with common denominators.",
         "Work with fractions having different denominators."
       ],
-      introduction: "Fractions can be added and subtracted. The method depends on whether their denominators are the same or different.",
+      introduction: "Fractions can be added or subtracted by following rules for their denominators.",
       sections: [
         {
-          heading: "1. Same denominators",
-          content: "Add or subtract the numerators and keep the denominator unchanged. For example, 2/7 + 3/7 = 5/7."
+          heading: "Same Denominators",
+          content: "When denominators are the same, add or subtract the numerators and keep the denominator unchanged."
         },
         {
-          heading: "2. Different denominators",
-          content: "Find a common denominator, convert the fractions into equivalent fractions, then add or subtract."
-        },
-        {
-          heading: "3. Example with different denominators",
-          content: "1/2 + 1/4 = 2/4 + 1/4 = 3/4."
+          heading: "Different Denominators",
+          content: "Find a common denominator, convert the fractions to equivalent fractions, and then add or subtract."
         }
       ],
       workedExamples: [
         {
-          question: "Calculate 3/8 + 2/8.",
-          answer: "5/8."
+          question: "Calculate 2/7 + 3/7.",
+          solution: "Add the numerators: 2 + 3 = 5. Answer = 5/7."
         },
         {
           question: "Calculate 3/4 - 1/4.",
-          answer: "2/4 = 1/2."
-        }
-      ],
-      keyTerms: [
-        "Common denominator: A denominator shared by fractions.",
-        "Addition: Combining quantities.",
-        "Subtraction: Finding the difference between quantities."
-      ],
-      classExercises: [
-        {
-          question: "Calculate 2/9 + 4/9.",
-          answer: "6/9 = 2/3."
+          solution: "3 - 1 = 2. Therefore 2/4 = 1/2."
         },
         {
-          question: "Calculate 5/6 - 2/6.",
-          answer: "3/6 = 1/2."
+          question: "Calculate 1/2 + 1/3.",
+          solution: "The common denominator is 6. 1/2 = 3/6 and 1/3 = 2/6. Answer = 5/6."
         }
       ],
-      summary: "For fractions with the same denominator, work with the numerators. For different denominators, first find a common denominator."
+      keyTerms: ["Addition", "Subtraction", "Common denominator"],
+      classExercises: [
+        "Calculate 1/5 + 2/5.",
+        "Calculate 5/8 - 2/8.",
+        "Calculate 1/3 + 1/6."
+      ],
+      summary: "Use a common denominator before adding or subtracting fractions with different denominators."
     },
-
     {
       week: 9,
       title: "Multiplication and Division of Fractions",
       objectives: [
-        "Multiply two fractions.",
-        "Divide one fraction by another.",
+        "Multiply fractions.",
+        "Divide fractions.",
         "Simplify answers."
       ],
-      introduction: "Multiplication and division are important operations used when working with fractions.",
+      introduction: "Multiplication and division of fractions use different rules from addition and subtraction.",
       sections: [
         {
-          heading: "1. Multiplication",
-          content: "Multiply the numerators together and multiply the denominators together. Simplify the result where possible."
+          heading: "Multiplication",
+          content: "Multiply the numerators together and multiply the denominators together. Simplify the answer where possible."
         },
         {
-          heading: "2. Division",
+          heading: "Division",
           content: "To divide by a fraction, multiply by its reciprocal. The reciprocal is obtained by interchanging the numerator and denominator."
-        },
-        {
-          heading: "3. Example",
-          content: "1/2 × 2/3 = 2/6 = 1/3. For division, 1/2 ÷ 1/4 = 1/2 × 4/1 = 2."
         }
       ],
       workedExamples: [
         {
           question: "Calculate 2/3 × 3/4.",
-          answer: "6/12 = 1/2."
+          solution: "Multiply: 2 × 3 = 6 and 3 × 4 = 12. Simplify 6/12 to get 1/2."
         },
         {
-          question: "Calculate 3/5 ÷ 1/2.",
-          answer: "3/5 × 2/1 = 6/5 = 1 1/5."
+          question: "Calculate 1/2 ÷ 1/4.",
+          solution: "Change division to multiplication by the reciprocal: 1/2 × 4/1 = 4/2 = 2."
         }
       ],
-      keyTerms: [
-        "Reciprocal: A fraction obtained by interchanging the numerator and denominator.",
-        "Product: The result of multiplication.",
-        "Quotient: The result of division."
-      ],
+      keyTerms: ["Multiplication", "Division", "Reciprocal", "Simplification"],
       classExercises: [
-        {
-          question: "Calculate 1/2 × 1/3.",
-          answer: "1/6."
-        },
-        {
-          question: "Calculate 2/3 ÷ 1/3.",
-          answer: "2."
-        }
+        "Calculate 1/2 × 2/3.",
+        "Calculate 3/5 × 5/6.",
+        "Calculate 1/3 ÷ 1/6."
       ],
-      summary: "Multiply fractions by multiplying their numerators and denominators. Divide by multiplying by the reciprocal of the second fraction."
+      summary: "Multiply fractions straight across. For division, multiply by the reciprocal of the second fraction."
     },
-
     {
       week: 10,
-      title: "Decimals",
+      title: "Introduction to Decimals",
       objectives: [
         "Explain decimal numbers.",
         "Identify decimal place values.",
         "Convert simple fractions to decimals."
       ],
-      introduction: "Decimals are another way of writing fractions. A decimal point separates the whole-number part from the fractional part.",
+      introduction: "Decimals are another way of representing parts of a whole. They use a decimal point to separate whole numbers from fractional parts.",
       sections: [
         {
-          heading: "1. Decimal place values",
-          content: "The first digit after the decimal point represents tenths. The second represents hundredths, and the third represents thousandths."
+          heading: "Decimal Place Values",
+          content: "The first digit after the decimal point represents tenths, the second represents hundredths and the third represents thousandths."
         },
         {
-          heading: "2. Reading decimals",
-          content: "0.5 is read as five tenths or zero point five. 0.25 is twenty-five hundredths."
-        },
-        {
-          heading: "3. Fractions and decimals",
-          content: "A fraction with denominator 10, 100 or 1000 can be written as a decimal by using the appropriate decimal places."
+          heading: "Fractions and Decimals",
+          content: "A fraction with denominator 10, 100 or 1000 can be written as a decimal by placing the digits in the appropriate decimal positions."
         }
       ],
       workedExamples: [
         {
-          question: "Write 5/10 as a decimal.",
-          answer: "0.5."
+          question: "What is the value of 7 in 3.75?",
+          solution: "The digit 7 is in the tenths position. Its value is 0.7."
         },
         {
-          question: "What is the value of 7 in 3. seventy-five?",
-          answer: "The 7 is in the tenths position, so its value is 0.7."
+          question: "Convert 25/100 to a decimal.",
+          solution: "25/100 = 0.25."
         }
       ],
-      keyTerms: [
-        "Decimal: A number written using a decimal point.",
-        "Tenths: The first place after the decimal point.",
-        "Hundredths: The second place after the decimal point."
-      ],
+      keyTerms: ["Decimal", "Decimal point", "Tenths", "Hundredths", "Thousandths"],
       classExercises: [
-        {
-          question: "Write 25/100 as a decimal.",
-          answer: "0.25."
-        },
-        {
-          question: "What is the tenths digit in 4.68?",
-          answer: "6."
-        }
+        "State the place value of 4 in 2.45.",
+        "Convert 5/10 to a decimal.",
+        "Write 0.75 as a fraction out of 100."
       ],
-      summary: "Decimals use a decimal point. Digits after the point represent tenths, hundredths, thousandths and smaller parts."
+      summary: "Decimal place value depends on the position of digits after the decimal point."
     },
-
     {
       week: 11,
       title: "Addition and Subtraction of Decimals",
@@ -554,116 +398,73 @@
         "Subtract decimal numbers.",
         "Arrange decimal points correctly."
       ],
-      introduction: "Decimal numbers can be added and subtracted using place value. The decimal points must be aligned correctly.",
+      introduction: "Decimal numbers can be added and subtracted using place value.",
       sections: [
         {
-          heading: "1. Adding decimals",
-          content: "Write the numbers so that their decimal points are directly under one another. Add the numbers as with whole numbers."
+          heading: "Adding Decimals",
+          content: "Write the numbers vertically with decimal points directly below each other. Add zeros where needed and add normally."
         },
         {
-          heading: "2. Subtracting decimals",
-          content: "Align the decimal points and subtract. Add zeros at the end when necessary to make the decimal places equal."
+          heading: "Subtracting Decimals",
+          content: "Align the decimal points, add zeros where needed and subtract carefully, borrowing when necessary."
         }
       ],
       workedExamples: [
         {
-          question: "Calculate 2.5 + 1.3.",
-          answer: "3.8."
+          question: "Calculate 2.35 + 1.20.",
+          solution: "2.35 + 1.20 = 3.55."
         },
         {
-          question: "Calculate 5.7 - 2.4.",
-          answer: "3.3."
+          question: "Calculate 5.60 - 2.25.",
+          solution: "5.60 - 2.25 = 3.35."
         }
       ],
-      keyTerms: [
-        "Decimal point: The point separating whole numbers from decimal parts.",
-        "Place value: The value of a digit according to its position."
-      ],
+      keyTerms: ["Decimal addition", "Decimal subtraction", "Place value"],
       classExercises: [
-        {
-          question: "Calculate 3.2 + 4.5.",
-          answer: "7.7."
-        },
-        {
-          question: "Calculate 8.6 - 3.1.",
-          answer: "5.5."
-        }
+        "Calculate 1.25 + 2.50.",
+        "Calculate 4.75 - 1.25.",
+        "Calculate 3.60 + 0.45."
       ],
-      summary: "Always align decimal points when adding or subtracting decimals."
+      summary: "Always align decimal points when adding or subtracting decimal numbers."
     },
-
     {
       week: 12,
-      title: "Revision and First Term Assessment",
+      title: "First Term Revision and Assessment",
       objectives: [
         "Review the topics covered during the term.",
-        "Solve questions on number operations.",
-        "Identify areas that need further practice."
+        "Solve mixed mathematics questions.",
+        "Identify topics that need more practice."
       ],
-      introduction: "This week is for revising the major topics studied during the first term and practising assessment questions.",
+      introduction: "Revision helps learners remember important ideas and prepare for assessment.",
       sections: [
         {
-          heading: "1. Number concepts",
-          content: "Revise number bases, place value, factors, multiples, prime numbers, composite numbers, HCF and LCM."
+          heading: "Topics to Revise",
+          content: "Revise place value, number bases, factors, multiples, prime and composite numbers, HCF, LCM, fractions and decimals."
         },
         {
-          heading: "2. Fractions",
-          content: "Revise types of fractions, equivalent fractions, simplification, addition, subtraction, multiplication and division."
-        },
-        {
-          heading: "3. Decimals",
-          content: "Revise decimal place values, conversion between simple fractions and decimals, and decimal addition and subtraction."
+          heading: "Revision Advice",
+          content: "Read each topic, study worked examples, attempt exercises independently and check your answers."
         }
       ],
       workedExamples: [
         {
           question: "Find the HCF of 12 and 18.",
-          answer: "6."
+          solution: "The common factors are 1, 2, 3 and 6. The HCF is 6."
         },
         {
           question: "Calculate 1/2 + 1/4.",
-          answer: "3/4."
-        },
-        {
-          question: "Calculate 2.4 + 1.5.",
-          answer: "3.9."
+          solution: "1/2 = 2/4. Therefore 2/4 + 1/4 = 3/4."
         }
       ],
-      keyTerms: [
-        "Revision: Reviewing previously learned topics.",
-        "Assessment: An exercise used to check learning."
-      ],
+      keyTerms: ["Revision", "Assessment", "Practice"],
       classExercises: [
-        {
-          question: "List the prime numbers between 1 and 10.",
-          answer: "2, 3, 5 and 7."
-        },
-        {
-          question: "Find the LCM of 4 and 6.",
-          answer: "12."
-        },
-        {
-          question: "Simplify 8/12.",
-          answer: "2/3."
-        }
+        "List the factors of 24.",
+        "Find the LCM of 3 and 5.",
+        "Simplify 12/16.",
+        "Calculate 2/5 + 1/5.",
+        "Calculate 3.5 + 2.25."
       ],
-      summary: "Revision helps learners remember important concepts and prepare for assessment.",
-      examinationPractice: [
-        {
-          question: "What is the HCF of 8 and 12?",
-          options: ["2", "4", "6", "8"],
-          answer: "4",
-          explanation: "The common factors are 1, 2 and 4. The greatest is 4."
-        },
-        {
-          question: "Calculate 1/2 + 1/4.",
-          options: ["1/4", "2/4", "3/4", "1"],
-          answer: "3/4",
-          explanation: "Convert 1/2 to 2/4, then add 2/4 + 1/4."
-        }
-      ]
+      summary: "Regular practice and revision improve mathematical understanding and problem-solving skills."
     }
-
   ];
-
 })();
