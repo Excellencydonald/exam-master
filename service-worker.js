@@ -1,10 +1,14 @@
 
-const CACHE_NAME = "exam-master-junior-v2";
+const CACHE_NAME = "exam-master-junior-v3";
 
 const APP_FILES = [
+  "./",
+  "./index.html",
   "./EXAM_MASTER_index.html",
   "./style.css",
   "./app.js",
+  "./lesson-library.js",
+  "./lessons/jss1-mathematics-first-term.js",
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
@@ -16,6 +20,7 @@ self.addEventListener("install", event => {
       cache.addAll(APP_FILES)
     )
   );
+
   self.skipWaiting();
 });
 
@@ -29,6 +34,7 @@ self.addEventListener("activate", event => {
       )
     )
   );
+
   self.clients.claim();
 });
 
@@ -40,16 +46,20 @@ self.addEventListener("fetch", event => {
       if (cached) return cached;
 
       return fetch(event.request).then(response => {
+
         if (
           response.ok &&
           new URL(event.request.url).origin === self.location.origin
         ) {
           const copy = response.clone();
+
           caches.open(CACHE_NAME).then(cache => {
             cache.put(event.request, copy);
           });
         }
+
         return response;
+
       }).catch(() =>
         caches.match("./EXAM_MASTER_index.html")
       );
