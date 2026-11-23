@@ -1,523 +1,96 @@
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101a35">
-  <meta name="description" content="EXAM MASTER JUNIOR - Learn, practise and prepare for examinations.">
-  <title>EXAM MASTER JUNIOR</title>
-  <link rel="manifest" href="manifest.json">
-  <link rel="stylesheet" href="style.css">
+<section id="profilePage" class="page">
+  <button class="back" onclick="goBack()">← Back</button>
 
-  <style>
-    :root {
-      --bg: #0b1225;
-      --panel: #151f38;
-      --panel2: #1d2a49;
-      --text: #f5f7ff;
-      --muted: #a9b5d0;
-      --accent: #548cff;
-      --line: #2b3b60;
-    }
+  <h1>Student Profile</h1>
+  <p class="muted">Manage your learning identity.</p>
 
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Arial, sans-serif;
-      padding-bottom: 82px;
-    }
-
-    button, select, input {
-      font: inherit;
-    }
-
-    button {
-      cursor: pointer;
-    }
-
-    .topbar {
-      background: #111d39;
-      padding: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--line);
-    }
-
-    .brand {
-      font-weight: 800;
-      font-size: 17px;
-      letter-spacing: .5px;
-    }
-
-    .brand span { color: #70a4ff; }
-
-    .page {
-      display: none;
-      padding: 18px;
-      max-width: 850px;
-      margin: auto;
-    }
-
-    .page.active { display: block; }
-
-    .welcome {
-      background: linear-gradient(135deg, #183c79, #25215f);
-      padding: 23px;
-      border-radius: 20px;
-      margin-bottom: 20px;
-    }
-
-    .welcome h1 {
-      font-size: 25px;
-      margin: 0 0 8px;
-    }
-
-    .muted { color: var(--muted); }
-
-    .section-title {
-      font-size: 19px;
-      margin: 22px 0 12px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 12px;
-    }
-
-    .card {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      border-radius: 16px;
-      padding: 17px;
-      min-height: 105px;
-      color: var(--text);
-      text-align: left;
-    }
-
-    .card strong {
-      display: block;
-      margin: 9px 0 5px;
-      font-size: 15px;
-    }
-
-    .card small {
-      color: var(--muted);
-      line-height: 1.4;
-    }
-
-    .card .symbol {
-      font-size: 24px;
-    }
-
-    .card:active, .action:active {
-      transform: scale(.98);
-    }
-
-    .action {
-      background: var(--accent);
-      color: white;
-      border: 0;
-      border-radius: 11px;
-      padding: 12px 17px;
-      font-weight: 700;
-      margin: 5px 4px 5px 0;
-    }
-
-    .secondary {
-      background: var(--panel2);
-      border: 1px solid var(--line);
-    }
-
-    .back {
-      background: transparent;
-      color: #8eb6ff;
-      border: 0;
-      padding: 5px 0 15px;
-      font-weight: bold;
-    }
-
-    .panel {
-      background: var(--panel);
-      border: 1px solid var(--line);
-      padding: 17px;
-      border-radius: 15px;
-      margin: 12px 0;
-    }
-
-    .panel select, .panel input {
-      display: block;
-      width: 100%;
-      padding: 13px;
-      margin: 9px 0;
-      color: var(--text);
-      background: var(--panel2);
-      border: 1px solid var(--line);
-      border-radius: 9px;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: #111d39;
-      border-top: 1px solid var(--line);
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      padding: 9px 3px calc(9px + env(safe-area-inset-bottom));
-      z-index: 100;
-    }
-
-    .nav-btn {
-      border: 0;
-      background: transparent;
-      color: var(--muted);
-      font-size: 11px;
-      padding: 5px 1px;
-    }
-
-    .nav-btn span {
-      display: block;
-      font-size: 20px;
-      margin-bottom: 4px;
-    }
-
-    .nav-btn.active { color: #79aaff; font-weight: bold; }
-
-    .hidden { display: none !important; }
-
-    .content-area {
-      line-height: 1.7;
-      overflow-wrap: anywhere;
-    }
-
-    @media (min-width: 650px) {
-      .grid { grid-template-columns: repeat(3, 1fr); }
-      .page { padding: 25px; }
-    }
-  </style>
-</head>
-
-<body>
-  <header class="topbar">
-    <div class="brand">EXAM MASTER <span>JUNIOR</span></div>
-    <div>🎓</div>
-  </header>
-
-  <!-- HOME -->
-  <main id="homePage" class="page active">
-    <section class="welcome">
-      <h1>Welcome to EXAM MASTER</h1>
-      <p>Your learning and examination preparation centre.</p>
-      <p class="muted">Learn • Practise • Improve</p>
-    </section>
-
-    <h2 class="section-title">Your learning dashboard</h2>
-    <div class="grid">
-      <button class="card" onclick="openPage('learningPage')">
-        <span class="symbol">📚</span>
-        <strong>Learning Centre</strong>
-        <small>Study your complete lesson notes.</small>
-      </button>
-
-      <button class="card" onclick="openPage('baePage')">
-        <span class="symbol">📝</span>
-        <strong>BAE</strong>
-        <small>Basic Assessment Exercises.</small>
-      </button>
-
-      <button class="card" onclick="openPage('cbtPage')">
-        <span class="symbol">💻</span>
-        <strong>CBT</strong>
-        <small>Timed computer-based practice.</small>
-      </button>
-
-      <button class="card" onclick="openPage('becePage')">
-        <span class="symbol">🏆</span>
-        <strong>BECE Preparation</strong>
-        <small>Prepare for your JSS 3 examination.</small>
-      </button>
-
-      <button class="card" onclick="openPage('pastPage')">
-        <span class="symbol">📖</span>
-        <strong>Past Questions</strong>
-        <small>Practise objective and theory questions.</small>
-      </button>
-
-      <button class="card" onclick="openPage('revisionPage')">
-        <span class="symbol">🧠</span>
-        <strong>Revision Centre</strong>
-        <small>Revise topics and practise.</small>
-      </button>
-
-      <button class="card" onclick="openPage('resultsPage')">
-        <span class="symbol">📊</span>
-        <strong>Results Centre</strong>
-        <small>View scores and performance.</small>
-      </button>
-
-      <button class="card" onclick="openPage('bookmarksPage')">
-        <span class="symbol">🔖</span>
-        <strong>Bookmarks</strong>
-        <small>Access saved study materials.</small>
-      </button>
-    </div>
-  </main>
-
-  <!-- LEARNING CENTRE -->
-  <section id="learningPage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Learning Centre</h1>
-    <p class="muted">Choose your class, term and subject.</p>
-
-    <div class="panel">
-      <label for="classSelect">Select class</label>
-      <select id="classSelect">
-        <option value="JSS 1">JSS 1</option>
-        <option value="JSS 2">JSS 2</option>
-        <option value="JSS 3">JSS 3</option>
-      </select>
-
-      <label for="termSelect">Select term</label>
-      <select id="termSelect">
-        <option value="First Term">First Term</option>
-        <option value="Second Term">Second Term</option>
-        <option value="Third Term">Third Term</option>
-      </select>
-
-      <label for="subjectSelect">Select subject</label>
-      <select id="subjectSelect">
-        <option value="">Choose a subject</option>
-      </select>
+  <div class="panel">
+    <div style="text-align:center;padding:15px">
+      <div style="font-size:55px">🎓</div>
+      <h2 id="profileDisplayName">Student</h2>
+      <p class="muted" id="profileDisplayClass">JSS 1</p>
     </div>
 
-    <div id="lessonList"></div>
-    <div id="lessonViewer" class="panel content-area"></div>
-  </section>
+    <label for="studentName">Student Name</label>
+    <input
+      id="studentName"
+      type="text"
+      maxlength="50"
+      placeholder="Enter your name"
+    >
 
-  <!-- BAE -->
-  <section id="baePage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Basic Assessment Exercises</h1>
-    <p class="muted">Test your understanding of what you have studied.</p>
+    <label for="studentClass">Select Class</label>
+    <select id="studentClass">
+      <option value="JSS 1">JSS 1</option>
+      <option value="JSS 2">JSS 2</option>
+      <option value="JSS 3">JSS 3</option>
+    </select>
 
-    <div id="baeSection">
-      <div id="baeSetup" class="panel">
-        <p>Select your class, term and subject to begin.</p>
-        <button class="action" id="baeStart">Start BAE</button>
-      </div>
-      <div id="baeQuiz" class="hidden">
-        <div id="baeDetails"></div>
-        <div id="baeProgress"></div>
-        <div id="baeProgressBar"></div>
-        <div id="baeQuestion" class="panel"></div>
-        <div id="baeOptions"></div>
-        <div id="baeFeedback"></div>
-        <button id="baeSubmit" class="action">Submit Answer</button>
-        <button id="baeNext" class="action hidden">Next Question</button>
-      </div>
-      <div id="baeResult" class="panel hidden">
-        <h2>Assessment Result</h2>
-        <div id="baeScore"></div>
-        <div id="baeSummary"></div>
-        <div id="baeReview"></div>
-        <button id="baeRestart" class="action">Try Again</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- CBT -->
-  <section id="cbtPage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Computer-Based Test</h1>
-    <div class="panel">
-      <p>Choose a class and subject to prepare for a CBT.</p>
-      <p class="muted">The complete timed CBT question engine is still under development.</p>
-    </div>
-  </section>
-
-  <!-- BECE -->
-  <section id="becePage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>BECE Preparation</h1>
-    <div class="panel">
-      <p>JSS 3 examination preparation.</p>
-      <p class="muted">Subject revision, practice questions and mock examinations will be organised here.</p>
-    </div>
-  </section>
-
-  <!-- PAST QUESTIONS -->
-  <section id="pastPage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Past Questions Library</h1>
-    <p class="muted">Choose your practice category.</p>
-
-    <div class="panel">
-      <label for="pastClass">Class</label>
-      <select id="pastClass">
-        <option value="JSS 1">JSS 1</option>
-        <option value="JSS 2">JSS 2</option>
-        <option value="JSS 3">JSS 3</option>
-      </select>
-
-      <label for="pastSubject">Subject</label>
-      <select id="pastSubject">
-        <option>Mathematics</option>
-        <option>English Studies</option>
-        <option>Intermediate Science</option>
-        <option>Physical and Health Education</option>
-        <option>Digital Technologies</option>
-        <option>Nigerian History</option>
-        <option>Social and Citizenship Studies</option>
-        <option>Cultural and Creative Arts</option>
-        <option>Business Studies</option>
-        <option>Livestock Farming</option>
-        <option>CRS / IRS</option>
-        <option>Nigerian Languages</option>
-        <option>French</option>
-        <option>Arabic</option>
-      </select>
-
-      <label for="pastType">Question type</label>
-      <select id="pastType">
-        <option value="objective">Objective</option>
-        <option value="theory">Theory</option>
-      </select>
-
-      <button class="action" id="pastStartButton">Start Practice</button>
-    </div>
-
-    <div id="pastPractice" class="panel hidden">
-      <div id="pastQuestion"></div>
-      <div id="pastOptions"></div>
-      <div id="pastFeedback"></div>
-      <button class="action" id="pastCheckButton">Check Answer</button>
-      <button class="action hidden" id="pastNextButton">Next Question</button>
-      <button class="action secondary" id="pastRestartButton">Restart</button>
-    </div>
-
-    <div id="pastResult" class="panel hidden">
-      <h2>Practice Result</h2>
-      <div id="pastScore"></div>
-      <div id="pastSummary"></div>
-      <div id="pastReview"></div>
-    </div>
-
-    <div class="panel">
-      <h3>Practice History</h3>
-      <div id="pastHistory"></div>
-    </div>
-  </section>
-
-  <!-- REVISION -->
-  <section id="revisionPage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Revision Centre</h1>
-    <div class="panel">
-      <p>Revise by class, subject and topic.</p>
-      <p class="muted">Topic-based revision activities will be connected here.</p>
-    </div>
-  </section>
-
-  <!-- RESULTS -->
-  <section id="resultsPage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Results Centre</h1>
-    <div class="panel">
-      <h3>Your performance</h3>
-      <p>View your saved practice results and progress.</p>
-      <p class="muted">Results from supported assessments are stored on this device.</p>
-    </div>
-  </section>
-
-  <!-- BOOKMARKS -->
-  <section id="bookmarksPage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Bookmarks</h1>
-    <div class="panel">
-      <p>Your saved lessons and questions will appear here.</p>
-    </div>
-  </section>
-
-  <!-- PROFILE AND SETTINGS -->
-  <section id="profilePage" class="page">
-    <button class="back" onclick="goBack()">← Back</button>
-    <h1>Profile and Settings</h1>
-    <div class="panel">
-      <h3>EXAM MASTER JUNIOR</h3>
-      <p>Version 2.0</p>
-      <p>Learning and examination preparation for JSS 1, JSS 2 and JSS 3.</p>
-      <button class="action secondary" onclick="alert('Settings will be added here.')">Settings</button>
-    </div>
-  </section>
-
-  <!-- BOTTOM NAVIGATION -->
-  <nav class="bottom-nav">
-    <button class="nav-btn active" data-page="homePage" onclick="openPage('homePage')">
-      <span>⌂</span>Home
+    <button class="action" onclick="saveStudentProfile()">
+      Save Profile
     </button>
-    <button class="nav-btn" data-page="learningPage" onclick="openPage('learningPage')">
-      <span>📚</span>Learn
-    </button>
-    <button class="nav-btn" data-page="baePage" onclick="openPage('baePage')">
-      <span>✍️</span>Practice
-    </button>
-    <button class="nav-btn" data-page="pastPage" onclick="openPage('pastPage')">
-      <span>📖</span>Exams
-    </button>
-    <button class="nav-btn" data-page="profilePage" onclick="openPage('profilePage')">
-      <span>👤</span>Profile
-    </button>
-  </nav>
 
-  <!-- EXISTING APP SCRIPTS -->
-  <script src="lesson-library.js"></script>
-  <script src="past-questions.js"></script>
-  <script src="app.js"></script>
-  <script src="bae.js"></script>
+    <p id="profileMessage" class="muted"></p>
+  </div>
 
-  <script>
-    const pageStack = ["homePage"];
+  <div class="panel">
+    <h3>My Account</h3>
+    <p>EXAM MASTER JUNIOR</p>
+    <p class="muted">Your profile is saved locally on this device.</p>
+  </div>
+</section>
 
-    function openPage(id) {
-      const target = document.getElementById(id);
-      if (!target) return;
+<script>
+  function loadStudentProfile() {
+    const profile = JSON.parse(
+      localStorage.getItem("examMasterStudentProfile") || "{}"
+    );
 
-      const current = pageStack[pageStack.length - 1];
-      if (current !== id) pageStack.push(id);
+    document.getElementById("studentName").value =
+      profile.name || "";
 
-      showPage(id);
+    document.getElementById("studentClass").value =
+      profile.studentClass || "JSS 1";
+
+    updateProfileDisplay();
+  }
+
+  function saveStudentProfile() {
+    const name = document.getElementById("studentName")
+      .value.trim();
+
+    const studentClass =
+      document.getElementById("studentClass").value;
+
+    if (!name) {
+      document.getElementById("profileMessage").textContent =
+        "Please enter your name.";
+      return;
     }
 
-    function showPage(id) {
-      document.querySelectorAll(".page").forEach(page => {
-        page.classList.toggle("active", page.id === id);
-      });
+    localStorage.setItem(
+      "examMasterStudentProfile",
+      JSON.stringify({ name, studentClass })
+    );
 
-      document.querySelectorAll(".nav-btn").forEach(button => {
-        button.classList.toggle("active", button.dataset.page === id);
-      });
+    updateProfileDisplay();
 
-      window.scrollTo(0, 0);
-    }
+    document.getElementById("profileMessage").textContent =
+      "Profile saved successfully!";
+  }
 
-    function goBack() {
-      if (pageStack.length > 1) pageStack.pop();
-      showPage(pageStack[pageStack.length - 1]);
-    }
+  function updateProfileDisplay() {
+    const name = document.getElementById("studentName").value.trim();
+    const studentClass =
+      document.getElementById("studentClass").value;
 
-    window.addEventListener("DOMContentLoaded", () => {
-      if ("serviceWorker" in navigator) {
-        navigator.serviceWorker.register("./service-worker.js")
-          .catch(error => console.error("Service worker error:", error));
-      }
-    });
-  </script>
-</body>
-</html>
+    document.getElementById("profileDisplayName").textContent =
+      name || "Student";
+
+    document.getElementById("profileDisplayClass").textContent =
+      studentClass;
+  }
+
+  loadStudentProfile();
+</script>
