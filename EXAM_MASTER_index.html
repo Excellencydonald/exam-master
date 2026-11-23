@@ -47,260 +47,508 @@ button:disabled{opacity:.5;cursor:not-allowed}
 .bae-progress{height:9px;background:#e3e8f2;border-radius:20px;overflow:hidden}
 .bae-progress-bar{height:100%;width:0;background:var(--primary)}
 .past-question-card{background:#f7f9ff;padding:15px}
+.past-option{display:block;padding:12px;margin:8px 0;background:white;border:1px solid #ccd4e5;border-radius:8px}
+.past-option input{margin-right:8px}
+.past-theory-answer{white-space:pre-wrap;line-height:1.7}
 footer{text-align:center;padding:22px;color:var(--muted)}
 </style>
 </head>
 
 <body>
 <header>
-<h1>EXAM MASTER</h1>
-<p>JUNIOR SECONDARY SCHOOL</p>
-<p>Learn • Practise • Improve</p>
+  <h1>EXAM MASTER</h1>
+  <p>JUNIOR SECONDARY SCHOOL</p>
+  <p>Learn • Practise • Improve</p>
 </header>
 
 <main>
 
 <section class="panel">
-<h2>Welcome to EXAM MASTER JUNIOR</h2>
-<p>Your learning and examination preparation platform for JSS 1, JSS 2 and JSS 3.</p>
-<p class="muted">Study lessons, practise questions and monitor your progress.</p>
+  <h2>Welcome to EXAM MASTER JUNIOR</h2>
+  <p>Your learning and examination preparation platform for JSS 1, JSS 2 and JSS 3.</p>
+  <p class="muted">Study lessons, practise questions and monitor your progress.</p>
 </section>
 
+<!-- LEARNING CENTRE -->
 <section class="panel" id="learningCentre">
-<h2>Learning Centre</h2>
-<div class="selectors">
-<div>
-<label for="classSelect">Select Class</label>
-<select id="classSelect">
-<option value="JSS 1">JSS 1</option>
-<option value="JSS 2">JSS 2</option>
-<option value="JSS 3">JSS 3</option>
-</select>
-</div>
-<div>
-<label for="termSelect">Select Term</label>
-<select id="termSelect">
-<option value="First Term">First Term</option>
-<option value="Second Term">Second Term</option>
-<option value="Third Term">Third Term</option>
-</select>
-</div>
-<div>
-<label for="subjectSelect">Select Subject</label>
-<select id="subjectSelect">
-<option value="">Loading subjects...</option>
-</select>
-</div>
-</div>
-<button id="loadLessons" type="button">Open Lessons</button>
-<p id="lessonMessage" class="muted" aria-live="polite"></p>
-<section id="lessonListSection" class="hidden">
-<h3>Available Lessons</h3>
-<div id="lessonList"></div>
-</section>
-<section id="lessonViewer" class="hidden">
-<button id="backToLessons" type="button">← Back to Lessons</button>
-<div id="lessonContent"></div>
-</section>
-<p id="progressDisplay" class="muted">Your progress will appear here.</p>
+  <h2>Learning Centre</h2>
+
+  <div class="selectors">
+    <div>
+      <label for="classSelect">Select Class</label>
+      <select id="classSelect">
+        <option value="JSS 1">JSS 1</option>
+        <option value="JSS 2">JSS 2</option>
+        <option value="JSS 3">JSS 3</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="termSelect">Select Term</label>
+      <select id="termSelect">
+        <option value="First Term">First Term</option>
+        <option value="Second Term">Second Term</option>
+        <option value="Third Term">Third Term</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="subjectSelect">Select Subject</label>
+      <select id="subjectSelect">
+        <option value="">Loading subjects...</option>
+      </select>
+    </div>
+  </div>
+
+  <button id="loadLessons" type="button">Open Lessons</button>
+  <p id="lessonMessage" class="muted" aria-live="polite"></p>
+
+  <section id="lessonListSection" class="hidden">
+    <h3>Available Lessons</h3>
+    <div id="lessonList"></div>
+  </section>
+
+  <section id="lessonViewer" class="hidden">
+    <button id="backToLessons" type="button">← Back to Lessons</button>
+    <div id="lessonContent"></div>
+  </section>
+
+  <p id="progressDisplay" class="muted">Your progress will appear here.</p>
 </section>
 
+<!-- ASSESSMENT CENTRE -->
 <section class="panel" id="assessmentCentre">
-<h2>Assessment Centre</h2>
+  <h2>Assessment Centre</h2>
 
-<div class="assessment-card" id="baeSection">
-<h3>BAE – Basic Assessment Exercises</h3>
-<p>Practise questions based on your selected class, term and subject.</p>
-<div id="baeSetup">
-<p class="muted">Select your class, term and subject in the Learning Centre before starting.</p>
-<button type="button" id="baeStart">Start BAE</button>
-</div>
-<p id="baeDetails" class="muted"></p>
-<div id="baeQuiz" class="hidden">
-<div class="bae-progress"><div id="baeProgressBar" class="bae-progress-bar"></div></div>
-<p id="baeProgress">Question 1</p>
-<h4 id="baeQuestion"></h4>
-<div id="baeOptions"></div>
-<button type="button" id="baeSubmit">Submit Answer</button>
-<div id="baeFeedback" class="bae-feedback hidden"></div>
-<button type="button" id="baeNext" class="hidden">Next Question</button>
-</div>
-<div id="baeResult" class="hidden">
-<h3>Assessment Completed</h3>
-<h2 id="baeScore"></h2>
-<p id="baeSummary"></p>
-<div id="baeReview"></div>
-<button type="button" id="baeRestart">Try Again</button>
-</div>
-</div>
+  <div class="assessment-card" id="baeSection">
+    <h3>BAE – Basic Assessment Exercises</h3>
+    <p>Practise questions based on your selected class, term and subject.</p>
 
-<div class="assessment-card">
-<h3>CBT – Computer-Based Tests</h3>
-<p>Timed multiple-choice examinations for JSS 1, JSS 2 and JSS 3.</p>
-<p class="muted">CBT engine is still being developed.</p>
-</div>
+    <div id="baeSetup">
+      <p class="muted">Select your class, term and subject in the Learning Centre before starting.</p>
+      <button type="button" id="baeStart">Start BAE</button>
+    </div>
 
-<div class="assessment-card">
-<h3>BECE Preparation</h3>
-<p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
-<p class="muted">BECE question bank is still being developed.</p>
-</div>
+    <p id="baeDetails" class="muted"></p>
 
-<div class="assessment-card">
-<h3>Free Mock Test Study Book</h3>
-<p>Read study guides and practise English, Mathematics, reasoning and Basic Science.</p>
-<a class="book-link" href="competitive-exam-book.html">Open Free Study Book</a>
-</div>
+    <div id="baeQuiz" class="hidden">
+      <div class="bae-progress">
+        <div id="baeProgressBar" class="bae-progress-bar"></div>
+      </div>
+      <p id="baeProgress">Question 1</p>
+      <h4 id="baeQuestion"></h4>
+      <div id="baeOptions"></div>
+      <button type="button" id="baeSubmit">Submit Answer</button>
+      <div id="baeFeedback" class="bae-feedback hidden"></div>
+      <button type="button" id="baeNext" class="hidden">Next Question</button>
+    </div>
+
+    <div id="baeResult" class="hidden">
+      <h3>Assessment Completed</h3>
+      <h2 id="baeScore"></h2>
+      <p id="baeSummary"></p>
+      <div id="baeReview"></div>
+      <button type="button" id="baeRestart">Try Again</button>
+    </div>
+  </div>
+
+  <div class="assessment-card">
+    <h3>CBT – Computer-Based Tests</h3>
+    <p>Timed multiple-choice examinations for JSS 1, JSS 2 and JSS 3.</p>
+    <p class="muted">CBT question bank and timed test engine are still being developed.</p>
+  </div>
+
+  <div class="assessment-card">
+    <h3>BECE Preparation</h3>
+    <p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
+    <p class="muted">BECE question bank is still being developed.</p>
+  </div>
+
+  <div class="assessment-card">
+    <h3>Free Mock Test Study Book</h3>
+    <p>Read study guides and practise English, Mathematics, reasoning and Basic Science.</p>
+    <a class="book-link" href="competitive-exam-book.html">Open Free Study Book</a>
+  </div>
 </section>
 
 <!-- PAST QUESTIONS LIBRARY -->
 <section class="panel" id="pastQuestionsSection">
-<h2>Past Questions Library</h2>
-<p>Practise junior secondary examination questions by class, subject and question type.</p>
+  <h2>Past Questions Library</h2>
+  <p>Practise objective and theory questions for junior secondary classes.</p>
+  <p class="muted">The current bank contains original practice questions. It is not yet a complete archive of official past examination papers.</p>
 
-<div class="selectors">
-<div>
-<label for="pastClassSelect">Select Class</label>
-<select id="pastClassSelect">
-<option value="JSS 1">JSS 1</option>
-<option value="JSS 2">JSS 2</option>
-<option value="JSS 3">JSS 3</option>
-</select>
-</div>
-<div>
-<label for="pastSubjectSelect">Select Subject</label>
-<select id="pastSubjectSelect">
-<option value="">Loading subjects...</option>
-</select>
-</div>
-<div>
-<label for="pastTypeSelect">Question Type</label>
-<select id="pastTypeSelect">
-<option value="objective">Objective</option>
-<option value="theory">Theory</option>
-</select>
-</div>
-</div>
+  <div class="selectors">
+    <div>
+      <label for="pastClassSelect">Select Class</label>
+      <select id="pastClassSelect">
+        <option value="JSS 1">JSS 1</option>
+        <option value="JSS 2">JSS 2</option>
+        <option value="JSS 3">JSS 3</option>
+      </select>
+    </div>
 
-<div class="past-question-card">
-<p id="pastQuestionMessage" class="muted" aria-live="polite">
-Choose a class, subject and question type to begin.
-</p>
-<button type="button" id="pastStartButton">Start Practice</button>
-</div>
+    <div>
+      <label for="pastSubjectSelect">Select Subject</label>
+      <select id="pastSubjectSelect">
+        <option value="">Select a subject</option>
+        <option>Mathematics</option>
+        <option>English Studies</option>
+        <option>Intermediate Science</option>
+        <option>Physical and Health Education</option>
+        <option>Digital Technologies</option>
+        <option>Nigerian Languages</option>
+        <option>CRS / IRS</option>
+        <option>Nigerian History</option>
+        <option>Social and Citizenship Studies</option>
+        <option>Cultural and Creative Arts</option>
+        <option>Business Studies</option>
+        <option>Livestock Farming</option>
+        <option>French</option>
+        <option>Arabic</option>
+      </select>
+    </div>
 
-<div id="pastQuestionArea" class="hidden">
-<p id="pastQuestionProgress" class="muted"></p>
-<h3 id="pastQuestionText"></h3>
-<div id="pastQuestionOptions"></div>
-<button type="button" id="pastSubmitAnswer">Check Answer</button>
-<div id="pastAnswerFeedback" class="bae-feedback hidden" aria-live="polite"></div>
-<button type="button" id="pastNextQuestion" class="hidden">Next Question</button>
-</div>
+    <div>
+      <label for="pastTypeSelect">Question Type</label>
+      <select id="pastTypeSelect">
+        <option value="objective">Objective</option>
+        <option value="theory">Theory</option>
+      </select>
+    </div>
+  </div>
 
-<div id="pastQuestionResult" class="hidden">
-<h3>Practice Completed</h3>
-<p id="pastQuestionScore"></p>
-<button type="button" id="pastRestartButton">Practise Again</button>
-</div>
+  <div class="past-question-card">
+    <p id="pastQuestionMessage" class="muted" aria-live="polite">
+      Choose a class, subject and question type to begin.
+    </p>
+    <button type="button" id="pastStartButton">Start Practice</button>
+  </div>
+
+  <div id="pastQuestionArea" class="hidden">
+    <p id="pastQuestionProgress" class="muted"></p>
+    <h3 id="pastQuestionText"></h3>
+    <div id="pastQuestionOptions"></div>
+    <button type="button" id="pastSubmitAnswer">Check Answer</button>
+    <div id="pastAnswerFeedback" class="bae-feedback hidden" aria-live="polite"></div>
+    <button type="button" id="pastNextQuestion" class="hidden">Next Question</button>
+  </div>
+
+  <div id="pastQuestionResult" class="hidden">
+    <h3>Practice Completed</h3>
+    <p id="pastQuestionScore"></p>
+    <button type="button" id="pastRestartButton">Practise Again</button>
+  </div>
+
+  <div class="past-question-card">
+    <h3>My Practice History</h3>
+    <div id="pastQuestionHistory" class="muted">No practice history yet.</div>
+  </div>
 </section>
 
+<!-- RESULTS -->
 <section class="panel">
-<h2>Results and Performance</h2>
-<p>Assessment scores and learning progress will be displayed here.</p>
-<div id="assessmentHistory">No assessment results recorded yet.</div>
+  <h2>Results and Performance</h2>
+  <p>Your saved practice and assessment records will appear here.</p>
+  <div id="assessmentHistory">No assessment results recorded yet.</div>
 </section>
 
+<!-- REVISION -->
 <section class="panel">
-<h2>Revision and Practice</h2>
-<p>Use your lessons and exercises to revise what you have learned.</p>
+  <h2>Revision and Practice</h2>
+  <p>Use your lessons and exercises to revise what you have learned.</p>
 </section>
 
+<!-- ABOUT -->
 <section class="panel">
-<h2>About EXAM MASTER JUNIOR</h2>
-<p>Designed to support Nigerian junior secondary school students with lessons, revision and examination practice.</p>
-<p class="muted">JSS 1 • JSS 2 • JSS 3</p>
+  <h2>About EXAM MASTER JUNIOR</h2>
+  <p>Designed to support Nigerian junior secondary school students with lessons, revision and examination practice.</p>
+  <p class="muted">JSS 1 • JSS 2 • JSS 3</p>
+  <p class="muted">This app stores learning progress and practice history on this device. It does not require a backend account.</p>
 </section>
 
 </main>
 
 <footer>EXAM MASTER JUNIOR SECONDARY SCHOOL</footer>
 
+<!-- LOAD APPLICATION FILES -->
 <script src="lesson-library.js"></script>
 <script src="lessons/jss1-mathematics-first-term.js"></script>
 
 <script>
+/* Add the separate JSS 1 Mathematics first-term lessons
+   to the central lesson library when they are not already present. */
 (function(){
-  const library=window.EXAM_MASTER?.library;
-  const mathLessons=window.EXAM_MASTER_LESSONS?.["JSS 1"]?.["First Term"]?.["Mathematics"]||[];
+  const library = window.EXAM_MASTER?.library;
+  const mathLessons =
+    window.EXAM_MASTER_LESSONS?.["JSS 1"]?.["First Term"]?.["Mathematics"] || [];
 
-  if(!library||typeof library.addLesson!=="function"){
+  if (!library || typeof library.addLesson !== "function") {
     console.error("Lesson library unavailable.");
     return;
   }
 
   mathLessons.forEach(function(lesson){
-    const existing=library.getWeek("JSS 1","First Term","Mathematics",lesson.week);
-    if(!existing) library.addLesson("JSS 1","First Term","Mathematics",lesson);
+    const existing = library.getWeek(
+      "JSS 1",
+      "First Term",
+      "Mathematics",
+      lesson.week
+    );
+
+    if (!existing) {
+      library.addLesson("JSS 1", "First Term", "Mathematics", lesson);
+    }
   });
 })();
 </script>
 
+<script src="past-questions.js"></script>
 <script src="app.js"></script>
 <script src="bae.js"></script>
 
+<!-- PAST QUESTIONS PRACTICE CONTROLLER -->
 <script>
-/* Past Questions Library interface controller.
-   The question bank will be connected in the next development step. */
 (function(){
-  const $=id=>document.getElementById(id);
-  const library=window.EXAM_MASTER?.library;
-  const classSelect=$("pastClassSelect");
-  const subjectSelect=$("pastSubjectSelect");
-  const typeSelect=$("pastTypeSelect");
+  "use strict";
 
-  function loadSubjects(){
-    if(!library||typeof library.getAvailableSubjects!=="function"){
-      subjectSelect.innerHTML='<option value="">Subjects unavailable</option>';
+  const $ = id => document.getElementById(id);
+
+  const classSelect = $("pastClassSelect");
+  const subjectSelect = $("pastSubjectSelect");
+  const typeSelect = $("pastTypeSelect");
+
+  const startButton = $("pastStartButton");
+  const submitButton = $("pastSubmitAnswer");
+  const nextButton = $("pastNextQuestion");
+  const restartButton = $("pastRestartButton");
+
+  let questions = [];
+  let currentIndex = 0;
+  let score = 0;
+  let answered = false;
+  let selectedAnswer = null;
+
+  function showMessage(message){
+    $("pastQuestionMessage").textContent = message;
+  }
+
+  function startPractice(){
+    const api = window.EXAM_MASTER_PAST;
+
+    if (!api || typeof api.getQuestions !== "function") {
+      showMessage("The question bank could not be loaded. Check that past-questions.js is in your repository.");
       return;
     }
-    const subjects=library.getAvailableSubjects(classSelect.value)||[];
-    subjectSelect.innerHTML='<option value="">Select a subject</option>';
-    subjects.forEach(subject=>{
-      const option=document.createElement("option");
-      option.value=subject;
-      option.textContent=subject;
-      subjectSelect.appendChild(option);
+
+    questions = api.getQuestions(
+      classSelect.value,
+      subjectSelect.value,
+      typeSelect.value
+    );
+
+    if (!questions.length) {
+      showMessage("No questions are available for this selection yet. More subjects and questions are being added.");
+      return;
+    }
+
+    currentIndex = 0;
+    score = 0;
+
+    $("pastQuestionResult").classList.add("hidden");
+    $("pastQuestionArea").classList.remove("hidden");
+    showMessage("Your practice has started.");
+
+    renderQuestion();
+  }
+
+  function renderQuestion(){
+    answered = false;
+    selectedAnswer = null;
+
+    const question = questions[currentIndex];
+
+    $("pastQuestionProgress").textContent =
+      "Question " + (currentIndex + 1) + " of " + questions.length;
+
+    $("pastQuestionText").textContent = question.question;
+    $("pastQuestionOptions").innerHTML = "";
+    $("pastAnswerFeedback").classList.add("hidden");
+    nextButton.classList.add("hidden");
+    submitButton.classList.remove("hidden");
+
+    if (typeSelect.value === "objective") {
+      question.options.forEach((option, index) => {
+        const label = document.createElement("label");
+        label.className = "past-option";
+
+        const radio = document.createElement("input");
+        radio.type = "radio";
+        radio.name = "pastAnswer";
+        radio.value = index;
+
+        radio.addEventListener("change", () => {
+          selectedAnswer = index;
+        });
+
+        label.appendChild(radio);
+        label.appendChild(document.createTextNode(option));
+        $("pastQuestionOptions").appendChild(label);
+      });
+    } else {
+      const instruction = document.createElement("p");
+      instruction.textContent =
+        "Think through your answer. Select Check Answer to reveal the suggested answer.";
+      $("pastQuestionOptions").appendChild(instruction);
+    }
+  }
+
+  function checkAnswer(){
+    if (answered) return;
+
+    const question = questions[currentIndex];
+    const feedback = $("pastAnswerFeedback");
+
+    if (typeSelect.value === "objective") {
+      if (selectedAnswer === null) {
+        feedback.textContent = "Please select an option first.";
+        feedback.classList.remove("hidden");
+        return;
+      }
+
+      const correct = selectedAnswer === question.answer;
+
+      if (correct) score++;
+
+      feedback.textContent =
+        (correct ? "Correct! " : "Not quite. The correct answer is " +
+        question.options[question.answer] + ". ") +
+        question.explanation;
+
+      document.querySelectorAll('input[name="pastAnswer"]').forEach(input => {
+        input.disabled = true;
+      });
+    } else {
+      feedback.innerHTML = "";
+
+      const heading = document.createElement("strong");
+      heading.textContent = "Suggested answer:";
+
+      const answer = document.createElement("p");
+      answer.className = "past-theory-answer";
+      answer.textContent = question.answer;
+
+      feedback.append(heading, answer);
+    }
+
+    answered = true;
+    feedback.classList.remove("hidden");
+    submitButton.classList.add("hidden");
+
+    if (currentIndex < questions.length - 1) {
+      nextButton.textContent = "Next Question";
+    } else {
+      nextButton.textContent = "Finish Practice";
+    }
+
+    nextButton.classList.remove("hidden");
+  }
+
+  function nextQuestion(){
+    if (!answered) return;
+
+    currentIndex++;
+
+    if (currentIndex < questions.length) {
+      renderQuestion();
+    } else {
+      finishPractice();
+    }
+  }
+
+  function finishPractice(){
+    $("pastQuestionArea").classList.add("hidden");
+    $("pastQuestionResult").classList.remove("hidden");
+
+    const isObjective = typeSelect.value === "objective";
+    const percentage = isObjective
+      ? Math.round((score / questions.length) * 100)
+      : null;
+
+    $("pastQuestionScore").textContent = isObjective
+      ? "Your score: " + score + " out of " + questions.length +
+        " (" + percentage + "%)."
+      : "You have completed the theory practice. Review the suggested answers.";
+
+    const result = {
+      className: classSelect.value,
+      subject: subjectSelect.value,
+      type: typeSelect.value,
+      total: questions.length,
+      score: isObjective ? score : null,
+      percentage: percentage
+    };
+
+    if (window.EXAM_MASTER_PAST?.saveResult) {
+      window.EXAM_MASTER_PAST.saveResult(result);
+    }
+
+    renderHistory();
+  }
+
+  function renderHistory(){
+    const historyBox = $("pastQuestionHistory");
+    const resultsBox = $("assessmentHistory");
+
+    const history = window.EXAM_MASTER_PAST?.getHistory?.() || [];
+
+    if (!history.length) {
+      historyBox.textContent = "No practice history yet.";
+      return;
+    }
+
+    historyBox.innerHTML = "";
+    resultsBox.innerHTML = "";
+
+    history.slice().reverse().forEach(record => {
+      const item = document.createElement("p");
+
+      const date = record.date
+        ? new Date(record.date).toLocaleDateString()
+        : "";
+
+      item.textContent =
+        record.className + " • " + record.subject + " • " +
+        record.type + " • " +
+        (record.percentage === null
+          ? "Theory completed"
+          : record.score + "/" + record.total + " (" + record.percentage + "%)") +
+        (date ? " • " + date : "");
+
+      historyBox.appendChild(item);
+      resultsBox.appendChild(item.cloneNode(true));
     });
   }
 
-  classSelect.addEventListener("change",loadSubjects);
+  startButton.addEventListener("click", startPractice);
+  submitButton.addEventListener("click", checkAnswer);
+  nextButton.addEventListener("click", nextQuestion);
 
-  $("pastStartButton").addEventListener("click",function(){
-    if(!subjectSelect.value){
-      $("pastQuestionMessage").textContent="Please select a subject first.";
-      return;
-    }
-    $("pastQuestionMessage").textContent=
-      "The question bank for "+classSelect.value+" "+subjectSelect.value+
-      " ("+typeSelect.value+") has not been added yet. The library interface is ready; question content is the next step.";
-  });
-
-  $("pastRestartButton").addEventListener("click",function(){
+  restartButton.addEventListener("click", () => {
     $("pastQuestionResult").classList.add("hidden");
     $("pastQuestionArea").classList.add("hidden");
-    $("pastQuestionMessage").textContent="Choose your options and start practice.";
+    showMessage("Choose your options and start another practice.");
   });
 
-  loadSubjects();
+  renderHistory();
 })();
 </script>
 
+<!-- OFFLINE SUPPORT -->
 <script>
-if("serviceWorker" in navigator){
-  window.addEventListener("load",function(){
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", function(){
     navigator.serviceWorker.register("service-worker.js")
-      .catch(error=>console.error("Service worker registration failed:",error));
+      .catch(error => console.error("Service worker registration failed:", error));
   });
 }
 </script>
