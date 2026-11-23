@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "exam-master-junior-v8";
+const CACHE_NAME = "exam-master-junior-v9";
 
 const APP_FILES = [
   "./",
@@ -11,6 +11,7 @@ const APP_FILES = [
   "./past-questions.js",
   "./lesson-library.js",
   "./lessons/jss1-mathematics-first-term.js",
+  "./lessons/jss1-english-first-term.js",
   "./competitive-exam-book.html",
   "./manifest.json",
   "./icons/icon-192.png",
@@ -52,6 +53,7 @@ self.addEventListener("fetch", event => {
             new URL(event.request.url).origin === self.location.origin
           ) {
             const copy = response.clone();
+
             caches.open(CACHE_NAME)
               .then(cache => cache.put(event.request, copy));
           }
