@@ -1,4 +1,9 @@
 
+/* =========================================
+   EXAM MASTER JUNIOR
+   BAE ASSESSMENT ENGINE
+   ========================================= */
+
 (function () {
   "use strict";
 
@@ -78,14 +83,13 @@
   ];
 
   const $ = id => document.getElementById(id);
+  const historyKey = "examMasterJuniorBAEHistory";
 
   let current = 0;
   let score = 0;
   let selected = null;
   let submitted = false;
   let review = [];
-
-  const historyKey = "examMasterJuniorBAEHistory";
 
   function show(id, visible) {
     const element = $(id);
@@ -106,7 +110,6 @@
     if (!container) return;
 
     container.replaceChildren();
-
     const history = getHistory();
 
     if (!history.length) {
@@ -128,17 +131,13 @@
     const term = $("termSelect")?.value || "";
     const subject = $("subjectSelect")?.value || "";
 
-    const details = $("baeDetails");
-
     if (
       className !== "JSS 1" ||
       term !== "First Term" ||
       subject.toLowerCase() !== "mathematics"
     ) {
-      if (details) {
-        details.textContent =
-          "BAE questions are currently available for JSS 1, First Term, Mathematics only. More subjects and classes will be added.";
-      }
+      $("baeDetails").textContent =
+        "BAE questions are currently available for JSS 1, First Term, Mathematics only. More subjects and classes will be added.";
       show("baeDetails", true);
       return;
     }
@@ -177,7 +176,6 @@
 
     question.options.forEach((option, index) => {
       const button = document.createElement("button");
-
       button.type = "button";
       button.className = "bae-option";
       button.textContent =
@@ -202,6 +200,8 @@
     show("baeFeedback", false);
     show("baeNext", false);
 
+    // Important: restore Submit Answer for every new question.
+    show("baeSubmit", true);
     $("baeSubmit").disabled = true;
     $("baeSubmit").textContent = "Submit Answer";
   }
@@ -238,7 +238,6 @@
       `${correct ? "Correct!" : "Incorrect."} ${question.explanation}`;
 
     show("baeFeedback", true);
-
     $("baeSubmit").disabled = true;
     show("baeSubmit", false);
 
