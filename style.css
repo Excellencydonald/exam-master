@@ -1,7 +1,7 @@
 
 /* =========================================
-   EXAM MASTER JUNIOR
-   COMPLETE MAIN STYLESHEET
+   EXAM MASTER JUNIOR SECONDARY SCHOOL
+   COMPLETE RESPONSIVE STYLESHEET
    ========================================= */
 
 :root {
@@ -30,6 +30,8 @@ body.light-theme {
   --accent: #2867d8;
   --accent2: #1755bd;
   --border: #dce3ef;
+  --success: #16865c;
+  --danger: #d93650;
   --shadow: 0 8px 25px rgba(20,40,80,.08);
 }
 
@@ -46,11 +48,11 @@ html {
 body {
   margin: 0;
   min-height: 100vh;
-  padding-bottom: 85px;
+  padding-bottom: 90px;
   background: var(--bg);
   color: var(--text);
   font-family: Arial, Helvetica, sans-serif;
-  line-height: 1.55;
+  line-height: 1.6;
   transition: background .25s, color .25s;
 }
 
@@ -95,6 +97,10 @@ img {
 }
 
 /* PAGE SYSTEM */
+
+main {
+  width: 100%;
+}
 
 .page {
   display: none;
@@ -220,6 +226,10 @@ h3 {
   border: 1px solid var(--border);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
+}
+
+.panel > :first-child {
+  margin-top: 0;
 }
 
 /* BUTTONS */
@@ -371,23 +381,28 @@ textarea {
   margin-bottom: 7px;
 }
 
-/* BAE AND CBT */
+#lessonViewer p {
+  overflow-wrap: anywhere;
+}
+
+/* BAE AND PRACTICE */
 
 #baeQuestion,
-#pastQuestion {
+#pastQuestionText {
   font-size: 17px;
   font-weight: 700;
   line-height: 1.7;
 }
 
 #baeOptions,
-#pastOptions {
+#pastQuestionOptions {
   display: grid;
   gap: 9px;
+  margin: 14px 0;
 }
 
 #baeOptions button,
-#pastOptions button {
+#pastQuestionOptions button {
   width: 100%;
   padding: 13px;
   color: var(--text);
@@ -398,37 +413,87 @@ textarea {
 }
 
 #baeOptions button:hover,
-#pastOptions button:hover {
+#pastQuestionOptions button:hover {
   border-color: var(--accent);
 }
 
-#baeFeedback,
-#pastFeedback {
-  margin: 12px 0;
+/* PAST QUESTION OPTIONS */
+
+.past-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   padding: 12px;
+  margin: 0;
+  color: var(--text);
+  background: var(--panel2);
+  border: 1px solid var(--border);
   border-radius: 10px;
+  cursor: pointer;
 }
 
-#baeResult,
-#pastResult {
-  line-height: 1.7;
+.past-option input {
+  width: 19px;
+  min-width: 19px;
+  height: 19px;
+  min-height: 19px;
+  margin: 0;
+  accent-color: var(--accent);
 }
 
-.hidden {
-  display: none !important;
+/* FEEDBACK */
+
+.bae-feedback {
+  padding: 13px;
+  margin: 13px 0;
+  color: var(--text);
+  background: var(--panel2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+
+#baeFeedback,
+#pastFeedback,
+#pastAnswerFeedback {
+  line-height: 1.6;
 }
 
 /* PROGRESS */
 
-progress {
+.bae-progress {
   width: 100%;
-  height: 11px;
-  accent-color: var(--accent);
+  height: 10px;
+  margin: 12px 0;
+  overflow: hidden;
+  background: var(--panel2);
+  border-radius: 20px;
+}
+
+.bae-progress-bar {
+  width: 0;
+  height: 100%;
+  background: var(--accent);
+  border-radius: 20px;
+  transition: width .25s ease;
 }
 
 #baeProgressBar {
   margin: 10px 0;
   border-radius: 10px;
+}
+
+/* RESULTS */
+
+#baeResult,
+#pastQuestionResult {
+  line-height: 1.7;
+}
+
+#assessmentHistory p,
+#pastQuestionHistory p {
+  padding: 9px 0;
+  border-bottom: 1px solid var(--border);
 }
 
 /* PROFILE */
@@ -439,14 +504,6 @@ progress {
 
 #profileDisplayName {
   overflow-wrap: anywhere;
-}
-
-/* BOOKMARKS AND RESULTS */
-
-#resultsPage .panel,
-#bookmarksPage .panel,
-#revisionPage .panel {
-  line-height: 1.7;
 }
 
 /* STUDY BOOK */
@@ -494,6 +551,12 @@ td {
   color: var(--danger);
 }
 
+footer {
+  padding: 20px 12px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
 /* SMALL SCREENS */
 
 @media (max-width: 380px) {
@@ -515,6 +578,10 @@ td {
 
   .nav-btn {
     font-size: 10px;
+  }
+
+  .panel {
+    padding: 14px;
   }
 }
 
@@ -539,6 +606,16 @@ td {
     border-left: 1px solid var(--border);
     border-radius: 15px 15px 0 0;
   }
+}
+
+/* ACCESSIBILITY */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent2);
+  outline-offset: 3px;
 }
 
 @media (prefers-reduced-motion: reduce) {
