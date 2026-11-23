@@ -1,9 +1,9 @@
 
 {
-  "name": "EXAM MASTER JUNIOR",
+  "name": "EXAM MASTER JUNIOR SECONDARY SCHOOL",
   "short_name": "EXAM MASTER",
   "description": "Learn, Practise, Prepare and Succeed.",
-  "start_url": "./EXAM_MASTER_index.html",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
