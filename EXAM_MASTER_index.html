@@ -138,7 +138,7 @@
       background: #eaf8ef;
     }
 
-    .bae-option.wrong {
+    .bae-option.incorrect {
       border: 2px solid var(--danger);
       background: #fff0ee;
     }
@@ -242,11 +242,8 @@
   <section class="panel">
     <h2>Assessment Centre</h2>
 
-    <!-- BAE -->
-
     <div class="assessment-card" id="baeSection">
       <h3>BAE – Basic Assessment Exercises</h3>
-
       <p>Practise questions based on your selected class, term and subject.</p>
 
       <div id="baeSetup">
@@ -254,30 +251,28 @@
           Select your class, term and subject in the Learning Centre
           before starting your assessment.
         </p>
-
         <button type="button" id="baeStart">Start BAE</button>
       </div>
 
+      <p id="baeDetails" class="muted" aria-live="polite"></p>
+
       <div id="baeQuiz" class="hidden">
-
-        <p id="baeDetails" class="muted"></p>
-
         <div class="bae-progress">
           <div id="baeProgressBar" class="bae-progress-bar"></div>
         </div>
 
         <p id="baeProgress">Question 1</p>
-
         <h4 id="baeQuestion"></h4>
 
         <div id="baeOptions"></div>
 
+        <button type="button" id="baeSubmit">Submit Answer</button>
+
         <div id="baeFeedback" class="bae-feedback hidden" aria-live="polite"></div>
 
-        <button type="button" id="baeNext" disabled>
-          Submit Answer
+        <button type="button" id="baeNext" class="hidden">
+          Next Question
         </button>
-
       </div>
 
       <div id="baeResult" class="hidden">
@@ -285,12 +280,9 @@
         <h2 id="baeScore"></h2>
         <p id="baeSummary"></p>
         <div id="baeReview"></div>
-
         <button type="button" id="baeRestart">Try Again</button>
       </div>
     </div>
-
-    <!-- CBT -->
 
     <div class="assessment-card">
       <h3>CBT – Computer-Based Tests</h3>
@@ -298,14 +290,11 @@
       <p class="muted">CBT engine is still being developed.</p>
     </div>
 
-    <!-- BECE -->
-
     <div class="assessment-card">
       <h3>BECE Preparation</h3>
       <p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
       <p class="muted">BECE question bank is still being developed.</p>
     </div>
-
   </section>
 
   <!-- RESULTS -->
@@ -313,7 +302,7 @@
   <section class="panel">
     <h2>Results and Performance</h2>
     <p>Assessment scores and learning progress will be displayed here.</p>
-    <p id="assessmentHistory">No assessment results recorded yet.</p>
+    <div id="assessmentHistory">No assessment results recorded yet.</div>
   </section>
 
   <!-- REVISION -->
@@ -338,18 +327,14 @@
 </footer>
 
 <!-- CENTRAL LESSON LIBRARY -->
-
 <script src="lesson-library.js"></script>
 
 <!-- MATHEMATICS LESSON FILE -->
-
 <script src="lessons/jss1-mathematics-first-term.js"></script>
 
 <!-- REGISTER MATHEMATICS LESSONS -->
-
 <script>
 (function () {
-
   const library = window.EXAM_MASTER?.library;
 
   const mathLessons =
@@ -361,7 +346,6 @@
   }
 
   mathLessons.forEach(function (lesson) {
-
     const existing = library.getWeek(
       "JSS 1",
       "First Term",
@@ -377,18 +361,17 @@
         lesson
       );
     }
-
   });
-
 })();
 </script>
 
 <!-- APPLICATION CONTROLLER -->
-
 <script src="app.js"></script>
 
-<!-- BAE ENGINE WILL BE CONNECTED IN THE NEXT STEP -->
+<!-- BAE QUESTION ENGINE -->
+<script src="bae.js"></script>
 
+<!-- SERVICE WORKER -->
 <script>
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", function () {
