@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "exam-master-junior-v6";
+const CACHE_NAME = "exam-master-junior-v7";
 
 const APP_FILES = [
   "./",
@@ -48,24 +48,22 @@ self.addEventListener("fetch", event => {
     caches.match(event.request).then(cached => {
       if (cached) return cached;
 
-      return fetch(event.request)
-        .then(response => {
-          if (
-            response.ok &&
-            new URL(event.request.url).origin === self.location.origin
-          ) {
-            const copy = response.clone();
+      return fetch(event.request).then(response => {
+        if (
+          response.ok &&
+          new URL(event.request.url).origin === self.location.origin
+        ) {
+          const copy = response.clone();
 
-            caches.open(CACHE_NAME).then(cache => {
-              cache.put(event.request, copy);
-            });
-          }
+          caches.open(CACHE_NAME).then(cache => {
+            cache.put(event.request, copy);
+          });
+        }
 
-          return response;
-        })
-        .catch(() =>
-          caches.match("./EXAM_MASTER_index.html")
-        );
+        return response;
+      }).catch(() =>
+        caches.match("./EXAM_MASTER_index.html")
+      );
     })
   );
 });
