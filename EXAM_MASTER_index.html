@@ -118,6 +118,22 @@
       border-radius: 8px;
     }
 
+    .book-link {
+      display: block;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      padding: 13px;
+      margin-top: 12px;
+      border-radius: 9px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .book-link:hover {
+      background: #2449a5;
+    }
+
     .bae-option {
       display: block;
       width: 100%;
@@ -242,6 +258,8 @@
   <section class="panel">
     <h2>Assessment Centre</h2>
 
+    <!-- BAE -->
+
     <div class="assessment-card" id="baeSection">
       <h3>BAE – Basic Assessment Exercises</h3>
       <p>Practise questions based on your selected class, term and subject.</p>
@@ -284,17 +302,32 @@
       </div>
     </div>
 
+    <!-- CBT -->
+
     <div class="assessment-card">
       <h3>CBT – Computer-Based Tests</h3>
       <p>Timed multiple-choice examinations for JSS 1, JSS 2 and JSS 3.</p>
       <p class="muted">CBT engine is still being developed.</p>
     </div>
 
+    <!-- BECE -->
+
     <div class="assessment-card">
       <h3>BECE Preparation</h3>
       <p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
       <p class="muted">BECE question bank is still being developed.</p>
     </div>
+
+    <!-- FREE STUDY BOOK -->
+
+    <div class="assessment-card">
+      <h3>Free Mock Test Study Book</h3>
+      <p>Read study guides and practise English, Mathematics, reasoning and Basic Science.</p>
+      <a class="book-link" href="competitive-exam-book.html">
+        Open Free Study Book
+      </a>
+    </div>
+
   </section>
 
   <!-- RESULTS -->
