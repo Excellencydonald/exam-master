@@ -5,214 +5,291 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#101a35">
-  <meta name="description" content="EXAM MASTER JUNIOR SECONDARY SCHOOL">
-
-  <title>EXAM MASTER JUNIOR</title>
-
-  <link rel="stylesheet" href="style.css">
+  <meta name="description" content="EXAM MASTER JUNIOR SECONDARY SCHOOL - Learn, practise and prepare for examinations.">
+  <title>EXAM MASTER JUNIOR SECONDARY SCHOOL</title>
   <link rel="manifest" href="manifest.json">
   <link rel="icon" href="icons/icon-192.png">
-
-  <meta name="mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-title" content="EXAM MASTER JUNIOR">
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    .library-controls {
+    :root {
+      --primary: #315efb;
+      --dark: #101a35;
+      --light: #f4f7ff;
+      --card: #ffffff;
+      --text: #18233b;
+      --muted: #667085;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: var(--light);
+      color: var(--text);
+    }
+
+    header {
+      background: linear-gradient(135deg, #101a35, #2449a5);
+      color: white;
+      padding: 25px 18px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0 0 8px;
+      font-size: 25px;
+    }
+
+    header p { margin: 5px 0; }
+
+    main {
+      width: min(100% - 24px, 950px);
+      margin: 20px auto;
+    }
+
+    .panel {
+      background: var(--card);
+      padding: 18px;
+      margin-bottom: 18px;
+      border-radius: 14px;
+      box-shadow: 0 3px 14px rgba(20, 35, 70, 0.07);
+    }
+
+    h2 { margin-top: 0; }
+
+    .selectors {
       display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 12px;
     }
 
-    .library-controls select,
-    .library-controls button {
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 7px;
+    }
+
+    select, button {
       width: 100%;
-      padding: 13px;
+      padding: 12px;
       border-radius: 9px;
-      font-size: 16px;
+      border: 1px solid #ccd4e5;
+      font-size: 15px;
     }
 
-    .lesson-card {
-      background: #172747;
-      border: 1px solid #345078;
-      padding: 16px;
-      margin: 12px 0;
-      border-radius: 12px;
-    }
-
-    .lesson-content {
-      line-height: 1.8;
-      white-space: normal;
-    }
-
-    .lesson-content h3 {
-      color: #e5bd63;
-      margin-top: 22px;
-    }
-
-    .lesson-content h4 {
-      color: #9dc7ff;
-    }
-
-    .lesson-content li {
-      margin: 8px 0;
-    }
-
-    .primary-action {
-      background: #d6a844;
-      color: #101a35;
+    button {
+      background: var(--primary);
+      color: white;
       border: 0;
       font-weight: bold;
       cursor: pointer;
+      margin-top: 12px;
     }
 
-    .secondary-action {
-      background: #263e66;
-      color: white;
-      border: 1px solid #52709c;
-      cursor: pointer;
-    }
+    button:active { opacity: 0.85; }
 
-    .hidden {
-      display: none;
-    }
-
-    .muted {
-      color: #bdc9dc;
-    }
-
-    .question {
-      padding: 14px;
-      background: #1c3152;
+    .lesson-card {
+      border: 1px solid #e0e6f2;
       border-radius: 10px;
-      margin: 12px 0;
+      padding: 13px;
+      margin: 10px 0;
+      background: white;
     }
 
-    #lessonMessage {
-      color: #ffd77b;
+    .lesson-card button { margin-top: 8px; }
+
+    .lesson-section {
+      margin: 18px 0;
+      line-height: 1.7;
+    }
+
+    .lesson-section h3 { color: #2449a5; }
+
+    .lesson-section p { white-space: pre-wrap; }
+
+    .muted { color: var(--muted); }
+
+    .hidden { display: none !important; }
+
+    .assessment-card {
+      border-left: 4px solid var(--primary);
+      padding: 12px;
+      margin: 12px 0;
+      background: #f7f9ff;
+      border-radius: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 22px;
+      color: var(--muted);
     }
   </style>
 </head>
 
 <body>
-
   <header>
-    <h1>EXAM MASTER JUNIOR</h1>
-    <p>Learn • Practise • Prepare • Succeed</p>
-    <p>JSS 1 | JSS 2 | JSS 3</p>
+    <h1>EXAM MASTER</h1>
+    <p>JUNIOR SECONDARY SCHOOL</p>
+    <p>Learn • Practise • Improve</p>
   </header>
 
   <main>
-
-    <section class="card welcome">
-      <h2>Welcome, Student!</h2>
+    <section class="panel">
+      <h2>Welcome to EXAM MASTER JUNIOR</h2>
       <p>
-        Your junior secondary learning centre.
-        Study your lessons, practise exercises and prepare
-        for your examinations.
+        Your learning and examination preparation platform for
+        JSS 1, JSS 2 and JSS 3.
       </p>
-    </section>
-
-    <section class="card" id="learningCentre">
-      <h2>📚 Learning Centre</h2>
-      <p>Select your class, term and subject.</p>
-
-      <div class="library-controls">
-
-        <label for="classSelect">Choose Class</label>
-        <select id="classSelect">
-          <option value="JSS 1">JSS 1</option>
-          <option value="JSS 2">JSS 2</option>
-          <option value="JSS 3">JSS 3</option>
-        </select>
-
-        <label for="termSelect">Choose Term</label>
-        <select id="termSelect">
-          <option value="First Term">First Term</option>
-          <option value="Second Term">Second Term</option>
-          <option value="Third Term">Third Term</option>
-        </select>
-
-        <label for="subjectSelect">Choose Subject</label>
-        <select id="subjectSelect">
-          <option value="">Select a subject</option>
-        </select>
-
-        <button class="primary-action" id="loadLessons">
-          Open Lessons
-        </button>
-
-      </div>
-
-      <p id="lessonMessage" aria-live="polite"></p>
-    </section>
-
-    <section class="card hidden" id="lessonListSection">
-      <h2>📖 Available Lessons</h2>
-      <div id="lessonList"></div>
-    </section>
-
-    <section class="card hidden" id="lessonViewer">
-      <button class="secondary-action" id="backToLessons">
-        ← Back to Lessons
-      </button>
-
-      <div id="lessonContent" class="lesson-content"></div>
-    </section>
-
-    <section class="card" id="assessmentCentre">
-      <h2>✍️ Assessment Centre</h2>
-      <div class="feature">
-        <strong>BAE – Basic Assessment Exercises</strong>
-        <p>Practise questions based on your lessons.</p>
-      </div>
-
-      <div class="feature">
-        <strong>CBT Examinations</strong>
-        <p>JSS 1, JSS 2 and JSS 3 practice examinations.</p>
-      </div>
-
-      <div class="feature">
-        <strong>BECE Preparation</strong>
-        <p>Junior secondary examination preparation for JSS 3.</p>
-      </div>
-
       <p class="muted">
-        Assessment question banks will be connected as they are added.
+        Select your class, term and subject to access available lessons.
       </p>
     </section>
 
-    <section class="card">
-      <h2>📊 Learning Progress</h2>
-      <p id="progressDisplay">Lessons completed: 0</p>
+    <section class="panel">
+      <h2>Learning Centre</h2>
+
+      <div class="selectors">
+        <div>
+          <label for="classSelect">Select Class</label>
+          <select id="classSelect">
+            <option value="JSS 1">JSS 1</option>
+            <option value="JSS 2">JSS 2</option>
+            <option value="JSS 3">JSS 3</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="termSelect">Select Term</label>
+          <select id="termSelect">
+            <option value="First Term">First Term</option>
+            <option value="Second Term">Second Term</option>
+            <option value="Third Term">Third Term</option>
+          </select>
+        </div>
+
+        <div>
+          <label for="subjectSelect">Select Subject</label>
+          <select id="subjectSelect">
+            <option value="">Loading subjects...</option>
+          </select>
+        </div>
+      </div>
+
+      <button id="loadLessons" type="button">Open Lessons</button>
+      <p id="lessonMessage" class="muted" aria-live="polite"></p>
+
+      <section id="lessonListSection" class="hidden">
+        <h3>Available Lessons</h3>
+        <div id="lessonList"></div>
+      </section>
+
+      <section id="lessonViewer" class="hidden">
+        <button id="backToLessons" type="button">← Back to Lessons</button>
+        <div id="lessonContent"></div>
+      </section>
+
+      <p id="progressDisplay" class="muted">Your learning progress will appear here.</p>
     </section>
 
-    <section class="card">
-      <h2>🏫 About EXAM MASTER JUNIOR</h2>
+    <section class="panel">
+      <h2>Assessment Centre</h2>
+
+      <div class="assessment-card">
+        <h3>BAE – Basic Assessment Exercises</h3>
+        <p>Practise questions based on your classroom lessons.</p>
+        <p class="muted">Assessment activities are not yet connected.</p>
+      </div>
+
+      <div class="assessment-card">
+        <h3>CBT – Computer-Based Tests</h3>
+        <p>Practise JSS 1, JSS 2 and JSS 3 multiple-choice questions.</p>
+        <p class="muted">The timed CBT engine is not yet connected.</p>
+      </div>
+
+      <div class="assessment-card">
+        <h3>BECE Preparation</h3>
+        <p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
+        <p class="muted">BECE practice questions are not yet connected.</p>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Results and Performance</h2>
+      <p>Completed lessons and assessment performance will be displayed here as these features are implemented.</p>
+    </section>
+
+    <section class="panel">
+      <h2>Revision and Practice</h2>
+      <p>Use your lessons and exercises to revise what you have learned.</p>
+    </section>
+
+    <section class="panel">
+      <h2>About EXAM MASTER JUNIOR</h2>
       <p>
-        Built for Nigerian junior secondary students
-        in JSS 1, JSS 2 and JSS 3.
+        EXAM MASTER JUNIOR is designed to support Nigerian junior
+        secondary school students with lessons, revision and examination practice.
       </p>
+      <p class="muted">Designed for JSS 1, JSS 2 and JSS 3.</p>
     </section>
-
   </main>
 
   <footer>
-    EXAM MASTER JUNIOR © 2026
-    <p>Learn • Practise • Succeed</p>
+    EXAM MASTER JUNIOR SECONDARY SCHOOL
   </footer>
 
+  <!-- Load the central lesson library first. -->
   <script src="lesson-library.js"></script>
+
+  <!-- Load the JSS 1 Mathematics First Term lessons. -->
+  <script src="lessons/jss1-mathematics-first-term.js"></script>
+
+  <!-- Register those lessons in the central library. -->
+  <script>
+    (function () {
+      const library = window.EXAM_MASTER?.library;
+      const mathLessons =
+        window.EXAM_MASTER_LESSONS?.["JSS 1"]?.["First Term"]?.["Mathematics"] || [];
+
+      if (!library || typeof library.addLesson !== "function") {
+        console.error("EXAM MASTER lesson library is unavailable.");
+        return;
+      }
+
+      mathLessons.forEach(function (lesson) {
+        const existing = library.getWeek(
+          "JSS 1",
+          "First Term",
+          "Mathematics",
+          lesson.week
+        );
+
+        if (!existing) {
+          library.addLesson(
+            "JSS 1",
+            "First Term",
+            "Mathematics",
+            lesson
+          );
+        }
+      });
+    })();
+  </script>
+
+  <!-- Load the app controller after lesson registration. -->
   <script src="app.js"></script>
 
   <script>
     if ("serviceWorker" in navigator) {
-      window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js")
-          .then(() => console.log("Service worker registered."))
-          .catch(error => console.error(error));
+      window.addEventListener("load", function () {
+        navigator.serviceWorker.register("service-worker.js")
+          .catch(function (error) {
+            console.error("Service worker registration failed:", error);
+          });
       });
     }
   </script>
-
 </body>
 </html>
