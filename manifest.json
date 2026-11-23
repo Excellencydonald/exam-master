@@ -1,14 +1,15 @@
 
 {
+  "id": "./EXAM_MASTER_index.html",
   "name": "EXAM MASTER JUNIOR SECONDARY SCHOOL",
   "short_name": "EXAM MASTER",
   "description": "Learn, Practise, Prepare and Succeed.",
-  "start_url": "./index.html",
+  "start_url": "./EXAM_MASTER_index.html",
   "scope": "./",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#101a35",
-  "theme_color": "#101a35",
+  "background_color": "#0b1225",
+  "theme_color": "#0b1225",
   "icons": [
     {
       "src": "icons/icon-192.png",
