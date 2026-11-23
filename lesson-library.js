@@ -1166,3 +1166,211 @@
 
   ]
 }
+
+[
+  {
+    week: 1,
+    title: "Revision of First Term Mathematics",
+    introduction: "This lesson reviews important mathematical concepts learned during the first term.",
+    objectives: ["Revise number bases and place value.", "Recall factors and multiples.", "Solve basic fraction and decimal problems."],
+    sections: [
+      {heading:"Number and place value",content:"A digit's place determines its value. In 4,582, the digit 5 represents five hundreds, or 500."},
+      {heading:"Factors and multiples",content:"A factor divides a number exactly. A multiple is obtained by multiplying a number by a whole number. The factors of 12 include 1, 2, 3, 4, 6 and 12."},
+      {heading:"Fractions and decimals",content:"A fraction represents part of a whole. A decimal uses a decimal point to show parts of a whole. For example, 1/2 = 0.5."}
+    ],
+    keyTerms:[{term:"Factor",definition:"A number that divides another number exactly."},{term:"Multiple",definition:"The result of multiplying a number by a whole number."}],
+    workedExamples:[{question:"Find the factors of 10.",answer:"1, 2, 5 and 10."}],
+    exercises:[{question:"Write 0.25 as a fraction in its simplest form.",answer:"1/4."},{question:"Find the first three positive multiples of 4.",answer:"4, 8 and 12."}],
+    commonMistakes:["Confusing factors with multiples.","Ignoring place value."],
+    summary:"Revision helps learners strengthen their understanding of previous topics.",
+    examinationPractice:[{question:"What is the value of 6 in 3,642?",answer:"600."}]
+  },
+  {
+    week: 2,
+    title: "Directed Numbers",
+    introduction: "Directed numbers include positive numbers, negative numbers and zero.",
+    objectives:["Identify positive and negative numbers.","Represent directed numbers on a number line.","Compare directed numbers."],
+    sections:[
+      {heading:"Positive and negative numbers",content:"Positive numbers are greater than zero and may be written with a plus sign. Negative numbers are less than zero and are written with a minus sign. Zero is neither positive nor negative."},
+      {heading:"Number line",content:"On a number line, numbers increase from left to right. Negative numbers are placed to the left of zero, while positive numbers are placed to the right."},
+      {heading:"Comparing numbers",content:"A number farther to the right on a number line is greater. Therefore, -2 is greater than -5."}
+    ],
+    keyTerms:[{term:"Positive number",definition:"A number greater than zero."},{term:"Negative number",definition:"A number less than zero."},{term:"Directed number",definition:"A number that has a positive or negative direction."}],
+    workedExamples:[{question:"Arrange -3, 2, -1 and 4 from smallest to largest.",answer:"-3, -1, 2, 4."}],
+    exercises:[{question:"Which is greater: -4 or -2?",answer:"-2."},{question:"Is zero positive or negative?",answer:"Neither."}],
+    commonMistakes:["Thinking -8 is greater than -3 because 8 is greater than 3.","Forgetting the position of zero."],
+    summary:"Directed numbers are compared using their positions on the number line.",
+    examinationPractice:[{question:"Arrange -5, 3, 0 and -2 in ascending order.",answer:"-5, -2, 0, 3."}]
+  },
+  {
+    week: 3,
+    title: "Addition and Subtraction of Directed Numbers",
+    introduction: "Directed numbers can be added and subtracted using number-line movements and sign rules.",
+    objectives:["Add directed numbers.","Subtract directed numbers.","Solve simple real-life problems."],
+    sections:[
+      {heading:"Adding directed numbers",content:"When two numbers have the same sign, add their values and keep the sign. For example, -3 + (-2) = -5. When signs differ, subtract the smaller absolute value from the larger and use the sign of the number with the larger absolute value."},
+      {heading:"Subtracting directed numbers",content:"Subtracting a number is equivalent to adding its opposite. For example, 5 - (-2) = 5 + 2 = 7."},
+      {heading:"Using a number line",content:"Moving right represents addition of a positive number. Moving left represents addition of a negative number."}
+    ],
+    keyTerms:[{term:"Absolute value",definition:"The distance of a number from zero."},{term:"Opposite",definition:"A number with the same distance from zero but the opposite sign."}],
+    workedExamples:[{question:"Calculate -7 + 4.",answer:"-3."},{question:"Calculate 6 - (-3).",answer:"9."}],
+    exercises:[{question:"Calculate -5 + (-4).",answer:"-9."},{question:"Calculate 8 + (-6).",answer:"2."}],
+    commonMistakes:["Changing signs incorrectly.","Adding absolute values when the signs are different."],
+    summary:"Use sign rules carefully when adding and subtracting directed numbers.",
+    examinationPractice:[{question:"Evaluate -9 + 12.",answer:"3."}]
+  },
+  {
+    week: 4,
+    title: "Multiplication and Division of Directed Numbers",
+    introduction: "Positive and negative numbers follow special sign rules during multiplication and division.",
+    objectives:["Multiply directed numbers.","Divide directed numbers.","Apply sign rules correctly."],
+    sections:[
+      {heading:"Multiplication rules",content:"Positive × positive gives positive. Negative × negative gives positive. Positive × negative gives negative. Negative × positive gives negative."},
+      {heading:"Division rules",content:"Division follows the same sign rules as multiplication. Numbers with the same signs give a positive answer; numbers with different signs give a negative answer."},
+      {heading:"Examples",content:"(-3) × (-4) = 12. Also, (-20) ÷ 5 = -4."}
+    ],
+    keyTerms:[{term:"Product",definition:"The answer obtained from multiplication."},{term:"Quotient",definition:"The answer obtained from division."}],
+    workedExamples:[{question:"Calculate (-6) × 3.",answer:"-18."},{question:"Calculate (-24) ÷ (-6).",answer:"4."}],
+    exercises:[{question:"Evaluate (-5) × (-7).",answer:"35."},{question:"Evaluate 36 ÷ (-9).",answer:"-4."}],
+    commonMistakes:["Giving a negative answer when both signs are negative.","Forgetting that division follows the same sign rules."],
+    summary:"Same signs give a positive result; different signs give a negative result.",
+    examinationPractice:[{question:"Evaluate (-8) × 4.",answer:"-32."}]
+  },
+  {
+    week: 5,
+    title: "Fractions: Addition and Subtraction",
+    introduction: "Fractions can be added or subtracted by using common denominators.",
+    objectives:["Identify numerators and denominators.","Add fractions with like and unlike denominators.","Subtract fractions."],
+    sections:[
+      {heading:"Like denominators",content:"Fractions with the same denominator are added or subtracted by operating on their numerators. Example: 2/7 + 3/7 = 5/7."},
+      {heading:"Unlike denominators",content:"Find a common denominator before adding or subtracting. Example: 1/2 + 1/3 = 3/6 + 2/6 = 5/6."},
+      {heading:"Simplifying fractions",content:"A fraction is in its simplest form when its numerator and denominator have no common factor other than 1."}
+    ],
+    keyTerms:[{term:"Numerator",definition:"The top number of a fraction."},{term:"Denominator",definition:"The bottom number of a fraction."},{term:"Common denominator",definition:"A shared denominator used when comparing or operating on fractions."}],
+    workedExamples:[{question:"Calculate 3/4 - 1/4.",answer:"2/4 = 1/2."},{question:"Calculate 1/3 + 1/6.",answer:"2/6 + 1/6 = 3/6 = 1/2."}],
+    exercises:[{question:"Calculate 2/5 + 1/5.",answer:"3/5."},{question:"Calculate 3/4 - 1/2.",answer:"1/4."}],
+    commonMistakes:["Adding denominators directly.","Failing to simplify the final answer."],
+    summary:"Use a common denominator for unlike fractions and simplify the answer.",
+    examinationPractice:[{question:"Calculate 1/4 + 2/3.",answer:"3/12 + 8/12 = 11/12."}]
+  },
+  {
+    week: 6,
+    title: "Multiplication and Division of Fractions",
+    introduction: "Fractions can be multiplied directly and divided by multiplying by the reciprocal.",
+    objectives:["Multiply fractions.","Divide fractions.","Simplify answers."],
+    sections:[
+      {heading:"Multiplication",content:"Multiply the numerators together and the denominators together. Example: 2/3 × 3/4 = 6/12 = 1/2."},
+      {heading:"Division",content:"To divide by a fraction, change the division sign to multiplication and turn the second fraction upside down. Example: 1/2 ÷ 1/4 = 1/2 × 4/1 = 2."},
+      {heading:"Simplification",content:"Cancel common factors where possible before or after multiplying. Always check that the final fraction is in its simplest form."}
+    ],
+    keyTerms:[{term:"Reciprocal",definition:"A fraction obtained by swapping its numerator and denominator."},{term:"Simplest form",definition:"A fraction that cannot be reduced further."}],
+    workedExamples:[{question:"Calculate 3/5 × 2/3.",answer:"6/15 = 2/5."},{question:"Calculate 2/3 ÷ 4/5.",answer:"2/3 × 5/4 = 10/12 = 5/6."}],
+    exercises:[{question:"Calculate 1/2 × 4/5.",answer:"2/5."},{question:"Calculate 3/4 ÷ 1/2.",answer:"3/2 or 1 1/2."}],
+    commonMistakes:["Forgetting to invert the second fraction during division.","Not simplifying the result."],
+    summary:"Multiply numerators and denominators directly; for division, multiply by the reciprocal.",
+    examinationPractice:[{question:"Evaluate 2/5 × 5/6.",answer:"1/3."}]
+  },
+  {
+    week: 7,
+    title: "Decimals: Addition, Subtraction, Multiplication and Division",
+    introduction: "Decimals represent parts of a whole using a decimal point.",
+    objectives:["Add and subtract decimals.","Multiply decimals.","Divide simple decimal numbers."],
+    sections:[
+      {heading:"Addition and subtraction",content:"Arrange decimal points vertically before adding or subtracting. Add zeros where necessary to make the decimal places equal."},
+      {heading:"Multiplication",content:"Multiply as with whole numbers, then count the total decimal places in the factors and place the decimal point correctly in the answer."},
+      {heading:"Division",content:"When dividing by a decimal, move the decimal point in both numbers the same number of places until the divisor becomes a whole number."}
+    ],
+    keyTerms:[{term:"Decimal point",definition:"A symbol separating the whole-number part from the fractional part."},{term:"Decimal place",definition:"A digit's position after the decimal point."}],
+    workedExamples:[{question:"Calculate 2.5 + 1.35.",answer:"3.85."},{question:"Calculate 0.4 × 0.3.",answer:"0.12."}],
+    exercises:[{question:"Calculate 5.75 - 2.5.",answer:"3.25."},{question:"Calculate 4.8 ÷ 2.",answer:"2.4."}],
+    commonMistakes:["Failing to align decimal points.","Placing the decimal point incorrectly after multiplication."],
+    summary:"Correct decimal operations require careful placement of the decimal point.",
+    examinationPractice:[{question:"Evaluate 1.25 + 3.6.",answer:"4.85."}]
+  },
+  {
+    week: 8,
+    title: "Percentages",
+    introduction: "A percentage is a number expressed as a fraction of one hundred.",
+    objectives:["Explain the meaning of percentage.","Convert fractions and decimals to percentages.","Find percentages of quantities."],
+    sections:[
+      {heading:"Meaning of percentage",content:"Percent means per hundred. The symbol is %. Therefore, 25% means 25 out of 100."},
+      {heading:"Conversion",content:"To change a decimal to a percentage, multiply by 100. To change a percentage to a decimal, divide by 100. For example, 0.4 = 40%."},
+      {heading:"Finding a percentage",content:"To find a percentage of a quantity, divide the percentage by 100 and multiply by the quantity. For example, 20% of 50 = 20/100 × 50 = 10."}
+    ],
+    keyTerms:[{term:"Percentage",definition:"A fraction expressed out of 100."},{term:"Percent sign",definition:"The symbol %."}],
+    workedExamples:[{question:"Find 15% of 200.",answer:"15/100 × 200 = 30."}],
+    exercises:[{question:"Convert 0.75 to a percentage.",answer:"75%."},{question:"Find 10% of 450.",answer:"45."}],
+    commonMistakes:["Multiplying by 100 when converting a percentage to a decimal.","Forgetting to divide by 100 when finding a percentage."],
+    summary:"Percentages compare quantities using a scale of one hundred.",
+    examinationPractice:[{question:"Find 25% of 80.",answer:"20."}]
+  },
+  {
+    week: 9,
+    title: "Ratio and Proportion",
+    introduction: "A ratio compares two or more quantities, while proportion shows that two ratios are equal.",
+    objectives:["Write ratios correctly.","Simplify ratios.","Solve simple proportion problems."],
+    sections:[
+      {heading:"Writing ratios",content:"A ratio compares quantities using a colon. If there are 2 boys and 3 girls, the ratio of boys to girls is 2:3."},
+      {heading:"Simplifying ratios",content:"Divide every part of a ratio by their highest common factor. For example, 8:12 becomes 2:3."},
+      {heading:"Proportion",content:"Two ratios are proportional when they are equal. For example, 2:3 = 4:6 because both simplify to 2:3."}
+    ],
+    keyTerms:[{term:"Ratio",definition:"A comparison of quantities by division."},{term:"Proportion",definition:"A statement that two ratios are equal."}],
+    workedExamples:[{question:"Simplify 15:25.",answer:"3:5."}],
+    exercises:[{question:"Simplify 12:18.",answer:"2:3."},{question:"Are 3:4 and 6:8 proportional?",answer:"Yes."}],
+    commonMistakes:["Changing the order of quantities.","Dividing only one part of a ratio."],
+    summary:"Ratios compare quantities, and proportions show equality between ratios.",
+    examinationPractice:[{question:"Simplify 20:30.",answer:"2:3."}]
+  },
+  {
+    week: 10,
+    title: "Algebraic Expressions",
+    introduction: "Algebra uses letters and symbols to represent numbers and mathematical relationships.",
+    objectives:["Identify variables and constants.","Recognise algebraic terms.","Simplify simple expressions."],
+    sections:[
+      {heading:"Variables and constants",content:"A variable is a letter representing a number that may change. A constant is a fixed number. In 3x + 5, x is the variable and 5 is the constant."},
+      {heading:"Terms and coefficients",content:"Terms are parts of an expression separated by plus or minus signs. In 4y, the coefficient of y is 4."},
+      {heading:"Collecting like terms",content:"Like terms have the same variable raised to the same power. For example, 3x + 2x = 5x. Unlike terms cannot be combined in this way."}
+    ],
+    keyTerms:[{term:"Variable",definition:"A letter representing a number."},{term:"Constant",definition:"A fixed numerical value."},{term:"Coefficient",definition:"The numerical factor multiplying a variable."}],
+    workedExamples:[{question:"Simplify 5x + 3x - 2x.",answer:"6x."}],
+    exercises:[{question:"Identify the coefficient of y in 7y + 4.",answer:"7."},{question:"Simplify 2a + 5a.",answer:"7a."}],
+    commonMistakes:["Combining unlike terms.","Leaving out the variable."],
+    summary:"Algebraic expressions use variables, constants and operations to represent mathematical relationships.",
+    examinationPractice:[{question:"Simplify 4m + 3m - m.",answer:"6m."}]
+  },
+  {
+    week: 11,
+    title: "Simple Linear Equations",
+    introduction: "An equation is a mathematical statement showing that two expressions are equal.",
+    objectives:["Identify simple equations.","Solve equations using inverse operations.","Check solutions."],
+    sections:[
+      {heading:"Meaning of an equation",content:"An equation contains an equals sign. For example, x + 3 = 8 is an equation."},
+      {heading:"Solving equations",content:"Use inverse operations to isolate the unknown. If x + 3 = 8, subtract 3 from both sides: x = 5."},
+      {heading:"Checking answers",content:"Substitute the answer into the original equation. For x = 5, 5 + 3 = 8, so the answer is correct."}
+    ],
+    keyTerms:[{term:"Equation",definition:"A mathematical statement that two expressions are equal."},{term:"Unknown",definition:"The value represented by a variable that must be found."},{term:"Inverse operation",definition:"An operation that reverses another operation."}],
+    workedExamples:[{question:"Solve 2x = 14.",answer:"Divide both sides by 2. x = 7."},{question:"Solve x - 4 = 9.",answer:"Add 4 to both sides. x = 13."}],
+    exercises:[{question:"Solve x + 6 = 15.",answer:"x = 9."},{question:"Solve 3x = 21.",answer:"x = 7."}],
+    commonMistakes:["Performing an operation on only one side.","Not checking the answer."],
+    summary:"Solve equations by keeping both sides balanced and using inverse operations.",
+    examinationPractice:[{question:"Solve 4x + 2 = 18.",answer:"4x = 16, so x = 4."}]
+  },
+  {
+    week: 12,
+    title: "Second Term Mathematics Revision and Assessment",
+    introduction: "This lesson reviews the mathematics topics covered during the second term.",
+    objectives:["Revise directed numbers.","Practise fractions, decimals and percentages.","Review ratio and algebra."],
+    sections:[
+      {heading:"Number operations",content:"Review addition, subtraction, multiplication and division of directed numbers, fractions and decimals. Pay attention to signs and place value."},
+      {heading:"Percentages and ratios",content:"Practise converting decimals to percentages, finding percentages of quantities and simplifying ratios."},
+      {heading:"Algebra and equations",content:"Identify variables and coefficients, collect like terms and solve simple equations using inverse operations."},
+      {heading:"Assessment preparation",content:"Read each question carefully, show working steps and check answers where possible."}
+    ],
+    keyTerms:[{term:"Revision",definition:"Reviewing previously learned work."},{term:"Assessment",definition:"Checking a learner's understanding and progress."}],
+    workedExamples:[{question:"Solve 3x + 2 = 17.",answer:"3x = 15, so x = 5."}],
+    exercises:[{question:"Calculate -4 + 9.",answer:"5."},{question:"Find 20% of 150.",answer:"30."},{question:"Simplify 18:24.",answer:"3:4."}],
+    commonMistakes:["Rushing calculations.","Ignoring negative signs.","Failing to show working."],
+    summary:"Regular practice helps learners build accuracy and confidence in mathematics.",
+    examinationPractice:[{question:"Calculate 2/3 + 1/6.",answer:"5/6."},{question:"Solve x + 8 = 20.",answer:"x = 12."},{question:"Find 15% of 300.",answer:"45."}]
+  }
+]
