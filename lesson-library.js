@@ -906,3 +906,263 @@
   }
 
 ]
+
+"Second Term": {
+  "English Studies": [
+
+    lesson(1, "Revision of Parts of Speech",
+      ["Identify the main parts of speech.", "Use nouns, pronouns and verbs correctly."],
+      "Parts of speech are groups of words classified according to their functions in sentences.",
+      [
+        {heading:"Nouns",content:"Nouns name people, places, animals, things and ideas. Examples include teacher, Lagos, goat and happiness."},
+        {heading:"Pronouns",content:"Pronouns replace nouns. Examples include I, you, he, she, it, we and they."},
+        {heading:"Verbs",content:"Verbs express actions or states. Examples include write, sing, think, is and are."},
+        {heading:"Adjectives and adverbs",content:"Adjectives describe nouns or pronouns. Adverbs give more information about verbs, adjectives or other adverbs."},
+        {heading:"Prepositions and conjunctions",content:"Prepositions show relationships such as position or direction. Conjunctions join words, phrases or clauses."}
+      ],
+      [
+        {question:"Identify the adjective: The clever boy answered.",answer:"Clever."},
+        {question:"Identify the conjunction: Ada and Musa came.",answer:"And."}
+      ],
+      [
+        {question:"What is a noun?",answer:"A word that names a person, place, animal, thing or idea."},
+        {question:"Give two pronouns.",answer:"She and they."},
+        {question:"Identify the verb: The baby cried.",answer:"Cried."}
+      ],
+      "Parts of speech perform different functions and work together to form meaningful sentences."
+    ),
+
+    lesson(2, "Subject-Verb Agreement",
+      ["Explain subject-verb agreement.","Choose verbs that agree with their subjects.","Correct common agreement errors."],
+      "Subject-verb agreement means that the verb must agree with its subject in number and person.",
+      [
+        {heading:"Singular subjects",content:"A singular subject generally takes a singular verb in the simple present tense. Example: The girl sings."},
+        {heading:"Plural subjects",content:"A plural subject generally takes a plural verb. Example: The girls sing."},
+        {heading:"The verb 'be'",content:"The forms of 'be' include am, is, are, was and were. Their correct use depends on the subject and tense."},
+        {heading:"Common errors",content:"Do not write 'He go to school.' The correct sentence is 'He goes to school.'"}
+      ],
+      [
+        {question:"Choose the correct verb: She (play/plays) football.",answer:"Plays."},
+        {question:"Complete: The boys ___ happy.",answer:"Are."}
+      ],
+      [
+        {question:"The teacher ___ in class. (is/are)",answer:"Is."},
+        {question:"My friends ___ early. (arrive/arrives)",answer:"Arrive."},
+        {question:"Correct: He walk to school.",answer:"He walks to school."}
+      ],
+      "The verb must agree with its subject in number and person."
+    ),
+
+    lesson(3, "Reading Comprehension: Main Ideas and Inference",
+      ["Identify main ideas and supporting details.","Answer direct questions.","Make simple inferences from passages."],
+      "Comprehension involves understanding information in a written passage and using it to answer questions.",
+      [
+        {heading:"Main ideas",content:"The main idea is the central message of a passage. It may be expressed directly or developed through several sentences."},
+        {heading:"Supporting details",content:"Supporting details explain, describe or provide evidence for the main idea."},
+        {heading:"Inference",content:"An inference is a reasonable conclusion drawn from clues in a passage and what the reader already knows."},
+        {heading:"Practice passage",content:"During the rainy season, the school garden became green. Students watered the plants when the rain stopped and removed weeds from the garden. Their teacher praised them for working together."}
+      ],
+      [
+        {question:"What happened to the garden during the rainy season?",answer:"It became green."},
+        {question:"Why did the teacher praise the students?",answer:"They worked together to care for the garden."}
+      ],
+      [
+        {question:"What is a supporting detail?",answer:"Information that explains or develops the main idea."},
+        {question:"What is an inference?",answer:"A reasonable conclusion based on clues and knowledge."},
+        {question:"Mention one activity the students did in the passage.",answer:"They watered the plants or removed weeds."}
+      ],
+      "Comprehension requires identifying main ideas, finding details and making reasonable inferences."
+    ),
+
+    lesson(4, "Past, Present and Future Tenses",
+      ["Identify basic verb tenses.","Change sentences between simple tenses.","Use tenses consistently."],
+      "Tense indicates the time of an action or state.",
+      [
+        {heading:"Simple present tense",content:"The simple present describes habits, facts and regular activities. Example: She reads every evening."},
+        {heading:"Simple past tense",content:"The simple past describes completed actions. Example: She read yesterday."},
+        {heading:"Simple future tense",content:"The simple future describes actions expected to happen later. Example: She will read tomorrow."},
+        {heading:"Regular and irregular verbs",content:"Regular verbs often form the past tense by adding -ed, as in walk and walked. Irregular verbs change differently, such as go and went."}
+      ],
+      [
+        {question:"Change 'They play' to the past tense.",answer:"They played."},
+        {question:"Change 'I went home' to the future tense.",answer:"I will go home."}
+      ],
+      [
+        {question:"Give the past tense of 'eat'.",answer:"Ate."},
+        {question:"Complete: Tomorrow, she ___ visit us.",answer:"Will."},
+        {question:"Identify the tense: He works every day.",answer:"Simple present tense."}
+      ],
+      "The simple present, past and future tenses describe actions occurring at different times."
+    ),
+
+    lesson(5, "Vocabulary: Synonyms, Antonyms and Homophones",
+      ["Define synonyms and antonyms.","Identify common homophones.","Use vocabulary correctly in sentences."],
+      "Vocabulary development improves reading, writing and communication.",
+      [
+        {heading:"Synonyms",content:"Synonyms are words with the same or nearly the same meaning. Examples: happy and joyful; begin and start."},
+        {heading:"Antonyms",content:"Antonyms are words with opposite meanings. Examples: early and late; strong and weak."},
+        {heading:"Homophones",content:"Homophones sound alike but have different meanings and sometimes different spellings. Examples: right and write; sea and see."},
+        {heading:"Using words in context",content:"The meaning of a word should fit the sentence in which it is used. Read the whole sentence before choosing a word."}
+      ],
+      [
+        {question:"Give a synonym for 'large'.",answer:"Big."},
+        {question:"Give an antonym for 'generous'.",answer:"Stingy."}
+      ],
+      [
+        {question:"Give a synonym for 'silent'.",answer:"Quiet."},
+        {question:"Give an antonym for 'victory'.",answer:"Defeat."},
+        {question:"Use 'write' in a sentence.",answer:"I write neatly in my notebook."}
+      ],
+      "Synonyms have similar meanings, antonyms have opposite meanings and homophones sound alike."
+    ),
+
+    lesson(6, "Oral English: Consonant Sounds",
+      ["Explain consonant sounds.","Recognise selected consonant sounds.","Practise clear pronunciation."],
+      "Consonant sounds are speech sounds produced when airflow is partly or completely obstructed in the mouth.",
+      [
+        {heading:"Consonant sounds",content:"Examples of consonant sounds include /p/, /b/, /t/, /d/, /k/, /g/, /m/, /n/ and /s/."},
+        {heading:"Voiced and voiceless sounds",content:"Voiced sounds involve vibration of the vocal cords. Voiceless sounds do not involve vocal-cord vibration in the same way. For example, /b/ is voiced while /p/ is voiceless."},
+        {heading:"Initial sounds",content:"The initial sound is the first sound in a word. Examples: /b/ in ball and /m/ in man."},
+        {heading:"Pronunciation practice",content:"Listen carefully to a teacher or reliable pronunciation model. Repeat words slowly and clearly, paying attention to the sounds."}
+      ],
+      [
+        {question:"What is the first sound in 'book'?",answer:"/b/."},
+        {question:"Is /p/ voiced or voiceless?",answer:"Voiceless."}
+      ],
+      [
+        {question:"Give two consonant sounds.",answer:"/m/ and /s/."},
+        {question:"What is an initial sound?",answer:"The first sound in a word."},
+        {question:"Give a word beginning with /t/.",answer:"Table."}
+      ],
+      "Consonant sounds are important for clear pronunciation and listening."
+    ),
+
+    lesson(7, "Paragraph Writing: Unity and Coherence",
+      ["Explain a paragraph.","Identify a topic sentence.","Arrange ideas in a logical order."],
+      "A paragraph is a group of related sentences that develop one main idea.",
+      [
+        {heading:"Topic sentence",content:"The topic sentence introduces the main idea of a paragraph."},
+        {heading:"Supporting sentences",content:"Supporting sentences explain the topic sentence using reasons, facts or examples."},
+        {heading:"Unity",content:"Unity means that all sentences in a paragraph relate to its main idea."},
+        {heading:"Coherence",content:"Coherence means that ideas are arranged clearly and logically. Linking words such as first, next, because and finally can help."},
+        {heading:"Concluding sentence",content:"A concluding sentence brings the paragraph to a suitable close."}
+      ],
+      [
+        {question:"What is the function of a topic sentence?",answer:"It introduces the main idea."}
+      ],
+      [
+        {question:"Define paragraph unity.",answer:"All sentences in a paragraph relate to one main idea."},
+        {question:"Mention two linking words.",answer:"First and finally."},
+        {question:"Write a paragraph about the importance of education.",answer:"Answers will differ. The paragraph should have one main idea, supporting details and logical order."}
+      ],
+      "A good paragraph has a clear topic, related supporting sentences and logical organisation."
+    ),
+
+    lesson(8, "Formal Letter Writing",
+      ["Explain formal letters.","Identify the parts of a formal letter.","Write a simple formal letter."],
+      "A formal letter is written for official or serious purposes, such as making a request or complaint to an organisation.",
+      [
+        {heading:"Addresses and date",content:"The writer's address and date are placed at the top. The recipient's address is written below, according to the format taught."},
+        {heading:"Salutation and heading",content:"A suitable greeting is used, such as Dear Sir or Dear Madam. A heading briefly states the purpose of the letter."},
+        {heading:"Body",content:"The body explains the reason for writing in clear, polite and organised paragraphs."},
+        {heading:"Closing",content:"A formal closing such as Yours faithfully is commonly used when the recipient is addressed as Dear Sir or Dear Madam."},
+        {heading:"Language",content:"Formal letters use respectful language and avoid slang, unnecessary abbreviations and overly casual expressions."}
+      ],
+      [
+        {question:"Give one reason for writing a formal letter.",answer:"To make an official request or complaint."}
+      ],
+      [
+        {question:"What is a formal letter?",answer:"A letter written for official or serious purposes."},
+        {question:"Mention three parts of a formal letter.",answer:"Addresses, date and body."},
+        {question:"Write a letter to your head teacher requesting permission to organise a reading club.",answer:"Answers will differ. The letter should have a suitable layout, clear purpose and polite language."}
+      ],
+      "Formal letters follow an organised format and use polite, appropriate language."
+    ),
+
+    lesson(9, "Direct and Indirect Speech",
+      ["Explain direct and indirect speech.","Identify quoted speech.","Change simple statements into reported speech."],
+      "Direct speech reports the exact words spoken by a person. Indirect speech reports what someone said without repeating the exact words.",
+      [
+        {heading:"Direct speech",content:"Direct speech uses the speaker's exact words, usually inside quotation marks. Example: Ada said, 'I am happy.'"},
+        {heading:"Indirect speech",content:"Indirect speech reports the message. Example: Ada said that she was happy."},
+        {heading:"Changes in reported speech",content:"Pronouns, verb tenses and time expressions may change depending on the reporting situation."},
+        {heading:"Punctuation",content:"Quotation marks are used to show the exact words in direct speech. Indirect speech does not normally use quotation marks around the reported message."}
+      ],
+      [
+        {question:"Change to indirect speech: Musa said, 'I am tired.'",answer:"Musa said that he was tired."}
+      ],
+      [
+        {question:"What is direct speech?",answer:"The exact words spoken by someone."},
+        {question:"What punctuation marks commonly show direct speech?",answer:"Quotation marks."},
+        {question:"Change to indirect speech: She said, 'I like rice.'",answer:"She said that she liked rice."}
+      ],
+      "Direct speech gives exact words, while indirect speech reports the message."
+    ),
+
+    lesson(10, "Literature: Introduction to Prose",
+      ["Define prose.","Identify characters and setting.","Explain plot and theme."],
+      "Literature is the study of written and spoken creative works. Prose is one major form of literature.",
+      [
+        {heading:"Meaning of prose",content:"Prose is writing arranged in ordinary sentences and paragraphs rather than in regular poetic lines. Novels and short stories are examples."},
+        {heading:"Characters",content:"Characters are the people or figures involved in a story. The main character is often central to the events."},
+        {heading:"Setting",content:"Setting refers to the time and place in which a story happens."},
+        {heading:"Plot",content:"Plot is the sequence of events in a story. It includes the beginning, development and ending."},
+        {heading:"Theme",content:"Theme is the main idea or message explored in a literary work, such as honesty, friendship or courage."}
+      ],
+      [
+        {question:"What is setting?",answer:"The time and place in which a story happens."}
+      ],
+      [
+        {question:"Define prose.",answer:"Writing arranged in ordinary sentences and paragraphs."},
+        {question:"Who are characters?",answer:"The people or figures involved in a story."},
+        {question:"Mention two possible themes.",answer:"Honesty and friendship."}
+      ],
+      "Prose is studied by examining its characters, setting, plot and themes."
+    ),
+
+    lesson(11, "Narrative Composition",
+      ["Explain narrative writing.","Arrange events in sequence.","Write a simple story with a clear ending."],
+      "Narrative writing tells a story about real or imagined events.",
+      [
+        {heading:"Beginning",content:"The beginning introduces the characters, setting and situation."},
+        {heading:"Middle",content:"The middle develops the events and describes the main problem or activities."},
+        {heading:"Ending",content:"The ending shows how the events conclude."},
+        {heading:"Sequence words",content:"Words such as first, then, after that, later and finally help organise events."},
+        {heading:"Story language",content:"Use clear descriptions, appropriate verbs and correct punctuation to make the story understandable."}
+      ],
+      [
+        {question:"Mention two words used to show sequence.",answer:"First and finally."}
+      ],
+      [
+        {question:"What is narrative writing?",answer:"Writing that tells a story."},
+        {question:"Name the three broad parts of a simple story.",answer:"Beginning, middle and ending."},
+        {question:"Write a story about a memorable school day.",answer:"Answers will differ. The story should have characters, events in sequence and a clear ending."}
+      ],
+      "A narrative composition tells events in a clear sequence with a beginning, middle and ending."
+    ),
+
+    lesson(12, "Second Term Revision and Assessment",
+      ["Revise the topics covered during the term.","Apply grammar and vocabulary rules.","Demonstrate reading, speaking and writing skills."],
+      "Revision helps learners recall and apply the English skills studied during the second term.",
+      [
+        {heading:"Grammar",content:"Review parts of speech, subject-verb agreement, tenses and direct and indirect speech."},
+        {heading:"Reading and vocabulary",content:"Practise identifying main ideas, supporting details, inferences, synonyms, antonyms and homophones."},
+        {heading:"Speaking",content:"Review consonant sounds and clear pronunciation."},
+        {heading:"Writing and literature",content:"Revise paragraph writing, formal letters, narrative composition and the basic elements of prose."},
+        {heading:"Assessment preparation",content:"Read questions carefully, organise answers and check spelling, punctuation and grammar."}
+      ],
+      [
+        {question:"Identify the verb: The pupils are studying.",answer:"Are studying."},
+        {question:"Give an antonym for 'polite'.",answer:"Rude."}
+      ],
+      [
+        {question:"What is subject-verb agreement?",answer:"The verb agreeing with its subject in number and person."},
+        {question:"What is the main idea of a passage?",answer:"Its central message."},
+        {question:"Mention two features of a formal letter.",answer:"A formal greeting and a clearly organised body."},
+        {question:"What is prose?",answer:"Writing arranged in ordinary sentences and paragraphs."}
+      ],
+      "The second term brings together grammar, comprehension, vocabulary, oral English, writing and literature. The teacher may use this week for revision and end-of-term assessment."
+    )
+
+  ]
+}
