@@ -2,416 +2,305 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101a35">
-  <meta name="description" content="EXAM MASTER JUNIOR SECONDARY SCHOOL">
-  <title>EXAM MASTER JUNIOR SECONDARY SCHOOL</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101a35">
+<meta name="description" content="EXAM MASTER JUNIOR SECONDARY SCHOOL">
+<title>EXAM MASTER JUNIOR SECONDARY SCHOOL</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icons/icon-192.png">
+<link rel="stylesheet" href="style.css">
 
-  <link rel="manifest" href="manifest.json">
-  <link rel="icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    :root {
-      --primary: #315efb;
-      --dark: #101a35;
-      --light: #f4f7ff;
-      --card: #ffffff;
-      --text: #18233b;
-      --muted: #667085;
-      --success: #16834b;
-      --danger: #c0392b;
-    }
-
-    * { box-sizing: border-box; }
-
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: var(--light);
-      color: var(--text);
-    }
-
-    header {
-      background: linear-gradient(135deg, #101a35, #2449a5);
-      color: white;
-      padding: 28px 18px;
-      text-align: center;
-    }
-
-    header h1 { margin: 0 0 8px; }
-
-    main {
-      width: min(100% - 24px, 950px);
-      margin: 20px auto;
-    }
-
-    .panel {
-      background: var(--card);
-      padding: 18px;
-      margin-bottom: 18px;
-      border-radius: 14px;
-      box-shadow: 0 3px 14px rgba(20,35,70,.07);
-    }
-
-    .selectors {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(180px,1fr));
-      gap: 12px;
-    }
-
-    label {
-      display: block;
-      font-weight: bold;
-      margin-bottom: 7px;
-    }
-
-    select, button {
-      width: 100%;
-      padding: 12px;
-      border-radius: 9px;
-      border: 1px solid #ccd4e5;
-      font-size: 15px;
-    }
-
-    button {
-      background: var(--primary);
-      color: white;
-      border: 0;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 12px;
-    }
-
-    button:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .lesson-card {
-      border: 1px solid #e0e6f2;
-      border-radius: 10px;
-      padding: 13px;
-      margin: 10px 0;
-      background: white;
-    }
-
-    .lesson-section {
-      margin: 18px 0;
-      line-height: 1.7;
-    }
-
-    .lesson-section h3 { color: #2449a5; }
-
-    .lesson-section p { white-space: pre-wrap; }
-
-    .muted { color: var(--muted); }
-
-    .hidden { display: none !important; }
-
-    .assessment-card {
-      border-left: 4px solid var(--primary);
-      padding: 15px;
-      margin: 12px 0;
-      background: #f7f9ff;
-      border-radius: 8px;
-    }
-
-    .book-link {
-      display: block;
-      text-align: center;
-      background: var(--primary);
-      color: white;
-      padding: 13px;
-      margin-top: 12px;
-      border-radius: 9px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .book-link:hover {
-      background: #2449a5;
-    }
-
-    .bae-option {
-      display: block;
-      width: 100%;
-      text-align: left;
-      background: white;
-      color: var(--text);
-      border: 1px solid #ccd4e5;
-      margin: 9px 0;
-    }
-
-    .bae-option.selected {
-      border: 2px solid var(--primary);
-      background: #edf2ff;
-    }
-
-    .bae-option.correct {
-      border: 2px solid var(--success);
-      background: #eaf8ef;
-    }
-
-    .bae-option.incorrect {
-      border: 2px solid var(--danger);
-      background: #fff0ee;
-    }
-
-    .bae-feedback {
-      padding: 12px;
-      border-radius: 8px;
-      background: #edf2ff;
-      margin-top: 12px;
-      line-height: 1.6;
-    }
-
-    .bae-progress {
-      height: 9px;
-      background: #e3e8f2;
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .bae-progress-bar {
-      height: 100%;
-      width: 0;
-      background: var(--primary);
-      transition: width .2s;
-    }
-
-    footer {
-      text-align: center;
-      padding: 22px;
-      color: var(--muted);
-    }
-  </style>
+<style>
+:root {
+  --primary:#315efb;
+  --dark:#101a35;
+  --light:#f4f7ff;
+  --card:#fff;
+  --text:#18233b;
+  --muted:#667085;
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:var(--light);color:var(--text)}
+header{background:linear-gradient(135deg,#101a35,#2449a5);color:white;padding:28px 18px;text-align:center}
+header h1{margin:0 0 8px}
+main{width:min(100% - 24px,950px);margin:20px auto}
+.panel{background:var(--card);padding:18px;margin-bottom:18px;border-radius:14px;box-shadow:0 3px 14px rgba(20,35,70,.07)}
+.selectors{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+label{display:block;font-weight:bold;margin-bottom:7px}
+select,button{width:100%;padding:12px;border-radius:9px;border:1px solid #ccd4e5;font-size:15px}
+button{background:var(--primary);color:white;border:0;font-weight:bold;cursor:pointer;margin-top:12px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.lesson-card,.past-question-card{border:1px solid #e0e6f2;border-radius:10px;padding:13px;margin:10px 0;background:white}
+.lesson-section{margin:18px 0;line-height:1.7}
+.lesson-section h3{color:#2449a5}
+.lesson-section p{white-space:pre-wrap}
+.muted{color:var(--muted)}
+.hidden{display:none!important}
+.assessment-card{border-left:4px solid var(--primary);padding:15px;margin:12px 0;background:#f7f9ff;border-radius:8px}
+.book-link{display:block;text-align:center;background:var(--primary);color:white;padding:13px;margin-top:12px;border-radius:9px;text-decoration:none;font-weight:bold}
+.bae-option{display:block;width:100%;text-align:left;background:white;color:var(--text);border:1px solid #ccd4e5;margin:9px 0}
+.bae-option.selected{border:2px solid var(--primary);background:#edf2ff}
+.bae-option.correct{border:2px solid #16834b;background:#eaf8ef}
+.bae-option.incorrect{border:2px solid #c0392b;background:#fff0ee}
+.bae-feedback{padding:12px;border-radius:8px;background:#edf2ff;margin-top:12px;line-height:1.6}
+.bae-progress{height:9px;background:#e3e8f2;border-radius:20px;overflow:hidden}
+.bae-progress-bar{height:100%;width:0;background:var(--primary)}
+.past-question-card{background:#f7f9ff;padding:15px}
+footer{text-align:center;padding:22px;color:var(--muted)}
+</style>
 </head>
 
 <body>
-
 <header>
-  <h1>EXAM MASTER</h1>
-  <p>JUNIOR SECONDARY SCHOOL</p>
-  <p>Learn • Practise • Improve</p>
+<h1>EXAM MASTER</h1>
+<p>JUNIOR SECONDARY SCHOOL</p>
+<p>Learn • Practise • Improve</p>
 </header>
 
 <main>
 
-  <section class="panel">
-    <h2>Welcome to EXAM MASTER JUNIOR</h2>
-    <p>Your learning and examination preparation platform for JSS 1, JSS 2 and JSS 3.</p>
-    <p class="muted">Study your lessons, practise questions and monitor your progress.</p>
-  </section>
+<section class="panel">
+<h2>Welcome to EXAM MASTER JUNIOR</h2>
+<p>Your learning and examination preparation platform for JSS 1, JSS 2 and JSS 3.</p>
+<p class="muted">Study lessons, practise questions and monitor your progress.</p>
+</section>
 
-  <!-- LEARNING CENTRE -->
+<section class="panel" id="learningCentre">
+<h2>Learning Centre</h2>
+<div class="selectors">
+<div>
+<label for="classSelect">Select Class</label>
+<select id="classSelect">
+<option value="JSS 1">JSS 1</option>
+<option value="JSS 2">JSS 2</option>
+<option value="JSS 3">JSS 3</option>
+</select>
+</div>
+<div>
+<label for="termSelect">Select Term</label>
+<select id="termSelect">
+<option value="First Term">First Term</option>
+<option value="Second Term">Second Term</option>
+<option value="Third Term">Third Term</option>
+</select>
+</div>
+<div>
+<label for="subjectSelect">Select Subject</label>
+<select id="subjectSelect">
+<option value="">Loading subjects...</option>
+</select>
+</div>
+</div>
+<button id="loadLessons" type="button">Open Lessons</button>
+<p id="lessonMessage" class="muted" aria-live="polite"></p>
+<section id="lessonListSection" class="hidden">
+<h3>Available Lessons</h3>
+<div id="lessonList"></div>
+</section>
+<section id="lessonViewer" class="hidden">
+<button id="backToLessons" type="button">← Back to Lessons</button>
+<div id="lessonContent"></div>
+</section>
+<p id="progressDisplay" class="muted">Your progress will appear here.</p>
+</section>
 
-  <section class="panel">
-    <h2>Learning Centre</h2>
+<section class="panel" id="assessmentCentre">
+<h2>Assessment Centre</h2>
 
-    <div class="selectors">
-      <div>
-        <label for="classSelect">Select Class</label>
-        <select id="classSelect">
-          <option value="JSS 1">JSS 1</option>
-          <option value="JSS 2">JSS 2</option>
-          <option value="JSS 3">JSS 3</option>
-        </select>
-      </div>
+<div class="assessment-card" id="baeSection">
+<h3>BAE – Basic Assessment Exercises</h3>
+<p>Practise questions based on your selected class, term and subject.</p>
+<div id="baeSetup">
+<p class="muted">Select your class, term and subject in the Learning Centre before starting.</p>
+<button type="button" id="baeStart">Start BAE</button>
+</div>
+<p id="baeDetails" class="muted"></p>
+<div id="baeQuiz" class="hidden">
+<div class="bae-progress"><div id="baeProgressBar" class="bae-progress-bar"></div></div>
+<p id="baeProgress">Question 1</p>
+<h4 id="baeQuestion"></h4>
+<div id="baeOptions"></div>
+<button type="button" id="baeSubmit">Submit Answer</button>
+<div id="baeFeedback" class="bae-feedback hidden"></div>
+<button type="button" id="baeNext" class="hidden">Next Question</button>
+</div>
+<div id="baeResult" class="hidden">
+<h3>Assessment Completed</h3>
+<h2 id="baeScore"></h2>
+<p id="baeSummary"></p>
+<div id="baeReview"></div>
+<button type="button" id="baeRestart">Try Again</button>
+</div>
+</div>
 
-      <div>
-        <label for="termSelect">Select Term</label>
-        <select id="termSelect">
-          <option value="First Term">First Term</option>
-          <option value="Second Term">Second Term</option>
-          <option value="Third Term">Third Term</option>
-        </select>
-      </div>
+<div class="assessment-card">
+<h3>CBT – Computer-Based Tests</h3>
+<p>Timed multiple-choice examinations for JSS 1, JSS 2 and JSS 3.</p>
+<p class="muted">CBT engine is still being developed.</p>
+</div>
 
-      <div>
-        <label for="subjectSelect">Select Subject</label>
-        <select id="subjectSelect">
-          <option value="">Loading subjects...</option>
-        </select>
-      </div>
-    </div>
+<div class="assessment-card">
+<h3>BECE Preparation</h3>
+<p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
+<p class="muted">BECE question bank is still being developed.</p>
+</div>
 
-    <button id="loadLessons" type="button">Open Lessons</button>
-    <p id="lessonMessage" class="muted" aria-live="polite"></p>
+<div class="assessment-card">
+<h3>Free Mock Test Study Book</h3>
+<p>Read study guides and practise English, Mathematics, reasoning and Basic Science.</p>
+<a class="book-link" href="competitive-exam-book.html">Open Free Study Book</a>
+</div>
+</section>
 
-    <section id="lessonListSection" class="hidden">
-      <h3>Available Lessons</h3>
-      <div id="lessonList"></div>
-    </section>
+<!-- PAST QUESTIONS LIBRARY -->
+<section class="panel" id="pastQuestionsSection">
+<h2>Past Questions Library</h2>
+<p>Practise junior secondary examination questions by class, subject and question type.</p>
 
-    <section id="lessonViewer" class="hidden">
-      <button id="backToLessons" type="button">← Back to Lessons</button>
-      <div id="lessonContent"></div>
-    </section>
+<div class="selectors">
+<div>
+<label for="pastClassSelect">Select Class</label>
+<select id="pastClassSelect">
+<option value="JSS 1">JSS 1</option>
+<option value="JSS 2">JSS 2</option>
+<option value="JSS 3">JSS 3</option>
+</select>
+</div>
+<div>
+<label for="pastSubjectSelect">Select Subject</label>
+<select id="pastSubjectSelect">
+<option value="">Loading subjects...</option>
+</select>
+</div>
+<div>
+<label for="pastTypeSelect">Question Type</label>
+<select id="pastTypeSelect">
+<option value="objective">Objective</option>
+<option value="theory">Theory</option>
+</select>
+</div>
+</div>
 
-    <p id="progressDisplay" class="muted">Your progress will appear here.</p>
-  </section>
+<div class="past-question-card">
+<p id="pastQuestionMessage" class="muted" aria-live="polite">
+Choose a class, subject and question type to begin.
+</p>
+<button type="button" id="pastStartButton">Start Practice</button>
+</div>
 
-  <!-- ASSESSMENT CENTRE -->
+<div id="pastQuestionArea" class="hidden">
+<p id="pastQuestionProgress" class="muted"></p>
+<h3 id="pastQuestionText"></h3>
+<div id="pastQuestionOptions"></div>
+<button type="button" id="pastSubmitAnswer">Check Answer</button>
+<div id="pastAnswerFeedback" class="bae-feedback hidden" aria-live="polite"></div>
+<button type="button" id="pastNextQuestion" class="hidden">Next Question</button>
+</div>
 
-  <section class="panel">
-    <h2>Assessment Centre</h2>
+<div id="pastQuestionResult" class="hidden">
+<h3>Practice Completed</h3>
+<p id="pastQuestionScore"></p>
+<button type="button" id="pastRestartButton">Practise Again</button>
+</div>
+</section>
 
-    <!-- BAE -->
+<section class="panel">
+<h2>Results and Performance</h2>
+<p>Assessment scores and learning progress will be displayed here.</p>
+<div id="assessmentHistory">No assessment results recorded yet.</div>
+</section>
 
-    <div class="assessment-card" id="baeSection">
-      <h3>BAE – Basic Assessment Exercises</h3>
-      <p>Practise questions based on your selected class, term and subject.</p>
+<section class="panel">
+<h2>Revision and Practice</h2>
+<p>Use your lessons and exercises to revise what you have learned.</p>
+</section>
 
-      <div id="baeSetup">
-        <p class="muted">
-          Select your class, term and subject in the Learning Centre
-          before starting your assessment.
-        </p>
-        <button type="button" id="baeStart">Start BAE</button>
-      </div>
-
-      <p id="baeDetails" class="muted" aria-live="polite"></p>
-
-      <div id="baeQuiz" class="hidden">
-        <div class="bae-progress">
-          <div id="baeProgressBar" class="bae-progress-bar"></div>
-        </div>
-
-        <p id="baeProgress">Question 1</p>
-        <h4 id="baeQuestion"></h4>
-
-        <div id="baeOptions"></div>
-
-        <button type="button" id="baeSubmit">Submit Answer</button>
-
-        <div id="baeFeedback" class="bae-feedback hidden" aria-live="polite"></div>
-
-        <button type="button" id="baeNext" class="hidden">
-          Next Question
-        </button>
-      </div>
-
-      <div id="baeResult" class="hidden">
-        <h3>Assessment Completed</h3>
-        <h2 id="baeScore"></h2>
-        <p id="baeSummary"></p>
-        <div id="baeReview"></div>
-        <button type="button" id="baeRestart">Try Again</button>
-      </div>
-    </div>
-
-    <!-- CBT -->
-
-    <div class="assessment-card">
-      <h3>CBT – Computer-Based Tests</h3>
-      <p>Timed multiple-choice examinations for JSS 1, JSS 2 and JSS 3.</p>
-      <p class="muted">CBT engine is still being developed.</p>
-    </div>
-
-    <!-- BECE -->
-
-    <div class="assessment-card">
-      <h3>BECE Preparation</h3>
-      <p>Prepare for the Basic Education Certificate Examination in JSS 3.</p>
-      <p class="muted">BECE question bank is still being developed.</p>
-    </div>
-
-    <!-- FREE STUDY BOOK -->
-
-    <div class="assessment-card">
-      <h3>Free Mock Test Study Book</h3>
-      <p>Read study guides and practise English, Mathematics, reasoning and Basic Science.</p>
-      <a class="book-link" href="competitive-exam-book.html">
-        Open Free Study Book
-      </a>
-    </div>
-
-  </section>
-
-  <!-- RESULTS -->
-
-  <section class="panel">
-    <h2>Results and Performance</h2>
-    <p>Assessment scores and learning progress will be displayed here.</p>
-    <div id="assessmentHistory">No assessment results recorded yet.</div>
-  </section>
-
-  <!-- REVISION -->
-
-  <section class="panel">
-    <h2>Revision and Practice</h2>
-    <p>Use your lessons and exercises to revise what you have learned.</p>
-  </section>
-
-  <!-- ABOUT -->
-
-  <section class="panel">
-    <h2>About EXAM MASTER JUNIOR</h2>
-    <p>Designed to support Nigerian junior secondary school students with lessons, revision and examination practice.</p>
-    <p class="muted">JSS 1 • JSS 2 • JSS 3</p>
-  </section>
+<section class="panel">
+<h2>About EXAM MASTER JUNIOR</h2>
+<p>Designed to support Nigerian junior secondary school students with lessons, revision and examination practice.</p>
+<p class="muted">JSS 1 • JSS 2 • JSS 3</p>
+</section>
 
 </main>
 
-<footer>
-  EXAM MASTER JUNIOR SECONDARY SCHOOL
-</footer>
+<footer>EXAM MASTER JUNIOR SECONDARY SCHOOL</footer>
 
-<!-- CENTRAL LESSON LIBRARY -->
 <script src="lesson-library.js"></script>
-
-<!-- MATHEMATICS LESSON FILE -->
 <script src="lessons/jss1-mathematics-first-term.js"></script>
 
-<!-- REGISTER MATHEMATICS LESSONS -->
 <script>
-(function () {
-  const library = window.EXAM_MASTER?.library;
+(function(){
+  const library=window.EXAM_MASTER?.library;
+  const mathLessons=window.EXAM_MASTER_LESSONS?.["JSS 1"]?.["First Term"]?.["Mathematics"]||[];
 
-  const mathLessons =
-    window.EXAM_MASTER_LESSONS?.["JSS 1"]?.["First Term"]?.["Mathematics"] || [];
-
-  if (!library || typeof library.addLesson !== "function") {
+  if(!library||typeof library.addLesson!=="function"){
     console.error("Lesson library unavailable.");
     return;
   }
 
-  mathLessons.forEach(function (lesson) {
-    const existing = library.getWeek(
-      "JSS 1",
-      "First Term",
-      "Mathematics",
-      lesson.week
-    );
-
-    if (!existing) {
-      library.addLesson(
-        "JSS 1",
-        "First Term",
-        "Mathematics",
-        lesson
-      );
-    }
+  mathLessons.forEach(function(lesson){
+    const existing=library.getWeek("JSS 1","First Term","Mathematics",lesson.week);
+    if(!existing) library.addLesson("JSS 1","First Term","Mathematics",lesson);
   });
 })();
 </script>
 
-<!-- APPLICATION CONTROLLER -->
 <script src="app.js"></script>
-
-<!-- BAE QUESTION ENGINE -->
 <script src="bae.js"></script>
 
-<!-- SERVICE WORKER -->
 <script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function () {
+/* Past Questions Library interface controller.
+   The question bank will be connected in the next development step. */
+(function(){
+  const $=id=>document.getElementById(id);
+  const library=window.EXAM_MASTER?.library;
+  const classSelect=$("pastClassSelect");
+  const subjectSelect=$("pastSubjectSelect");
+  const typeSelect=$("pastTypeSelect");
+
+  function loadSubjects(){
+    if(!library||typeof library.getAvailableSubjects!=="function"){
+      subjectSelect.innerHTML='<option value="">Subjects unavailable</option>';
+      return;
+    }
+    const subjects=library.getAvailableSubjects(classSelect.value)||[];
+    subjectSelect.innerHTML='<option value="">Select a subject</option>';
+    subjects.forEach(subject=>{
+      const option=document.createElement("option");
+      option.value=subject;
+      option.textContent=subject;
+      subjectSelect.appendChild(option);
+    });
+  }
+
+  classSelect.addEventListener("change",loadSubjects);
+
+  $("pastStartButton").addEventListener("click",function(){
+    if(!subjectSelect.value){
+      $("pastQuestionMessage").textContent="Please select a subject first.";
+      return;
+    }
+    $("pastQuestionMessage").textContent=
+      "The question bank for "+classSelect.value+" "+subjectSelect.value+
+      " ("+typeSelect.value+") has not been added yet. The library interface is ready; question content is the next step.";
+  });
+
+  $("pastRestartButton").addEventListener("click",function(){
+    $("pastQuestionResult").classList.add("hidden");
+    $("pastQuestionArea").classList.add("hidden");
+    $("pastQuestionMessage").textContent="Choose your options and start practice.";
+  });
+
+  loadSubjects();
+})();
+</script>
+
+<script>
+if("serviceWorker" in navigator){
+  window.addEventListener("load",function(){
     navigator.serviceWorker.register("service-worker.js")
-      .catch(function (error) {
-        console.error("Service worker registration failed:", error);
-      });
+      .catch(error=>console.error("Service worker registration failed:",error));
   });
 }
 </script>
