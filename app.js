@@ -2,9 +2,11 @@
 /* =========================================
    EXAM MASTER JUNIOR
    Main Application Controller
+   Version 2.0
    ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
+
   const classSelect = document.getElementById("classSelect");
   const termSelect = document.getElementById("termSelect");
   const subjectSelect = document.getElementById("subjectSelect");
@@ -26,14 +28,11 @@ document.addEventListener("DOMContentLoaded", () => {
   let currentLessons = [];
 
   /* =========================================
-     CHECK LESSON LIBRARY
+     LIBRARY
      ========================================= */
 
   function getLibrary() {
-    return window.EXAM_MASTER &&
-      window.EXAM_MASTER.library
-      ? window.EXAM_MASTER.library
-      : null;
+    return window.EXAM_MASTER?.library || null;
   }
 
   function showMessage(message) {
@@ -41,34 +40,29 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     SUBJECT SELECTION
+     SUBJECTS
      ========================================= */
 
   function loadSubjects() {
+
     const library = getLibrary();
 
     subjectSelect.innerHTML =
       '<option value="">Select a subject</option>';
 
     if (!library) {
-      showMessage(
-        "Lesson library not found. Check that lesson-library.js exists and loads before app.js."
-      );
+      showMessage("Lesson library could not be loaded.");
       return;
     }
 
-    let subjects = [];
-
-    if (typeof library.getAvailableSubjects === "function") {
-      subjects = library.getAvailableSubjects(
+    const subjects =
+      library.getAvailableSubjects?.(
         classSelect.value,
         termSelect.value
       ) || [];
-    } else {
-      subjects = library.subjects || [];
-    }
 
     subjects.forEach(subject => {
+
       const name =
         typeof subject === "string"
           ? subject
@@ -77,6 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (!name) return;
 
       const option = document.createElement("option");
+
       option.value = name;
       option.textContent = name;
 
@@ -85,8 +80,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
     showMessage(
       subjects.length
-        ? "Choose a subject to view its available lessons."
-        : "No subjects are currently available for this selection."
+        ? "Select a subject to view available lessons."
+        : "No lessons are currently available for this selection."
     );
   }
 
@@ -95,26 +90,24 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================= */
 
   function getSelectedLessons() {
+
     const library = getLibrary();
 
     if (!library) return [];
 
-    if (typeof library.getLessons === "function") {
-      return library.getLessons(
-        classSelect.value,
-        termSelect.value,
-        subjectSelect.value
-      ) || [];
-    }
-
-    return [];
+    return library.getLessons?.(
+      classSelect.value,
+      termSelect.value,
+      subjectSelect.value
+    ) || [];
   }
 
   /* =========================================
-     DISPLAY LESSON LIST
+     LESSON LIST
      ========================================= */
 
   function openLessons() {
+
     if (!subjectSelect.value) {
       showMessage("Please select a subject first.");
       return;
@@ -123,31 +116,41 @@ document.addEventListener("DOMContentLoaded", () => {
     currentLessons = getSelectedLessons();
 
     lessonList.innerHTML = "";
+
     lessonViewer.classList.add("hidden");
     lessonListSection.classList.remove("hidden");
 
     if (!currentLessons.length) {
-      lessonList.textContent =
+
+      const message = document.createElement("p");
+
+      message.textContent =
         "No lesson notes have been added for this subject and term yet.";
+
+      lessonList.appendChild(message);
 
       showMessage("Lesson content is still being added.");
       return;
     }
 
     currentLessons.forEach((lesson, index) => {
+
       const card = document.createElement("div");
       card.className = "lesson-card";
 
       const title = document.createElement("h3");
+
       title.textContent =
         lesson.title || `Week ${lesson.week || index + 1}`;
 
       const description = document.createElement("p");
+
       description.textContent =
-        lesson.description || "Open this lesson to study.";
+        lesson.description ||
+        "Open this lesson to study.";
 
       const button = document.createElement("button");
-      button.className = "primary-action";
+
       button.textContent = "Read Lesson";
 
       button.addEventListener("click", () => {
@@ -155,6 +158,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       card.append(title, description, button);
+
       lessonList.appendChild(card);
     });
 
@@ -165,81 +169,124 @@ document.addEventListener("DOMContentLoaded", () => {
      SAFE CONTENT RENDERING
      ========================================= */
 
-  function addText(parent, value) {
-    const paragraph = document.createElement("p");
-    paragraph.textContent = String(value);
-    parent.appendChild(paragraph);
-  }
-
   function renderValue(parent, value) {
+
     if (value === null || value === undefined) return;
 
     if (Array.isArray(value)) {
+
       const list = document.createElement("ul");
 
       value.forEach(item => {
+
         const li = document.createElement("li");
 
         if (typeof item === "object" && item !== null) {
-          li.textContent = Object.entries(item)
-            .map(([key, val]) => `${key}: ${String(val)}`)
-            .join(" — ");
+
+          Object.entries(item).forEach(([key, val]) => {
+
+            const line = document.createElement("p");
+
+            line.textContent = `${key}: ${String(val)}`;
+
+            li.appendChild(line);
+
+          });
+
         } else {
+
           li.textContent = String(item);
+
         }
 
         list.appendChild(li);
+
       });
 
       parent.appendChild(list);
+
       return;
     }
 
     if (typeof value === "object") {
+
       Object.entries(value).forEach(([key, val]) => {
+
         const heading = document.createElement("h4");
+
         heading.textContent = key;
+
         parent.appendChild(heading);
 
         renderValue(parent, val);
+
       });
 
       return;
     }
 
-    addText(parent, value);
-  }
+    const paragraph = document.createElement("p");
 
-  function addSection(parent, headingText, content) {
-    if (content === undefined || content === null) return;
+    paragraph.textContent = String(value);
 
-    const heading = document.createElement("h3");
-    heading.textContent = headingText;
-    parent.appendChild(heading);
-
-    renderValue(parent, content);
+    parent.appendChild(paragraph);
   }
 
   /* =========================================
-     DISPLAY A LESSON
+     LESSON SECTIONS
+     ========================================= */
+
+  function addSection(parent, headingText, content) {
+
+    if (
+      content === undefined ||
+      content === null ||
+      content === ""
+    ) return;
+
+    const section = document.createElement("section");
+
+    section.className = "lesson-section";
+
+    const heading = document.createElement("h3");
+
+    heading.textContent = headingText;
+
+    section.appendChild(heading);
+
+    renderValue(section, content);
+
+    parent.appendChild(section);
+  }
+
+  /* =========================================
+     DISPLAY LESSON
      ========================================= */
 
   function displayLesson(lesson, index) {
+
     lessonListSection.classList.add("hidden");
+
     lessonViewer.classList.remove("hidden");
 
     lessonContent.innerHTML = "";
 
     const title = document.createElement("h2");
+
     title.textContent = lesson.title || "Lesson Notes";
+
     lessonContent.appendChild(title);
 
     const details = document.createElement("p");
+
     details.className = "muted";
+
     details.textContent =
-      `${classSelect.value} • ${termSelect.value} • ${subjectSelect.value}`;
+      `${classSelect.value} • ${termSelect.value} • ${subjectSelect.value} • Week ${lesson.week || index + 1}`;
 
     lessonContent.appendChild(details);
+
+    /* Learning objectives */
 
     addSection(
       lessonContent,
@@ -247,29 +294,51 @@ document.addEventListener("DOMContentLoaded", () => {
       lesson.objectives
     );
 
+    /* Introduction */
+
+    addSection(
+      lessonContent,
+      "Introduction",
+      lesson.introduction
+    );
+
+    /* Main explanations */
+
     if (Array.isArray(lesson.sections)) {
+
       lesson.sections.forEach(section => {
+
         if (typeof section === "object" && section !== null) {
+
           addSection(
             lessonContent,
             section.heading || section.title || "Lesson Explanation",
             section.content || section.text || section.body
           );
+
         } else {
+
           addSection(
             lessonContent,
             "Lesson Explanation",
             section
           );
+
         }
+
       });
+
     } else {
+
       addSection(
         lessonContent,
         "Lesson Explanation",
         lesson.explanation
       );
+
     }
+
+    /* Definitions */
 
     addSection(
       lessonContent,
@@ -277,17 +346,23 @@ document.addEventListener("DOMContentLoaded", () => {
       lesson.keyTerms
     );
 
+    /* Worked examples: supports both formats */
+
     addSection(
       lessonContent,
       "Worked Examples",
-      lesson.examples
+      lesson.workedExamples || lesson.examples
     );
+
+    /* Class exercises: supports both formats */
 
     addSection(
       lessonContent,
       "Class Exercises",
-      lesson.exercises
+      lesson.classExercises || lesson.exercises
     );
+
+    /* Common mistakes */
 
     addSection(
       lessonContent,
@@ -295,24 +370,32 @@ document.addEventListener("DOMContentLoaded", () => {
       lesson.commonMistakes
     );
 
+    /* Summary */
+
     addSection(
       lessonContent,
       "Lesson Summary",
       lesson.summary
     );
 
+    /* Examination questions: supports both formats */
+
     addSection(
       lessonContent,
       "Examination Practice",
-      lesson.examQuestions
+      lesson.examinationPractice || lesson.examQuestions
     );
 
+    /* Completion button */
+
     const completeButton = document.createElement("button");
-    completeButton.className = "primary-action";
+
     completeButton.textContent = "Mark Lesson as Completed";
 
     completeButton.addEventListener("click", () => {
+
       markLessonCompleted(lesson, index);
+
     });
 
     lessonContent.appendChild(completeButton);
@@ -324,46 +407,63 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* =========================================
-     PROGRESS TRACKING
+     PROGRESS STORAGE
      ========================================= */
 
   function getProgress() {
+
     try {
+
       return JSON.parse(
         localStorage.getItem(STORAGE_KEY) || "[]"
       );
+
     } catch (error) {
+
       return [];
+
     }
   }
 
   function saveProgress(progress) {
+
     localStorage.setItem(
       STORAGE_KEY,
       JSON.stringify(progress)
     );
+
   }
 
   function markLessonCompleted(lesson, index) {
+
     const progress = getProgress();
 
     const record = {
+
       className: classSelect.value,
       term: termSelect.value,
       subject: subjectSelect.value,
-      lessonTitle: lesson.title || `Week ${index + 1}`
+
+      lessonTitle:
+        lesson.title || `Week ${lesson.week || index + 1}`
+
     };
 
     const alreadyCompleted = progress.some(item =>
+
       item.className === record.className &&
       item.term === record.term &&
       item.subject === record.subject &&
       item.lessonTitle === record.lessonTitle
+
     );
 
     if (!alreadyCompleted) {
+
       progress.push(record);
+
       saveProgress(progress);
+
     }
 
     updateProgress();
@@ -376,10 +476,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function updateProgress() {
+
     const progress = getProgress();
 
     progressDisplay.textContent =
       `Lessons completed: ${progress.length}`;
+
   }
 
   /* =========================================
@@ -387,18 +489,22 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================= */
 
   backButton.addEventListener("click", () => {
+
     lessonViewer.classList.add("hidden");
+
     lessonListSection.classList.remove("hidden");
 
     window.scrollTo({
       top: lessonListSection.offsetTop,
       behavior: "smooth"
     });
+
   });
 
   loadLessonsButton.addEventListener("click", openLessons);
 
   classSelect.addEventListener("change", loadSubjects);
+
   termSelect.addEventListener("change", loadSubjects);
 
   /* =========================================
@@ -406,5 +512,7 @@ document.addEventListener("DOMContentLoaded", () => {
      ========================================= */
 
   loadSubjects();
+
   updateProgress();
+
 });
