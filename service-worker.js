@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "exam-master-junior-v3";
+const CACHE_NAME = "exam-master-junior-v4";
 
 const APP_FILES = [
   "./",
@@ -7,6 +7,7 @@ const APP_FILES = [
   "./EXAM_MASTER_index.html",
   "./style.css",
   "./app.js",
+  "./bae.js",
   "./lesson-library.js",
   "./lessons/jss1-mathematics-first-term.js",
   "./manifest.json",
@@ -46,7 +47,6 @@ self.addEventListener("fetch", event => {
       if (cached) return cached;
 
       return fetch(event.request).then(response => {
-
         if (
           response.ok &&
           new URL(event.request.url).origin === self.location.origin
@@ -59,7 +59,6 @@ self.addEventListener("fetch", event => {
         }
 
         return response;
-
       }).catch(() =>
         caches.match("./EXAM_MASTER_index.html")
       );
