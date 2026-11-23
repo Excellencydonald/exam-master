@@ -11,7 +11,7 @@ const APP_FILES = [
   "./past-questions.js",
   "./lesson-library.js",
   "./lessons/jss1-mathematics-first-term.js",
-  "./lessons/jss1-english-first-term.js",
+  "./lessons/jss1-english-first-Term.js",
   "./competitive-exam-book.html",
   "./manifest.json",
   "./icons/icon-192.png",
