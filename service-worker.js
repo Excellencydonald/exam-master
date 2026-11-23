@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "exam-master-junior-v4";
+const CACHE_NAME = "exam-master-junior-v5";
 
 const APP_FILES = [
   "./",
@@ -10,6 +10,7 @@ const APP_FILES = [
   "./bae.js",
   "./lesson-library.js",
   "./lessons/jss1-mathematics-first-term.js",
+  "./competitive-exam-book.html",
   "./manifest.json",
   "./icons/icon-192.png",
   "./icons/icon-512.png"
